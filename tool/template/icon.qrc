@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+    {%- for file in files %}
+        <file>icon/{{file}}</file>
+    {%- endfor%}
+    </qresource>
+</RCC>

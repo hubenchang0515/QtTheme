@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+QWidget {
+    background-color: {{base[9]}};
+    color: {{base[1]}};
+}
+
+QWidget:disabled {
+    background-color: {{base[9]}};
+    color: {{base[5]}};
+}
+
+QGroupBox {
+    border: 1px solid {{base[5]}};
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 0.3em;
+}
+
+QPushButton {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+
+    padding: 0.5em 1em;
+}
+
+QPushButton:hover {
+    background-color: {{base[4]}};
+    color: {{base[1]}};
+}
+
+QPushButton:pressed {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+}
+
+QPushButton:disabled {
+    background-color: {{base[8]}};
+    color: {{base[5]}};
+}
+
+QLineEdit {
+    background-color: {{base[8]}};
+    color: {{base[2]}};
+    border: 1px solid {{base[5]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QLineEdit:focus {
+    background-color: {{base[7]}};
+    color: {{base[1]}};
+    border: 2px solid {{base[4]}};
+    margin: 0;
+}
+
+QLineEdit:disabled {
+    background-color: {{base[8]}};
+    color: {{base[5]}};
+    border: 1px solid {{base[6]}};
+    margin: 1px;
+}
+
+QPlainTextEdit {
+    background-color: {{base[8]}};
+    color: {{base[2]}};
+    border: 1px solid {{base[5]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QPlainTextEdit:focus {
+    background-color: {{base[7]}};
+    color: {{base[1]}};
+    border: 2px solid {{base[4]}};
+    margin: 0;
+}
+
+QPlainTextEdit:disabled {
+    background-color: {{base[8]}};
+    color: {{base[5]}};
+    border: 1px solid {{base[6]}};
+    margin: 1px;
+}
+
+QTextEdit {
+    background-color: {{base[8]}};
+    color: {{base[2]}};
+    border: 1px solid {{base[5]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QTextEdit:focus {
+    background-color: {{base[7]}};
+    color: {{base[1]}};
+    border: 2px solid {{base[4]}};
+    margin: 0;
+}
+
+QTextEdit:disabled {
+    background-color: {{base[8]}};
+    color: {{base[5]}};
+    border: 1px solid {{base[6]}};
+    margin: 1px;
+}
+
+QComboBox {
+    border: 1px solid {{base[5]}};
+
+    padding: 0.5em 1em;
+}
+
+QComboBox::drop-down {
+    width: 2em;
+    background-color: {{base[9]}};
+    border: 0;
+}
+
+QComboBox::down-arrow {
+    image: url(":/icon/expand_more_{{base[5]}}.svg");
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid {{base[5]}};
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 0.5em 1em;
+}
+
+QProgressBar {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar::chunk {
+    background-color: {{base[1]}};
+}
+
+QProgressBar:disabled {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar::chunk:disabled {
+    background-color: {{base[5]}};
+}
+
+QRadioButton::indicator {
+    image: url(":/icon/radio_button_unchecked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QRadioButton::indicator:checked {
+    image: url(":/icon/radio_button_checked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QRadioButton::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_{{base[5]}}.svg");
+    color: {{base[1]}};
+}
+
+QCheckBox::indicator {
+    image: url(":/icon/check_box_unchecked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QCheckBox::indicator:checked {
+    image: url(":/icon/check_box_checked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QCheckBox::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_{{base[5]}}.svg");
+    color: {{base[1]}};
+}
+
+QSlider:horizontal {
+    min-height: 16px;
+}
+
+QSlider:vertical {
+    min-width: 16px;
+}
+
+QSlider::groove:horizontal {
+    background-color: {{base[9]}};
+    height: 16px;
+}
+
+QSlider::groove:vertical {
+    background-color: {{base[9]}};
+    width: 16px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: {{base[4]}};
+}
+
+QSlider::add-page:horizontal {
+    background-color: {{base[6]}};
+}
+
+QSlider::sub-page:vertical {
+    background-color: {{base[6]}};
+}
+
+QSlider::add-page:vertical {
+    background-color: {{base[4]}};
+}
+
+QSlider::handle {
+    background-color: {{base[1]}};
+    height: 16px;
+    width: 16px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+    background-color: {{base[6]}};
+}
+
+QSlider::add-page:horizontal:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider::sub-page:vertical:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider::add-page:vertical:disabled {
+    background-color: {{base[6]}};
+}
+
+QSlider::handle:disabled {
+    background-color: {{base[6]}};
+    height: 16px;
+    width: 16px;
+}
+
+
+{% for key in colors %}
+
+QWidget[color="{{key}}"] {
+    background-color: {{base[9]}};
+    color: {{colors[key][5]}};
+}
+
+QWidget[color="{{key}}"]:disabled {
+    background-color: {{base[9]}};
+    color: {{colors[key][8]}};
+}
+
+QGroupBox[color="{{key}}"] {
+    border: 1px solid {{colors[key][5]}};
+}
+
+QPushButton[color="{{key}}"] {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QPushButton[color="{{key}}"]:hover {
+    background-color: {{colors[key][4]}};
+    color: {{base[1]}};
+}
+
+QPushButton[color="{{key}}"]:pressed {
+    background-color: {{colors[key][6]}};
+    color: {{base[1]}};
+}
+
+QPushButton[color="{{key}}"]:disabled {
+    background-color: {{colors[key][8]}};
+    color: {{base[5]}};
+}
+
+QLineEdit[color="{{key}}"] {
+    background-color: {{base[8]}};
+    color: {{colors[key][6]}};
+    border: 1px solid {{colors[key][6]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QLineEdit[color="{{key}}"]:focus {
+    background-color: {{base[7]}};
+    color: {{colors[key][5]}};
+    border: 2px solid {{colors[key][5]}};
+    margin: 0;
+
+}
+
+QLineEdit[color="{{key}}"]:disabled {
+    background-color: {{base[8]}};
+    color: {{colors[key][7]}};
+    border: 1px solid {{colors[key][8]}};
+    margin: 1px;
+}
+
+QPlainTextEdit[color="{{key}}"] {
+    background-color: {{base[8]}};
+    color: {{colors[key][6]}};
+    border: 1px solid {{colors[key][6]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QPlainTextEdit[color="{{key}}"]:focus {
+    background-color: {{base[7]}};
+    color: {{colors[key][5]}};
+    border: 2px solid {{colors[key][5]}};
+    margin: 0;
+
+}
+
+QPlainTextEdit[color="{{key}}"]:disabled {
+    background-color: {{base[8]}};
+    color: {{colors[key][7]}};
+    border: 1px solid {{colors[key][8]}};
+    margin: 1px;
+}
+
+QTextEdit[color="{{key}}"] {
+    background-color: {{base[8]}};
+    color: {{colors[key][6]}};
+    border: 1px solid {{colors[key][6]}};
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QTextEdit[color="{{key}}"]:focus {
+    background-color: {{base[7]}};
+    color: {{colors[key][5]}};
+    border: 2px solid {{colors[key][5]}};
+    margin: 0;
+
+}
+
+QTextEdit[color="{{key}}"]:disabled {
+    background-color: {{base[8]}};
+    color: {{colors[key][7]}};
+    border: 1px solid {{colors[key][8]}};
+    margin: 1px;
+}
+
+QProgressBar[color="{{key}}"] {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="{{key}}"]::chunk {
+    background-color: {{colors[key][5]}};
+}
+
+QProgressBar[color="{{key}}"]:disabled {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="{{key}}"]::chunk:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+QRadioButton[color="{{key}}"]::indicator {
+    image: url(":/icon/radio_button_unchecked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QRadioButton[color="{{key}}"]::indicator:checked {
+    image: url(":/icon/radio_button_checked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QRadioButton[color="{{key}}"]::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_{{colors[key][7]}}.svg");
+    color: {{colors[key][7]}};
+}
+
+QCheckBox[color="{{key}}"]::indicator {
+    image: url(":/icon/check_box_unchecked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QCheckBox[color="{{key}}"]::indicator:checked {
+    image: url(":/icon/check_box_checked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QCheckBox[color="{{key}}"]::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_{{colors[key][7]}}.svg");
+    color: {{colors[key][7]}};
+}
+
+QSlider[color="{{key}}"]::groove:horizontal {
+    background-color: {{base[9]}};
+    height: 16px;
+}
+
+QSlider[color="{{key}}"]::groove:vertical {
+    background-color: {{base[9]}};
+    width: 16px;
+}
+
+QSlider[color="{{key}}"]::sub-page:horizontal {
+    background-color: {{colors[key][6]}};
+}
+
+QSlider[color="{{key}}"]::add-page:horizontal {
+    background-color: {{base[6]}};
+}
+
+QSlider[color="{{key}}"]::sub-page:vertical {
+    background-color: {{base[6]}};
+}
+
+QSlider[color="{{key}}"]::add-page:vertical {
+    background-color: {{colors[key][6]}};
+}
+
+QSlider[color="{{key}}"]::handle {
+    background-color: {{colors[key][3]}};
+    height: 16px;
+    width: 16px;
+}
+
+QSlider[color="{{key}}"]::sub-page:horizontal:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+QSlider[color="{{key}}"]::add-page:horizontal:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider[color="{{key}}"]::sub-page:vertical:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider[color="{{key}}"]::add-page:vertical:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+QSlider[color="{{key}}"]::handle:disabled {
+    background-color: {{colors[key][8]}};
+    height: 12px;
+    width: 12px;
+}
+
+{% endfor %}
