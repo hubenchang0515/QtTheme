@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "QtTheme.h"
+#include <QtTheme.h>
 
 #include <QFileDialog>
 #include <QSizePolicy>
