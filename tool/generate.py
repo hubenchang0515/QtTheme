@@ -25,9 +25,9 @@ class File(object):
     def join(self, *subs:str) -> 'File':
         return File(os.path.join(self.__path, *subs))
     
-    def listdir(self) -> List[str]:
+    def listdir(self,key:None=None) -> List[str]:
         files:List[str] = os.listdir(self.__path)
-        files.sort()
+        files.sort(key=key)
         return files
     
     def open(self, mode:str="r") -> any:
@@ -40,18 +40,30 @@ class File(object):
 
 class ThemeRenderer(object):
     def __init__(self, template:File) -> None:
-        with template.open() as fp:
-            self.__template:Template = Template(fp.read())
+        self.__template = template
+
+    def sort_files(x):
+        prior = ['common.qss', 'QWidget.qss']
+        return prior.index(x) if x in prior else len(prior)
+
+    def merge(self) -> str:
+        templates:List[str] = []
+        for filename in self.__template.listdir(ThemeRenderer.sort_files):
+            with self.__template.join(filename).open() as fp:
+                templates.append(fp.read())
+
+        return "\n".join(templates)
 
     def render(self, palette:Dict[str,List[str]]) -> Dict[str,str]:
         palette = palette.copy()
         base:List[str] = palette.pop("Gray")
         colors:Dict[str,List[str]] = {}
         themes:Dict[str, str] = {}
+        template:Template = Template(self.merge())
         for primary, secondary in permutations(palette, 2):
             colors["Primary"] = palette[primary]
             colors["Secondary"] = palette[secondary]
-            themes[f"{primary}_{secondary}"] = self.__template.render(base=base, colors=colors)
+            themes[f"{primary}_{secondary}"] = template.render(base=base, colors=colors)
 
         return themes
 

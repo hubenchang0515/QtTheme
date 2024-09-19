@@ -1,0 +1,27 @@
+QComboBox {
+    border: 1px solid {{base[5]}};
+
+    padding: 0.5em 1em;
+}
+
+QComboBox::drop-down {
+    width: 2em;
+    background-color: {{base[9]}};
+    border: 0;
+}
+
+QComboBox::down-arrow {
+    image: url(":/icon/expand_more_{{base[5]}}.svg");
+}
+
+QComboBox QAbstractItemView {
+    border: 1px solid {{base[5]}};
+}
+
+QComboBox QAbstractItemView::item {
+    padding: 0.5em 1em;
+}
+
+{% for key in colors %}
+
+{% endfor %}

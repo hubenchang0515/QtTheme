@@ -1,0 +1,119 @@
+QSlider:horizontal {
+    min-height: 16px;
+}
+
+QSlider:vertical {
+    min-width: 16px;
+}
+
+QSlider::groove:horizontal {
+    background-color: {{base[9]}};
+    height: 16px;
+}
+
+QSlider::groove:vertical {
+    background-color: {{base[9]}};
+    width: 16px;
+}
+
+QSlider::sub-page:horizontal {
+    background-color: {{base[4]}};
+}
+
+QSlider::add-page:horizontal {
+    background-color: {{base[6]}};
+}
+
+QSlider::sub-page:vertical {
+    background-color: {{base[6]}};
+}
+
+QSlider::add-page:vertical {
+    background-color: {{base[4]}};
+}
+
+QSlider::handle {
+    background-color: {{base[1]}};
+    height: 16px;
+    width: 16px;
+}
+
+QSlider::sub-page:horizontal:disabled {
+    background-color: {{base[6]}};
+}
+
+QSlider::add-page:horizontal:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider::sub-page:vertical:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider::add-page:vertical:disabled {
+    background-color: {{base[6]}};
+}
+
+QSlider::handle:disabled {
+    background-color: {{base[6]}};
+    height: 16px;
+    width: 16px;
+}
+
+{% for key in colors %}
+
+QSlider[color="{{key}}"]::groove:horizontal {
+    background-color: {{base[9]}};
+    height: 16px;
+}
+
+QSlider[color="{{key}}"]::groove:vertical {
+    background-color: {{base[9]}};
+    width: 16px;
+}
+
+QSlider[color="{{key}}"]::sub-page:horizontal {
+    background-color: {{colors[key][6]}};
+}
+
+QSlider[color="{{key}}"]::add-page:horizontal {
+    background-color: {{base[6]}};
+}
+
+QSlider[color="{{key}}"]::sub-page:vertical {
+    background-color: {{base[6]}};
+}
+
+QSlider[color="{{key}}"]::add-page:vertical {
+    background-color: {{colors[key][6]}};
+}
+
+QSlider[color="{{key}}"]::handle {
+    background-color: {{colors[key][3]}};
+    height: 16px;
+    width: 16px;
+}
+
+QSlider[color="{{key}}"]::sub-page:horizontal:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+QSlider[color="{{key}}"]::add-page:horizontal:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider[color="{{key}}"]::sub-page:vertical:disabled {
+    background-color: {{base[8]}};
+}
+
+QSlider[color="{{key}}"]::add-page:vertical:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+QSlider[color="{{key}}"]::handle:disabled {
+    background-color: {{colors[key][8]}};
+    height: 12px;
+    width: 12px;
+}
+
+{% endfor %}

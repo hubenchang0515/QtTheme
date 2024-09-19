@@ -1,0 +1,39 @@
+QProgressBar {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar::chunk {
+    background-color: {{base[1]}};
+}
+
+QProgressBar:disabled {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar::chunk:disabled {
+    background-color: {{base[5]}};
+}
+
+{% for key in colors %}
+
+QProgressBar[color="{{key}}"] {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="{{key}}"]::chunk {
+    background-color: {{colors[key][5]}};
+}
+
+QProgressBar[color="{{key}}"]:disabled {
+    background-color: {{base[7]}};
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="{{key}}"]::chunk:disabled {
+    background-color: {{colors[key][8]}};
+}
+
+{% endfor %}

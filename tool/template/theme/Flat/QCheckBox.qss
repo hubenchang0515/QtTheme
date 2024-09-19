@@ -1,0 +1,33 @@
+QCheckBox::indicator {
+    image: url(":/icon/check_box_unchecked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QCheckBox::indicator:checked {
+    image: url(":/icon/check_box_checked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QCheckBox::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_{{base[5]}}.svg");
+    color: {{base[1]}};
+}
+
+{% for key in colors %}
+
+QCheckBox[color="{{key}}"]::indicator {
+    image: url(":/icon/check_box_unchecked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QCheckBox[color="{{key}}"]::indicator:checked {
+    image: url(":/icon/check_box_checked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QCheckBox[color="{{key}}"]::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_{{colors[key][7]}}.svg");
+    color: {{colors[key][7]}};
+}
+
+{% endfor %}

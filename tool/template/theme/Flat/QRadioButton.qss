@@ -1,0 +1,33 @@
+QRadioButton::indicator {
+    image: url(":/icon/radio_button_unchecked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QRadioButton::indicator:checked {
+    image: url(":/icon/radio_button_checked_{{base[1]}}.svg");
+    color: {{base[1]}};
+}
+
+QRadioButton::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_{{base[5]}}.svg");
+    color: {{base[1]}};
+}
+
+{% for key in colors %}
+
+QRadioButton[color="{{key}}"]::indicator {
+    image: url(":/icon/radio_button_unchecked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QRadioButton[color="{{key}}"]::indicator:checked {
+    image: url(":/icon/radio_button_checked_{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QRadioButton[color="{{key}}"]::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_{{colors[key][7]}}.svg");
+    color: {{colors[key][7]}};
+}
+
+{% endfor %}

@@ -1,0 +1,19 @@
+QGroupBox {
+    border: 1px solid {{base[5]}};
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 0.3em;
+}
+
+{% for key in colors %}
+
+QGroupBox[color="{{key}}"] {
+    border: 1px solid {{colors[key][5]}};
+}
+
+{% endfor %}

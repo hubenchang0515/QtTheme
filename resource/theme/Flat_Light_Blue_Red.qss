@@ -14,108 +14,80 @@ QWidget:disabled {
     color: #bdbdbd;
 }
 
-QGroupBox {
-    border: 1px solid #bdbdbd;
-    margin-top: 0.5em;
-    padding-top: 0.5em;
+
+
+QWidget[color="Primary"] {
+    background-color: #fafafa;
+    color: #42a5f5;
 }
 
-QGroupBox::title {
-    subcontrol-origin: margin;
-    subcontrol-position: top center;
-    padding: 0 0.3em;
+QWidget[color="Primary"]:disabled {
+    background-color: #fafafa;
+    color: #bbdefb;
 }
 
-QPushButton {
-    background-color: #bdbdbd;
+
+
+QWidget[color="Secondary"] {
+    background-color: #fafafa;
+    color: #ef5350;
+}
+
+QWidget[color="Secondary"]:disabled {
+    background-color: #fafafa;
+    color: #ffcdd2;
+}
+
+
+QCheckBox::indicator {
+    image: url(":/icon/check_box_unchecked_#424242.svg");
     color: #424242;
-
-    padding: 0.5em 1em;
 }
 
-QPushButton:hover {
-    background-color: #9e9e9e;
+QCheckBox::indicator:checked {
+    image: url(":/icon/check_box_checked_#424242.svg");
     color: #424242;
 }
 
-QPushButton:pressed {
-    background-color: #bdbdbd;
+QCheckBox::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_#bdbdbd.svg");
     color: #424242;
 }
 
-QPushButton:disabled {
-    background-color: #f5f5f5;
-    color: #bdbdbd;
+
+
+QCheckBox[color="Primary"]::indicator {
+    image: url(":/icon/check_box_unchecked_#42a5f5.svg");
+    color: #42a5f5;
 }
 
-QLineEdit {
-    background-color: #f5f5f5;
-    color: #616161;
-    border: 1px solid #bdbdbd;
-    margin: 1px;
-
-    padding: 0.5em 1em;
+QCheckBox[color="Primary"]::indicator:checked {
+    image: url(":/icon/check_box_checked_#42a5f5.svg");
+    color: #42a5f5;
 }
 
-QLineEdit:focus {
-    background-color: #eeeeee;
-    color: #424242;
-    border: 2px solid #9e9e9e;
-    margin: 0;
+QCheckBox[color="Primary"]::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_#90caf9.svg");
+    color: #90caf9;
 }
 
-QLineEdit:disabled {
-    background-color: #f5f5f5;
-    color: #bdbdbd;
-    border: 1px solid #e0e0e0;
-    margin: 1px;
+
+
+QCheckBox[color="Secondary"]::indicator {
+    image: url(":/icon/check_box_unchecked_#ef5350.svg");
+    color: #ef5350;
 }
 
-QPlainTextEdit {
-    background-color: #f5f5f5;
-    color: #616161;
-    border: 1px solid #bdbdbd;
-    margin: 1px;
-
-    padding: 0.5em 1em;
+QCheckBox[color="Secondary"]::indicator:checked {
+    image: url(":/icon/check_box_checked_#ef5350.svg");
+    color: #ef5350;
 }
 
-QPlainTextEdit:focus {
-    background-color: #eeeeee;
-    color: #424242;
-    border: 2px solid #9e9e9e;
-    margin: 0;
+QCheckBox[color="Secondary"]::indicator:disabled {
+    image: url(":/icon/check_box_unchecked_#ef9a9a.svg");
+    color: #ef9a9a;
 }
 
-QPlainTextEdit:disabled {
-    background-color: #f5f5f5;
-    color: #bdbdbd;
-    border: 1px solid #e0e0e0;
-    margin: 1px;
-}
-
-QTextEdit {
-    background-color: #f5f5f5;
-    color: #616161;
-    border: 1px solid #bdbdbd;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QTextEdit:focus {
-    background-color: #eeeeee;
-    color: #424242;
-    border: 2px solid #9e9e9e;
-    margin: 0;
-}
-
-QTextEdit:disabled {
-    background-color: #f5f5f5;
-    color: #bdbdbd;
-    border: 1px solid #e0e0e0;
-    margin: 1px;
-}
 
 QComboBox {
     border: 1px solid #bdbdbd;
@@ -141,6 +113,188 @@ QComboBox QAbstractItemView::item {
     padding: 0.5em 1em;
 }
 
+
+
+
+
+
+QGroupBox {
+    border: 1px solid #bdbdbd;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center;
+    padding: 0 0.3em;
+}
+
+
+
+QGroupBox[color="Primary"] {
+    border: 1px solid #42a5f5;
+}
+
+
+
+QGroupBox[color="Secondary"] {
+    border: 1px solid #ef5350;
+}
+
+
+QLineEdit {
+    background-color: #f5f5f5;
+    color: #616161;
+    border: 1px solid #bdbdbd;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QLineEdit:focus {
+    background-color: #eeeeee;
+    color: #424242;
+    border: 2px solid #9e9e9e;
+    margin: 0;
+}
+
+QLineEdit:disabled {
+    background-color: #f5f5f5;
+    color: #bdbdbd;
+    border: 1px solid #e0e0e0;
+    margin: 1px;
+}
+
+
+
+QLineEdit[color="Primary"] {
+    background-color: #f5f5f5;
+    color: #64b5f6;
+    border: 1px solid #64b5f6;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QLineEdit[color="Primary"]:focus {
+    background-color: #eeeeee;
+    color: #42a5f5;
+    border: 2px solid #42a5f5;
+    margin: 0;
+
+}
+
+QLineEdit[color="Primary"]:disabled {
+    background-color: #f5f5f5;
+    color: #90caf9;
+    border: 1px solid #bbdefb;
+    margin: 1px;
+}
+
+
+
+QLineEdit[color="Secondary"] {
+    background-color: #f5f5f5;
+    color: #e57373;
+    border: 1px solid #e57373;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QLineEdit[color="Secondary"]:focus {
+    background-color: #eeeeee;
+    color: #ef5350;
+    border: 2px solid #ef5350;
+    margin: 0;
+
+}
+
+QLineEdit[color="Secondary"]:disabled {
+    background-color: #f5f5f5;
+    color: #ef9a9a;
+    border: 1px solid #ffcdd2;
+    margin: 1px;
+}
+
+
+QPlainTextEdit {
+    background-color: #f5f5f5;
+    color: #616161;
+    border: 1px solid #bdbdbd;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QPlainTextEdit:focus {
+    background-color: #eeeeee;
+    color: #424242;
+    border: 2px solid #9e9e9e;
+    margin: 0;
+}
+
+QPlainTextEdit:disabled {
+    background-color: #f5f5f5;
+    color: #bdbdbd;
+    border: 1px solid #e0e0e0;
+    margin: 1px;
+}
+
+
+
+QPlainTextEdit[color="Primary"] {
+    background-color: #f5f5f5;
+    color: #64b5f6;
+    border: 1px solid #64b5f6;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QPlainTextEdit[color="Primary"]:focus {
+    background-color: #eeeeee;
+    color: #42a5f5;
+    border: 2px solid #42a5f5;
+    margin: 0;
+
+}
+
+QPlainTextEdit[color="Primary"]:disabled {
+    background-color: #f5f5f5;
+    color: #90caf9;
+    border: 1px solid #bbdefb;
+    margin: 1px;
+}
+
+
+
+QPlainTextEdit[color="Secondary"] {
+    background-color: #f5f5f5;
+    color: #e57373;
+    border: 1px solid #e57373;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QPlainTextEdit[color="Secondary"]:focus {
+    background-color: #eeeeee;
+    color: #ef5350;
+    border: 2px solid #ef5350;
+    margin: 0;
+
+}
+
+QPlainTextEdit[color="Secondary"]:disabled {
+    background-color: #f5f5f5;
+    color: #ef9a9a;
+    border: 1px solid #ffcdd2;
+    margin: 1px;
+}
+
+
 QProgressBar {
     background-color: #eeeeee;
     qproperty-textVisible: false;
@@ -159,6 +313,114 @@ QProgressBar::chunk:disabled {
     background-color: #bdbdbd;
 }
 
+
+
+QProgressBar[color="Primary"] {
+    background-color: #eeeeee;
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="Primary"]::chunk {
+    background-color: #42a5f5;
+}
+
+QProgressBar[color="Primary"]:disabled {
+    background-color: #eeeeee;
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="Primary"]::chunk:disabled {
+    background-color: #bbdefb;
+}
+
+
+
+QProgressBar[color="Secondary"] {
+    background-color: #eeeeee;
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="Secondary"]::chunk {
+    background-color: #ef5350;
+}
+
+QProgressBar[color="Secondary"]:disabled {
+    background-color: #eeeeee;
+    qproperty-textVisible: false;
+}
+
+QProgressBar[color="Secondary"]::chunk:disabled {
+    background-color: #ffcdd2;
+}
+
+
+QPushButton {
+    background-color: #bdbdbd;
+    color: #424242;
+
+    padding: 0.5em 1em;
+}
+
+QPushButton:hover {
+    background-color: #9e9e9e;
+    color: #424242;
+}
+
+QPushButton:pressed {
+    background-color: #bdbdbd;
+    color: #424242;
+}
+
+QPushButton:disabled {
+    background-color: #f5f5f5;
+    color: #bdbdbd;
+}
+
+
+
+QPushButton[color="Primary"] {
+    background-color: #42a5f5;
+    color: #424242;
+}
+
+QPushButton[color="Primary"]:hover {
+    background-color: #2196f3;
+    color: #424242;
+}
+
+QPushButton[color="Primary"]:pressed {
+    background-color: #64b5f6;
+    color: #424242;
+}
+
+QPushButton[color="Primary"]:disabled {
+    background-color: #bbdefb;
+    color: #bdbdbd;
+}
+
+
+
+QPushButton[color="Secondary"] {
+    background-color: #ef5350;
+    color: #424242;
+}
+
+QPushButton[color="Secondary"]:hover {
+    background-color: #f44336;
+    color: #424242;
+}
+
+QPushButton[color="Secondary"]:pressed {
+    background-color: #e57373;
+    color: #424242;
+}
+
+QPushButton[color="Secondary"]:disabled {
+    background-color: #ffcdd2;
+    color: #bdbdbd;
+}
+
+
 QRadioButton::indicator {
     image: url(":/icon/radio_button_unchecked_#424242.svg");
     color: #424242;
@@ -174,20 +436,40 @@ QRadioButton::indicator:disabled {
     color: #424242;
 }
 
-QCheckBox::indicator {
-    image: url(":/icon/check_box_unchecked_#424242.svg");
-    color: #424242;
+
+
+QRadioButton[color="Primary"]::indicator {
+    image: url(":/icon/radio_button_unchecked_#42a5f5.svg");
+    color: #42a5f5;
 }
 
-QCheckBox::indicator:checked {
-    image: url(":/icon/check_box_checked_#424242.svg");
-    color: #424242;
+QRadioButton[color="Primary"]::indicator:checked {
+    image: url(":/icon/radio_button_checked_#42a5f5.svg");
+    color: #42a5f5;
 }
 
-QCheckBox::indicator:disabled {
-    image: url(":/icon/check_box_unchecked_#bdbdbd.svg");
-    color: #424242;
+QRadioButton[color="Primary"]::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_#90caf9.svg");
+    color: #90caf9;
 }
+
+
+
+QRadioButton[color="Secondary"]::indicator {
+    image: url(":/icon/radio_button_unchecked_#ef5350.svg");
+    color: #ef5350;
+}
+
+QRadioButton[color="Secondary"]::indicator:checked {
+    image: url(":/icon/radio_button_checked_#ef5350.svg");
+    color: #ef5350;
+}
+
+QRadioButton[color="Secondary"]::indicator:disabled {
+    image: url(":/icon/radio_button_unchecked_#ef9a9a.svg");
+    color: #ef9a9a;
+}
+
 
 QSlider:horizontal {
     min-height: 16px;
@@ -253,161 +535,6 @@ QSlider::handle:disabled {
 
 
 
-
-QWidget[color="Primary"] {
-    background-color: #fafafa;
-    color: #42a5f5;
-}
-
-QWidget[color="Primary"]:disabled {
-    background-color: #fafafa;
-    color: #bbdefb;
-}
-
-QGroupBox[color="Primary"] {
-    border: 1px solid #42a5f5;
-}
-
-QPushButton[color="Primary"] {
-    background-color: #42a5f5;
-    color: #424242;
-}
-
-QPushButton[color="Primary"]:hover {
-    background-color: #2196f3;
-    color: #424242;
-}
-
-QPushButton[color="Primary"]:pressed {
-    background-color: #64b5f6;
-    color: #424242;
-}
-
-QPushButton[color="Primary"]:disabled {
-    background-color: #bbdefb;
-    color: #bdbdbd;
-}
-
-QLineEdit[color="Primary"] {
-    background-color: #f5f5f5;
-    color: #64b5f6;
-    border: 1px solid #64b5f6;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QLineEdit[color="Primary"]:focus {
-    background-color: #eeeeee;
-    color: #42a5f5;
-    border: 2px solid #42a5f5;
-    margin: 0;
-
-}
-
-QLineEdit[color="Primary"]:disabled {
-    background-color: #f5f5f5;
-    color: #90caf9;
-    border: 1px solid #bbdefb;
-    margin: 1px;
-}
-
-QPlainTextEdit[color="Primary"] {
-    background-color: #f5f5f5;
-    color: #64b5f6;
-    border: 1px solid #64b5f6;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QPlainTextEdit[color="Primary"]:focus {
-    background-color: #eeeeee;
-    color: #42a5f5;
-    border: 2px solid #42a5f5;
-    margin: 0;
-
-}
-
-QPlainTextEdit[color="Primary"]:disabled {
-    background-color: #f5f5f5;
-    color: #90caf9;
-    border: 1px solid #bbdefb;
-    margin: 1px;
-}
-
-QTextEdit[color="Primary"] {
-    background-color: #f5f5f5;
-    color: #64b5f6;
-    border: 1px solid #64b5f6;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QTextEdit[color="Primary"]:focus {
-    background-color: #eeeeee;
-    color: #42a5f5;
-    border: 2px solid #42a5f5;
-    margin: 0;
-
-}
-
-QTextEdit[color="Primary"]:disabled {
-    background-color: #f5f5f5;
-    color: #90caf9;
-    border: 1px solid #bbdefb;
-    margin: 1px;
-}
-
-QProgressBar[color="Primary"] {
-    background-color: #eeeeee;
-    qproperty-textVisible: false;
-}
-
-QProgressBar[color="Primary"]::chunk {
-    background-color: #42a5f5;
-}
-
-QProgressBar[color="Primary"]:disabled {
-    background-color: #eeeeee;
-    qproperty-textVisible: false;
-}
-
-QProgressBar[color="Primary"]::chunk:disabled {
-    background-color: #bbdefb;
-}
-
-QRadioButton[color="Primary"]::indicator {
-    image: url(":/icon/radio_button_unchecked_#42a5f5.svg");
-    color: #42a5f5;
-}
-
-QRadioButton[color="Primary"]::indicator:checked {
-    image: url(":/icon/radio_button_checked_#42a5f5.svg");
-    color: #42a5f5;
-}
-
-QRadioButton[color="Primary"]::indicator:disabled {
-    image: url(":/icon/radio_button_unchecked_#90caf9.svg");
-    color: #90caf9;
-}
-
-QCheckBox[color="Primary"]::indicator {
-    image: url(":/icon/check_box_unchecked_#42a5f5.svg");
-    color: #42a5f5;
-}
-
-QCheckBox[color="Primary"]::indicator:checked {
-    image: url(":/icon/check_box_checked_#42a5f5.svg");
-    color: #42a5f5;
-}
-
-QCheckBox[color="Primary"]::indicator:disabled {
-    image: url(":/icon/check_box_unchecked_#90caf9.svg");
-    color: #90caf9;
-}
-
 QSlider[color="Primary"]::groove:horizontal {
     background-color: #fafafa;
     height: 16px;
@@ -464,160 +591,6 @@ QSlider[color="Primary"]::handle:disabled {
 
 
 
-QWidget[color="Secondary"] {
-    background-color: #fafafa;
-    color: #ef5350;
-}
-
-QWidget[color="Secondary"]:disabled {
-    background-color: #fafafa;
-    color: #ffcdd2;
-}
-
-QGroupBox[color="Secondary"] {
-    border: 1px solid #ef5350;
-}
-
-QPushButton[color="Secondary"] {
-    background-color: #ef5350;
-    color: #424242;
-}
-
-QPushButton[color="Secondary"]:hover {
-    background-color: #f44336;
-    color: #424242;
-}
-
-QPushButton[color="Secondary"]:pressed {
-    background-color: #e57373;
-    color: #424242;
-}
-
-QPushButton[color="Secondary"]:disabled {
-    background-color: #ffcdd2;
-    color: #bdbdbd;
-}
-
-QLineEdit[color="Secondary"] {
-    background-color: #f5f5f5;
-    color: #e57373;
-    border: 1px solid #e57373;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QLineEdit[color="Secondary"]:focus {
-    background-color: #eeeeee;
-    color: #ef5350;
-    border: 2px solid #ef5350;
-    margin: 0;
-
-}
-
-QLineEdit[color="Secondary"]:disabled {
-    background-color: #f5f5f5;
-    color: #ef9a9a;
-    border: 1px solid #ffcdd2;
-    margin: 1px;
-}
-
-QPlainTextEdit[color="Secondary"] {
-    background-color: #f5f5f5;
-    color: #e57373;
-    border: 1px solid #e57373;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QPlainTextEdit[color="Secondary"]:focus {
-    background-color: #eeeeee;
-    color: #ef5350;
-    border: 2px solid #ef5350;
-    margin: 0;
-
-}
-
-QPlainTextEdit[color="Secondary"]:disabled {
-    background-color: #f5f5f5;
-    color: #ef9a9a;
-    border: 1px solid #ffcdd2;
-    margin: 1px;
-}
-
-QTextEdit[color="Secondary"] {
-    background-color: #f5f5f5;
-    color: #e57373;
-    border: 1px solid #e57373;
-    margin: 1px;
-
-    padding: 0.5em 1em;
-}
-
-QTextEdit[color="Secondary"]:focus {
-    background-color: #eeeeee;
-    color: #ef5350;
-    border: 2px solid #ef5350;
-    margin: 0;
-
-}
-
-QTextEdit[color="Secondary"]:disabled {
-    background-color: #f5f5f5;
-    color: #ef9a9a;
-    border: 1px solid #ffcdd2;
-    margin: 1px;
-}
-
-QProgressBar[color="Secondary"] {
-    background-color: #eeeeee;
-    qproperty-textVisible: false;
-}
-
-QProgressBar[color="Secondary"]::chunk {
-    background-color: #ef5350;
-}
-
-QProgressBar[color="Secondary"]:disabled {
-    background-color: #eeeeee;
-    qproperty-textVisible: false;
-}
-
-QProgressBar[color="Secondary"]::chunk:disabled {
-    background-color: #ffcdd2;
-}
-
-QRadioButton[color="Secondary"]::indicator {
-    image: url(":/icon/radio_button_unchecked_#ef5350.svg");
-    color: #ef5350;
-}
-
-QRadioButton[color="Secondary"]::indicator:checked {
-    image: url(":/icon/radio_button_checked_#ef5350.svg");
-    color: #ef5350;
-}
-
-QRadioButton[color="Secondary"]::indicator:disabled {
-    image: url(":/icon/radio_button_unchecked_#ef9a9a.svg");
-    color: #ef9a9a;
-}
-
-QCheckBox[color="Secondary"]::indicator {
-    image: url(":/icon/check_box_unchecked_#ef5350.svg");
-    color: #ef5350;
-}
-
-QCheckBox[color="Secondary"]::indicator:checked {
-    image: url(":/icon/check_box_checked_#ef5350.svg");
-    color: #ef5350;
-}
-
-QCheckBox[color="Secondary"]::indicator:disabled {
-    image: url(":/icon/check_box_unchecked_#ef9a9a.svg");
-    color: #ef9a9a;
-}
-
 QSlider[color="Secondary"]::groove:horizontal {
     background-color: #fafafa;
     height: 16px;
@@ -670,5 +643,81 @@ QSlider[color="Secondary"]::handle:disabled {
     background-color: #ffcdd2;
     height: 12px;
     width: 12px;
+}
+
+
+QTextEdit {
+    background-color: #f5f5f5;
+    color: #616161;
+    border: 1px solid #bdbdbd;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QTextEdit:focus {
+    background-color: #eeeeee;
+    color: #424242;
+    border: 2px solid #9e9e9e;
+    margin: 0;
+}
+
+QTextEdit:disabled {
+    background-color: #f5f5f5;
+    color: #bdbdbd;
+    border: 1px solid #e0e0e0;
+    margin: 1px;
+}
+
+
+
+QTextEdit[color="Primary"] {
+    background-color: #f5f5f5;
+    color: #64b5f6;
+    border: 1px solid #64b5f6;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QTextEdit[color="Primary"]:focus {
+    background-color: #eeeeee;
+    color: #42a5f5;
+    border: 2px solid #42a5f5;
+    margin: 0;
+
+}
+
+QTextEdit[color="Primary"]:disabled {
+    background-color: #f5f5f5;
+    color: #90caf9;
+    border: 1px solid #bbdefb;
+    margin: 1px;
+}
+
+
+
+QTextEdit[color="Secondary"] {
+    background-color: #f5f5f5;
+    color: #e57373;
+    border: 1px solid #e57373;
+    margin: 1px;
+
+    padding: 0.5em 1em;
+}
+
+QTextEdit[color="Secondary"]:focus {
+    background-color: #eeeeee;
+    color: #ef5350;
+    border: 2px solid #ef5350;
+    margin: 0;
+
+}
+
+QTextEdit[color="Secondary"]:disabled {
+    background-color: #f5f5f5;
+    color: #ef9a9a;
+    border: 1px solid #ffcdd2;
+    margin: 1px;
 }
 
