@@ -30,6 +30,17 @@ class File(object):
         files.sort(key=key)
         return files
     
+    def isdir(self) -> bool:
+        return os.path.isdir(self.__path)
+
+    def remove(self) -> None:
+        if not self.isdir():
+            os.remove(self.__path)
+        else:
+            for filename in self.listdir():
+                self.join(filename).remove()
+            os.removedirs(self.__path)
+    
     def open(self, mode:str="r") -> any:
         if not os.path.exists(self.dirpath()):
             os.makedirs(self.dirpath())
@@ -43,7 +54,7 @@ class ThemeRenderer(object):
         self.__template = template
 
     def sort_files(x):
-        prior = ['common.qss', 'QWidget.qss']
+        prior = ['license.qss', 'base.qss', 'QWidget.qss']
         return prior.index(x) if x in prior else len(prior)
 
     def merge(self) -> str:
@@ -99,6 +110,9 @@ if __name__ == "__main__":
     resource_dir:File = root_dir.join("resource")
     theme_dir:File = resource_dir.join("theme")
     icon_dir:File = resource_dir.join("icon")
+
+    theme_dir.remove()
+    icon_dir.remove()
     
     with palette_file.open() as fp:
         dark_palette:Dict[str, List[str]] = json.loads(fp.read())
