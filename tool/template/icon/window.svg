@@ -1,0 +1,8 @@
+<svg aria-labelledby="windowIconTitle" color="#000000" fill="none" height="24px" role="img" stroke="#000000" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="windowIconTitle">Window</title>
+ <rect height="18" width="18" x="3" y="3"/>
+ <line stroke-linecap="round" x1="6" x2="6" y1="6" y2="6"/>
+ <line stroke-linecap="round" x1="9" x2="9" y1="6" y2="6"/>
+ <line stroke-linecap="round" x1="12" x2="12" y1="6" y2="6"/>
+ <path d="M21,9 L3,9"/>
+</svg>

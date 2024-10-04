@@ -1,0 +1,7 @@
+<svg aria-labelledby="maximiseIconTitle" color="#ffee58" fill="none" height="24px" role="img" stroke="#ffee58" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="maximiseIconTitle">Maximise View</title>
+ <polyline points="21 16 21 21 16 21"/>
+ <polyline points="8 21 3 21 3 16"/>
+ <polyline points="16 3 21 3 21 8"/>
+ <polyline points="3 8 3 3 8 3"/>
+</svg>

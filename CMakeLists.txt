@@ -1,46 +1,33 @@
 cmake_minimum_required(VERSION 3.2)
 project(QtTheme VERSION 1.1.0.1)
 
-find_package(
-  Qt5
-  COMPONENTS 
-  Core
-  Widgets
-  REQUIRED)
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+add_subdirectory(3rdparty EXCLUDE_FROM_ALL)
+
+find_package(Qt6 COMPONENTS Core Widgets QUIET)
+
+if (NOT Qt6_FOUND)
+  find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+endif (NOT Qt6_FOUND)
 
 SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTORCC ON)
 SET(CXX_STANDARD 11)
 
-# library
-
 aux_source_directory(src CUSTOM_WIDGETS_SOURCE)
 
-add_library(${PROJECT_NAME} STATIC ${CUSTOM_WIDGETS_SOURCE} resource/theme.qrc resource/icon.qrc)
+if (Qt6_FOUND)
+  qt_add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/theme.qrc src/resource/icon.qrc)
+else()
+  add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/theme.qrc src/resource/icon.qrc)
+endif()
 
-target_include_directories(${PROJECT_NAME} 
-                            PUBLIC 
-                            ${CMAKE_CURRENT_SOURCE_DIR}/include
-                            Qt5::Core)
+target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets zip)
                         
-target_link_libraries(${PROJECT_NAME} 
-                        PRIVATE 
-                        Qt5::Core)
-
-
-# demo binary
-
-set(DEMO_NAME ${PROJECT_NAME}Demo)
-
-aux_source_directory(demo DEMO_SOURCE)
-
-add_executable(${DEMO_NAME} ${DEMO_SOURCE})
-
-target_include_directories(${DEMO_NAME} 
-                            PRIVATE
-                            ${PROJECT_NAME})
-
-target_link_libraries(${DEMO_NAME} 
-                        PRIVATE 
-                        ${PROJECT_NAME}
-                        Qt5::Widgets)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets zip)

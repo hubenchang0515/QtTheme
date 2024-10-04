@@ -1,0 +1,14 @@
+QMenuBar {
+    background-color: {{base[9]}};
+    border: 0;
+    spacing: 3px;
+}
+
+QMenuBar::item {
+    padding: 1px 4px;
+    background: transparent;
+}
+
+QMenuBar::item:selected  {
+    background: {{base[7]}};
+}

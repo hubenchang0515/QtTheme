@@ -1,5 +1,5 @@
 QPushButton {
-    background-color: {{base[5]}};
+    background-color: {{base[6]}};
     color: {{base[1]}};
 
     padding: 0.5em 1em;
@@ -15,6 +15,13 @@ QPushButton:pressed {
     color: {{base[1]}};
 }
 
+QPushButton:checked {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+    border-left: 2px solid {{base[2]}};
+    padding-left: -2px;
+}
+
 QPushButton:disabled {
     background-color: {{base[8]}};
     color: {{base[5]}};
@@ -22,22 +29,29 @@ QPushButton:disabled {
 
 {% for key in colors %}
 
-QPushButton[color="{{key}}"] {
+QPushButton[Color="{{key}}"] {
     background-color: {{colors[key][5]}};
     color: {{base[1]}};
 }
 
-QPushButton[color="{{key}}"]:hover {
+QPushButton[Color="{{key}}"]:hover {
     background-color: {{colors[key][4]}};
     color: {{base[1]}};
 }
 
-QPushButton[color="{{key}}"]:pressed {
+QPushButton[Color="{{key}}"]:pressed {
     background-color: {{colors[key][6]}};
     color: {{base[1]}};
 }
 
-QPushButton[color="{{key}}"]:disabled {
+QPushButton[Color="{{key}}"]:checked {
+    background-color: {{colors[key][6]}};
+    color: {{base[1]}};
+    border-left: 2px solid {{colors[key][2]}};
+    padding-left: -2px;
+}
+
+QPushButton[Color="{{key}}"]:disabled {
     background-color: {{colors[key][8]}};
     color: {{base[5]}};
 }

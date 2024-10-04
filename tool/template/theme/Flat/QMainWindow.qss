@@ -1,0 +1,13 @@
+QMainWindow {
+    background-color: {{base[9]}};
+}
+
+QMainWindow::separator {
+    background: {{base[9]}};
+    width: 3px;
+    height: 3px;
+}
+
+QMainWindow::separator:hover {
+    background: {{colors["Primary"][5]}};
+}

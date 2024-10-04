@@ -23,7 +23,7 @@ QTextEdit:disabled {
 
 {% for key in colors %}
 
-QTextEdit[color="{{key}}"] {
+QTextEdit[Color="{{key}}"] {
     background-color: {{base[8]}};
     color: {{colors[key][6]}};
     border: 1px solid {{colors[key][6]}};
@@ -32,7 +32,7 @@ QTextEdit[color="{{key}}"] {
     padding: 0.5em 1em;
 }
 
-QTextEdit[color="{{key}}"]:focus {
+QTextEdit[Color="{{key}}"]:focus {
     background-color: {{base[7]}};
     color: {{colors[key][5]}};
     border: 2px solid {{colors[key][5]}};
@@ -40,7 +40,7 @@ QTextEdit[color="{{key}}"]:focus {
 
 }
 
-QTextEdit[color="{{key}}"]:disabled {
+QTextEdit[Color="{{key}}"]:disabled {
     background-color: {{base[8]}};
     color: {{colors[key][7]}};
     border: 1px solid {{colors[key][8]}};

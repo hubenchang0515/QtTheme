@@ -1,0 +1,6 @@
+<svg aria-labelledby="arrowLeftIconTitle" color="#ff9800" fill="none" height="24px" role="img" stroke="#ff9800" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="arrowLeftIconTitle">Arrow Left</title>
+ <path d="M9 6l-6 6 6 6"/>
+ <path d="M21 12H4"/>
+ <path d="M3 12h1" stroke-linecap="round"/>
+</svg>

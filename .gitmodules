@@ -1,0 +1,6 @@
+[submodule "3rdparty/zlib"]
+	path = 3rdparty/zlib
+	url = git@github.com:madler/zlib.git
+[submodule "3rdparty/libzip"]
+	path = 3rdparty/libzip
+	url = git@github.com:nih-at/libzip.git

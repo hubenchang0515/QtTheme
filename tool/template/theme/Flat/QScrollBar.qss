@@ -1,0 +1,241 @@
+QScrollBar:vertical {
+    width: 16px;
+    border: 0px;
+    margin: 16px 0 16px 0;
+    background-color: {{base[8]}};
+}
+
+QScrollBar::handle:vertical {
+    width: 16px;
+    min-height: 32px;
+    border: 0px;
+    background-color: {{base[5]}};
+}
+
+QScrollBar::sub-line:vertical {
+    background: {{base[8]}};
+    height: 16px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+    background: {{base[8]}};
+    height: 16px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_up/{{base[3]}}.svg");
+}
+
+QScrollBar::up-arrow:vertical:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_up/{{base[1]}}.svg");
+}
+
+QScrollBar::up-arrow:vertical:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_up/{{base[2]}}.svg");
+}
+
+QScrollBar::down-arrow:vertical {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_down/{{base[3]}}.svg");
+}
+
+QScrollBar::down-arrow:vertical:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_down/{{base[1]}}.svg");
+}
+
+QScrollBar::down-arrow:vertical:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_down/{{base[2]}}.svg");
+}
+
+QScrollBar:horizontal {
+    height: 16px;
+    border: 0px;
+    margin: 0 16px 0 16px;
+    background-color: {{base[8]}};
+}
+
+QScrollBar::handle:horizontal {
+    height: 16px;
+    min-width: 32px;
+    border: 0px;
+    background-color: {{base[5]}};
+}
+
+QScrollBar::sub-line:horizontal {
+    background: {{base[8]}};
+    width: 16px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal {
+    background: {{base[8]}};
+    width: 16px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::left-arrow:horizontal {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_left/{{base[3]}}.svg");
+}
+
+QScrollBar::left-arrow:horizontal:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_left/{{base[1]}}.svg");
+}
+
+QScrollBar::left-arrow:horizontal:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_left/{{base[2]}}.svg");
+}
+
+QScrollBar::right-arrow:horizontal {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_right/{{base[3]}}.svg");
+}
+
+QScrollBar::right-arrow:horizontal:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_right/{{base[1]}}.svg");
+}
+
+QScrollBar::right-arrow:horizontal:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_right/{{base[2]}}.svg");
+}
+
+QScrollBar::handle:disabled {
+    background: {{base[6]}};
+}
+
+QScrollBar::handle:hover {
+    background-color: {{base[4]}};
+}
+
+QScrollBar::handle:pressed {
+    background-color: {{base[5]}};
+}
+
+QScrollBar::sub-page {
+    background-color: {{base[8]}};
+}
+
+QScrollBar::sub-page:hover {
+    background-color: {{base[6]}};
+}
+
+QScrollBar::sub-page:pressed {
+    background-color: {{base[7]}};
+}
+
+QScrollBar::add-page {
+    background-color: {{base[8]}};
+}
+
+QScrollBar::add-page:hover {
+    background-color: {{base[6]}};
+}
+
+QScrollBar::add-page:pressed {
+    background-color: {{base[7]}};
+}
+
+{% for key in colors %}
+
+QScrollBar[Color="{{key}}"]::handle:vertical {
+    width: 16px;
+    min-height: 32px;
+    border: 0px;
+    background-color: {{colors[key][5]}};
+}
+
+QScrollBar[Color="{{key}}"]::up-arrow:vertical {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::up-arrow:vertical:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_up/{{colors[key][3]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::up-arrow:vertical:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_up/{{colors[key][4]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::down-arrow:vertical {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::down-arrow:vertical:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_down/{{colors[key][3]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::down-arrow:vertical:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_down/{{colors[key][4]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::handle:horizontal {
+    height: 16px;
+    min-width: 32px;
+    border: 0px;
+    background-color: {{colors[key][5]}};
+}
+
+QScrollBar[Color="{{key}}"]::left-arrow:horizontal {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_left/{{colors[key][5]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::left-arrow:horizontal:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_left/{{colors[key][3]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::left-arrow:horizontal:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_left/{{colors[key][4]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::right-arrow:horizontal {
+    background-color: {{base[8]}};
+    image: url(":/icon/chevron_right/{{colors[key][5]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::right-arrow:horizontal:hover {
+    background-color: {{base[6]}};
+    image: url(":/icon/chevron_right/{{colors[key][3]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::right-arrow:horizontal:pressed {
+    background-color: {{base[7]}};
+    image: url(":/icon/chevron_right/{{colors[key][4]}}.svg");
+}
+
+QScrollBar[Color="{{key}}"]::handle:disabled {
+    background: {{colors[key][8]}};
+}
+
+QScrollBar[Color="{{key}}"]::handle:hover {
+    background-color: {{colors[key][3]}};
+}
+
+QScrollBar[Color="{{key}}"]::handle:pressed {
+    background-color: {{colors[key][4]}};
+}
+
+{% endfor %}

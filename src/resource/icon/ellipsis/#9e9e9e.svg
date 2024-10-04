@@ -1,0 +1,6 @@
+<svg aria-labelledby="ellypsisIconTitle" color="#9e9e9e" fill="none" height="24px" role="img" stroke="#9e9e9e" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="ellypsisIconTitle">Ellypsis</title>
+ <circle cx="12" cy="12" r="1"/>
+ <circle cx="6" cy="12" r="1"/>
+ <circle cx="18" cy="12" r="1"/>
+</svg>

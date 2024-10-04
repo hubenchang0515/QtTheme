@@ -1,0 +1,5 @@
+<svg aria-labelledby="copyIconTitle" color="#01579b" fill="none" height="24px" role="img" stroke="#01579b" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="copyIconTitle">Copy</title>
+ <rect height="14" width="12" x="8" y="7"/>
+ <polyline points="16 3 4 3 4 17"/>
+</svg>

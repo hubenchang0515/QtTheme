@@ -1,0 +1,3 @@
+QDialog {
+    background-color: {{base[9]}};
+}

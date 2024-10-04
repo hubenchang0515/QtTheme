@@ -1,0 +1,36 @@
+QMenu {
+    background-color: {{base[9]}};
+    border: 0;
+}
+
+QMenu::separator {
+    height: 1px;
+    background: {{base[8]}};
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+QMenu::item {
+    padding: 4px 8px;
+    background: transparent;
+}
+
+QMenu::item:selected {
+    background: {{base[7]}};
+}
+
+QMenu::indicator:unchecked {
+    image: url(":/icon/check_box_unchecked/{{base[1]}}.svg");
+}
+
+QMenu::indicator:unchecked:selected {
+    image: url(":/icon/check_box_unchecked/{{base[1]}}.svg");
+}
+
+QMenu::indicator:checked {
+    image: url(":/icon/check_box_checked/{{base[1]}}.svg");
+}
+
+QMenu::indicator:checked:selected {
+    image: url(":/icon/check_box_checked/{{base[1]}}.svg");
+}

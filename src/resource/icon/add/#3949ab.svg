@@ -1,0 +1,5 @@
+<svg aria-labelledby="addIconTitle" color="#3949ab" fill="none" height="24px" role="img" stroke="#3949ab" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="addIconTitle">Add</title>
+ <path d="M17 12L7 12M12 17L12 7"/>
+ <circle cx="12" cy="12" r="10"/>
+</svg>

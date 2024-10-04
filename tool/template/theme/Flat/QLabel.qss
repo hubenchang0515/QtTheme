@@ -1,0 +1,19 @@
+QLabel {
+    color: {{base[1]}};
+}
+
+QLabel:disabled {
+    color: {{base[5]}};
+}
+
+{% for key in colors %}
+
+QLabel[Color="{{key}}"] {
+    color: {{colors[key][5]}};
+}
+
+QLabel[Color="{{key}}"]:disabled {
+    color: {{colors[key][8]}};
+}
+
+{% endfor %}

@@ -1,0 +1,24 @@
+QSplitter::handle {
+    background-color: {{base[9]}};
+}
+
+QSplitter::handle:hover {
+    background-color: {{base[5]}};
+}
+
+
+QSplitter::handle:horizontal {
+    width: 3px;
+}
+
+QSplitter::handle:vertical {
+    height: 3px;
+}
+
+{% for key in colors %}
+
+QSplitter[Color="{{key}}"]::handle:hover {
+    background-color: {{colors[key][5]}};
+}
+
+{% endfor %}

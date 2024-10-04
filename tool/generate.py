@@ -2,6 +2,7 @@
 
 import os
 import json
+from datetime import datetime
 from itertools import permutations
 from jinja2 import Template
 from typing import List, Dict
@@ -30,16 +31,21 @@ class File(object):
         files.sort(key=key)
         return files
     
+    def exists(self) -> bool:
+        return os.path.exists(self.__path)
+    
     def isdir(self) -> bool:
         return os.path.isdir(self.__path)
 
     def remove(self) -> None:
-        if not self.isdir():
+        if not self.exists():
+            return
+        elif not self.isdir():
             os.remove(self.__path)
         else:
             for filename in self.listdir():
                 self.join(filename).remove()
-            os.removedirs(self.__path)
+            os.rmdir(self.__path)
     
     def open(self, mode:str="r") -> any:
         if not os.path.exists(self.dirpath()):
@@ -74,7 +80,10 @@ class ThemeRenderer(object):
         for primary, secondary in permutations(palette, 2):
             colors["Primary"] = palette[primary]
             colors["Secondary"] = palette[secondary]
-            themes[f"{primary}_{secondary}"] = template.render(base=base, colors=colors)
+            colors["Success"] = palette["Green"]
+            colors["Warning"] = palette["Orange"]
+            colors["Danger"] = palette["Red"]
+            themes[f"{primary}/{secondary}"] = template.render(datetime=datetime.now(), base=base, colors=colors)
 
         return themes
 
@@ -94,6 +103,7 @@ class IconRenderer(object):
 
 
 def render_resource_qrc(qrc:File, template:File, files:List[str]):
+    files.sort()
     with template.open() as fp:
         renderer:Template = Template(fp.read())
 
@@ -107,7 +117,7 @@ if __name__ == "__main__":
     icon_template_dir:File = template_dir.join("icon")
     palette_file:File = tool_dir.join("palette.json")
     root_dir:File = tool_dir.join("..")
-    resource_dir:File = root_dir.join("resource")
+    resource_dir:File = root_dir.join("src").join("resource")
     theme_dir:File = resource_dir.join("theme")
     icon_dir:File = resource_dir.join("icon")
 
@@ -125,7 +135,7 @@ if __name__ == "__main__":
         # Dark
         themes:Dict[str, List[str]] = renderer.render(palette=dark_palette)
         for color in themes:
-            theme_file:str = f"{File(theme_template).basename()}_Dark_{color}.qss"
+            theme_file:str = f"{File(theme_template).basename()}/Dark/{color}.qss"
             theme_files.append(theme_file)
             with theme_dir.join(theme_file).open("w") as fp:
                 fp.write(themes[color])
@@ -133,7 +143,7 @@ if __name__ == "__main__":
         # Light
         themes:Dict[str, List[str]] = renderer.render(palette=light_palette)
         for color in themes:
-            theme_file:str = f"{File(theme_template).basename()}_Light_{color}.qss"
+            theme_file:str = f"{File(theme_template).basename()}/Light/{color}.qss"
             theme_files.append(theme_file)
             with theme_dir.join(theme_file).open("w") as fp:
                 fp.write(themes[color])
@@ -145,7 +155,7 @@ if __name__ == "__main__":
         icons:Dict[str,str] = renderer.render(colors=colors)
         
         for color in icons:
-            icon_file:str = f"{File(icon_template).basename()}_{color}.svg"
+            icon_file:str = f"{File(icon_template).basename()}/{color}.svg"
             icon_files.append(icon_file)
             with icon_dir.join(icon_file).open("w") as fp:
                 fp.write(icons[color])

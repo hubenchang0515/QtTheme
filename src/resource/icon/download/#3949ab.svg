@@ -1,0 +1,6 @@
+<svg aria-labelledby="downloadIconTitle" color="#3949ab" fill="none" height="24px" role="img" stroke="#3949ab" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="downloadIconTitle">Download</title>
+ <path d="M12,3 L12,16"/>
+ <polyline points="7 12 12 17 17 12"/>
+ <path d="M20,21 L4,21"/>
+</svg>

@@ -1,0 +1,25 @@
+QMessageBox QPushButton {
+    min-width: 3em;
+}
+
+QMessageBox QPushButton:default {
+    background-color: {{colors["Primary"][5]}};
+    color: {{base[1]}};
+
+    padding: 0.5em 1em;
+}
+
+QMessageBox QPushButton:default:hover {
+    background-color: {{colors["Primary"][4]}};
+    color: {{base[1]}};
+}
+
+QMessageBox QPushButton:default:pressed {
+    background-color: {{colors["Primary"][6]}};
+    color: {{base[1]}};
+}
+
+QMessageBox QPushButton:default:disabled {
+    background-color: {{colors["Primary"][7]}};
+    color: {{base[5]}};
+}

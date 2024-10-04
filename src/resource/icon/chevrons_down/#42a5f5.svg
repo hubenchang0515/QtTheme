@@ -1,0 +1,5 @@
+<svg aria-labelledby="chevronsDownIconTitle" color="#42a5f5" fill="none" height="24px" role="img" stroke="#42a5f5" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="chevronsDownIconTitle">Chevrons Down</title>
+ <polyline points="7 13 12 18 17 13"/>
+ <polyline points="7 7 12 12 17 7"/>
+</svg>

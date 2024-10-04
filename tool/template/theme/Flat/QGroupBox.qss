@@ -1,4 +1,5 @@
 QGroupBox {
+    color: {{base[1]}};
     border: 1px solid {{base[5]}};
     margin-top: 0.5em;
     padding-top: 0.5em;
@@ -12,8 +13,9 @@ QGroupBox::title {
 
 {% for key in colors %}
 
-QGroupBox[color="{{key}}"] {
-    border: 1px solid {{colors[key][5]}};
+QGroupBox[Color="{{key}}"] {
+    color: {{colors[key][5]}};
+    border: 1px solid {{colors[key][8]}};
 }
 
 {% endfor %}

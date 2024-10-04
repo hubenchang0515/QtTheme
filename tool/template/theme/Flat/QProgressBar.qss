@@ -18,21 +18,21 @@ QProgressBar::chunk:disabled {
 
 {% for key in colors %}
 
-QProgressBar[color="{{key}}"] {
+QProgressBar[Color="{{key}}"] {
     background-color: {{base[7]}};
     qproperty-textVisible: false;
 }
 
-QProgressBar[color="{{key}}"]::chunk {
+QProgressBar[Color="{{key}}"]::chunk {
     background-color: {{colors[key][5]}};
 }
 
-QProgressBar[color="{{key}}"]:disabled {
+QProgressBar[Color="{{key}}"]:disabled {
     background-color: {{base[7]}};
     qproperty-textVisible: false;
 }
 
-QProgressBar[color="{{key}}"]::chunk:disabled {
+QProgressBar[Color="{{key}}"]::chunk:disabled {
     background-color: {{colors[key][8]}};
 }
 

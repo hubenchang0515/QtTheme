@@ -1,32 +1,40 @@
+QCheckBox {
+    color: {{base[1]}};
+}
+
 QCheckBox::indicator {
-    image: url(":/icon/check_box_unchecked_{{base[1]}}.svg");
+    image: url(":/icon/check_box_unchecked/{{base[1]}}.svg");
     color: {{base[1]}};
 }
 
 QCheckBox::indicator:checked {
-    image: url(":/icon/check_box_checked_{{base[1]}}.svg");
+    image: url(":/icon/check_box_checked/{{base[1]}}.svg");
     color: {{base[1]}};
 }
 
 QCheckBox::indicator:disabled {
-    image: url(":/icon/check_box_unchecked_{{base[5]}}.svg");
+    image: url(":/icon/check_box_unchecked/{{base[5]}}.svg");
     color: {{base[1]}};
 }
 
 {% for key in colors %}
 
-QCheckBox[color="{{key}}"]::indicator {
-    image: url(":/icon/check_box_unchecked_{{colors[key][5]}}.svg");
+QCheckBox[Color="{{key}}"] {
     color: {{colors[key][5]}};
 }
 
-QCheckBox[color="{{key}}"]::indicator:checked {
-    image: url(":/icon/check_box_checked_{{colors[key][5]}}.svg");
+QCheckBox[Color="{{key}}"]::indicator {
+    image: url(":/icon/check_box_unchecked/{{colors[key][5]}}.svg");
     color: {{colors[key][5]}};
 }
 
-QCheckBox[color="{{key}}"]::indicator:disabled {
-    image: url(":/icon/check_box_unchecked_{{colors[key][7]}}.svg");
+QCheckBox[Color="{{key}}"]::indicator:checked {
+    image: url(":/icon/check_box_checked/{{colors[key][5]}}.svg");
+    color: {{colors[key][5]}};
+}
+
+QCheckBox[Color="{{key}}"]::indicator:disabled {
+    image: url(":/icon/check_box_unchecked/{{colors[key][7]}}.svg");
     color: {{colors[key][7]}};
 }
 

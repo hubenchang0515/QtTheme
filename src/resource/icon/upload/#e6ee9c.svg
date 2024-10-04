@@ -1,0 +1,6 @@
+<svg aria-labelledby="uploadIconTitle" color="#e6ee9c" fill="none" height="24px" role="img" stroke="#e6ee9c" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="uploadIconTitle">Upload</title>
+ <path d="M12,4 L12,17"/>
+ <polyline points="7 8 12 3 17 8"/>
+ <path d="M20,21 L4,21"/>
+</svg>

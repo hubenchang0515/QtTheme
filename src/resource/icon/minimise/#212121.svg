@@ -1,0 +1,7 @@
+<svg aria-labelledby="minimiseIconTitle" color="#212121" fill="none" height="24px" role="img" stroke="#212121" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="minimiseIconTitle">Minimise View</title>
+ <polyline points="8 3 8 8 3 8"/>
+ <polyline points="21 8 16 8 16 3"/>
+ <polyline points="3 16 8 16 8 21"/>
+ <polyline points="16 21 16 16 21 16"/>
+</svg>

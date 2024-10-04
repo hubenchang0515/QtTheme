@@ -1,22 +1,40 @@
-QWidget {
+.QWidget {
     background-color: {{base[9]}};
-    color: {{base[1]}};
 }
 
+QWidget {
+    color: {{base[1]}};
+    background-color: transparent;
+}
+
+{% for v in base %}
+
+QWidget[Depth="{{loop.index}}"] {
+    background-color: {{v}};
+}
+
+{% endfor %}
+
 QWidget:disabled {
-    background-color: {{base[9]}};
     color: {{base[5]}};
 }
 
 {% for key in colors %}
 
-QWidget[color="{{key}}"] {
-    background-color: {{base[9]}};
+{% for v in colors[key] %}
+
+QWidget[Color="{{key}}"][Depth="{{loop.index}}"] {
+    background-color: {{v}};
+}
+
+{% endfor %}
+
+
+QWidget[Color="{{key}}"] {
     color: {{colors[key][5]}};
 }
 
-QWidget[color="{{key}}"]:disabled {
-    background-color: {{base[9]}};
+QWidget[Color="{{key}}"]:disabled {
     color: {{colors[key][8]}};
 }
 

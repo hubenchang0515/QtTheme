@@ -1,0 +1,68 @@
+QDockWidget {
+    icon-size: 16px;
+    color: {{base[1]}};
+    background-color: {{base[9]}};
+    titlebar-normal-icon: url(":/icon/chevron_down/{{base[5]}}.svg");
+    titlebar-close-icon: url(":/icon/close/{{base[5]}}.svg");
+}
+
+QDockWidget::title {
+    background: {{base[9]}};
+    border: 1px solid {{base[9]}};
+    text-align: left;
+}
+
+QDockWidget::float-button,
+QDockWidget::close-button {
+    border: none;
+    padding: 0;
+    icon-size: 24px;
+    background: {{base[9]}};
+}
+
+
+QDockWidget::close-button:hover, 
+QDockWidget::float-button:hover {
+    background: {{base[7]}};
+}
+
+QDockWidget::close-button:pressed, 
+QDockWidget::float-button:pressed {
+    background: {{base[8]}};
+}
+
+{% for key in colors %}
+
+QDockWidget[Color="{{key}}"] {
+    color: {{base[1]}};
+    background-color: {{colors[key][5]}};
+    titlebar-normal-icon: url(":/icon/chevron_down/{{base[2]}}.svg");
+    titlebar-close-icon: url(":/icon/close/{{base[2]}}.svg");
+}
+
+QDockWidget[Color="{{key}}"]::title {
+    background-color: {{colors[key][5]}};
+    border: 1px solid {{colors[key][5]}};
+    text-align: left;
+}
+
+QDockWidget[Color="{{key}}"]::float-button,
+QDockWidget[Color="{{key}}"]::close-button {
+    border: none;
+    padding: 0;
+    icon-size: 24px;
+    background-color: {{colors[key][5]}};
+}
+
+
+QDockWidget[Color="{{key}}"]::close-button:hover, 
+QDockWidget[Color="{{key}}"]::float-button:hover {
+    background-color: {{colors[key][3]}};
+}
+
+QDockWidget[Color="{{key}}"]::close-button:pressed, 
+QDockWidget[Color="{{key}}"]::float-button:pressed {
+    background-color: {{colors[key][4]}};
+}
+
+{% endfor %}

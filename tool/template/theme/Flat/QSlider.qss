@@ -62,55 +62,55 @@ QSlider::handle:disabled {
 
 {% for key in colors %}
 
-QSlider[color="{{key}}"]::groove:horizontal {
+QSlider[Color="{{key}}"]::groove:horizontal {
     background-color: {{base[9]}};
     height: 16px;
 }
 
-QSlider[color="{{key}}"]::groove:vertical {
+QSlider[Color="{{key}}"]::groove:vertical {
     background-color: {{base[9]}};
     width: 16px;
 }
 
-QSlider[color="{{key}}"]::sub-page:horizontal {
+QSlider[Color="{{key}}"]::sub-page:horizontal {
     background-color: {{colors[key][6]}};
 }
 
-QSlider[color="{{key}}"]::add-page:horizontal {
+QSlider[Color="{{key}}"]::add-page:horizontal {
     background-color: {{base[6]}};
 }
 
-QSlider[color="{{key}}"]::sub-page:vertical {
+QSlider[Color="{{key}}"]::sub-page:vertical {
     background-color: {{base[6]}};
 }
 
-QSlider[color="{{key}}"]::add-page:vertical {
+QSlider[Color="{{key}}"]::add-page:vertical {
     background-color: {{colors[key][6]}};
 }
 
-QSlider[color="{{key}}"]::handle {
+QSlider[Color="{{key}}"]::handle {
     background-color: {{colors[key][3]}};
     height: 16px;
     width: 16px;
 }
 
-QSlider[color="{{key}}"]::sub-page:horizontal:disabled {
+QSlider[Color="{{key}}"]::sub-page:horizontal:disabled {
     background-color: {{colors[key][8]}};
 }
 
-QSlider[color="{{key}}"]::add-page:horizontal:disabled {
+QSlider[Color="{{key}}"]::add-page:horizontal:disabled {
     background-color: {{base[8]}};
 }
 
-QSlider[color="{{key}}"]::sub-page:vertical:disabled {
+QSlider[Color="{{key}}"]::sub-page:vertical:disabled {
     background-color: {{base[8]}};
 }
 
-QSlider[color="{{key}}"]::add-page:vertical:disabled {
+QSlider[Color="{{key}}"]::add-page:vertical:disabled {
     background-color: {{colors[key][8]}};
 }
 
-QSlider[color="{{key}}"]::handle:disabled {
+QSlider[Color="{{key}}"]::handle:disabled {
     background-color: {{colors[key][8]}};
     height: 12px;
     width: 12px;

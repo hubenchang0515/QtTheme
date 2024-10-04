@@ -1,0 +1,99 @@
+QSpinBox {
+    color: {{base[2]}};
+    background-color: {{base[8]}};
+    border: 1px solid {{base[5]}};
+    padding: 0.5em 1em;
+}
+
+QSpinBox:disabled {
+    color: {{base[5]}};
+    background-color: {{base[8]}};
+    border: 1px solid {{base[6]}};
+    padding: 0.5em 1em;
+}
+
+QSpinBox::up-button,
+QSpinBox::down-button {
+    width: 24px;
+    background-color: {{base[8]}};
+}
+
+QSpinBox::up-button:hover,
+QSpinBox::down-button:hover {
+    width: 24px;
+    background-color: {{base[6]}};
+}
+
+QSpinBox::up-button:pressed ,
+QSpinBox::down-button:pressed  {
+    width: 24px;
+    background-color: {{base[7]}};
+}
+
+QSpinBox::up-button:disabled ,
+QSpinBox::down-button:disabled  {
+    width: 24px;
+    background-color: {{base[8]}};
+}
+
+QSpinBox::up-arrow {
+    width: 24px;
+    image: url(":/icon/chevron_up/{{base[5]}}.svg");
+}
+
+QSpinBox::down-arrow {
+    width: 24px;
+    image: url(":/icon/chevron_down/{{base[5]}}.svg");
+}
+
+QSpinBox::up-arrow:disabled,
+QSpinBox::up-arrow:off {
+    width: 24px;
+    image: url(":/icon/chevron_up/{{base[6]}}.svg");
+}
+
+QSpinBox::down-arrow:disabled,
+QSpinBox::down-arrow:off {
+    width: 24px;
+    image: url(":/icon/chevron_down/{{base[6]}}.svg");
+}
+
+{% for key in colors %}
+
+QSpinBox[Color="{{key}}"] {
+    color: {{colors[key][6]}};
+    background-color: {{base[8]}};
+    border: 1px solid {{colors[key][6]}};
+    padding: 0.5em 1em;
+}
+
+QSpinBox[Color="{{key}}"]:disabled {
+    color: {{colors[key][7]}};
+    background-color: {{base[8]}};
+    border: 1px solid {{colors[key][8]}};
+    padding: 0.5em 1em;
+}
+
+QSpinBox[Color="{{key}}"]::up-arrow {
+    width: 24px;
+    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+}
+
+QSpinBox[Color="{{key}}"]::down-arrow {
+    width: 24px;
+    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+}
+
+QSpinBox[Color="{{key}}"]::up-arrow:disabled,
+QSpinBox[Color="{{key}}"]::up-arrow:off {
+    width: 24px;
+    image: url(":/icon/chevron_up/{{colors[key][8]}}.svg");
+}
+
+QSpinBox[Color="{{key}}"]::down-arrow:disabled,
+QSpinBox[Color="{{key}}"]::down-arrow:off {
+    width: 24px;
+    image: url(":/icon/chevron_down/{{colors[key][8]}}.svg");
+}
+
+{% endfor %}

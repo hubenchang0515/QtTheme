@@ -1,0 +1,5 @@
+<svg aria-labelledby="lockIconTitle" color="#c2185b" fill="none" height="24px" role="img" stroke="#c2185b" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="lockIconTitle">Lock</title>
+ <rect height="10" width="14" x="5" y="11"/>
+ <path d="M12,3 L12,3 C14.7614237,3 17,5.23857625 17,8 L17,11 L7,11 L7,8 C7,5.23857625 9.23857625,3 12,3 Z"/>
+</svg>

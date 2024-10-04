@@ -1,0 +1,18 @@
+QStatusBar {
+    color: {{base[1]}};
+    background-color: {{base[9]}};
+}
+
+{% for key in colors %}
+
+QStatusBar[Color="{{key}}"] {
+    color: {{base[1]}};
+    background-color: {{colors[key][5]}};
+}
+
+QStatusBar[Color="{{key}}"] > QSizeGrip {
+    width: 16px;
+    height: 16px;
+    image: url(":/icon/size_grip/{{colors[key][2]}}.svg");
+}
+{% endfor %}

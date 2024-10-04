@@ -1,0 +1,22 @@
+QToolBar {
+    background-color: {{base[9]}};
+    border: 0;
+    spacing: 3px;
+}
+
+QToolBar::handle:top,
+QToolBar::handle:bottom {
+    image: url(":/icon/ellipsis_vertical/{{base[5]}}.svg");
+}
+
+QToolBar::handle:left,
+QToolBar::handle:right {
+    image: url(":/icon/ellipsis/{{base[5]}}.svg");
+}
+
+
+QToolBar::separator {
+    height: 1px; 
+    width: 1px;
+    background: {{base[8]}};
+}
