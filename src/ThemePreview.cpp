@@ -966,7 +966,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         tree1->setMinimumHeight(200);
         tree1->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
         tree1->setModel(model);
-        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        for (auto index = model->index(QDir::homePath()); index.isValid(); index = index.parent())
         {
             tree1->expand(index);
         }
@@ -977,7 +977,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         tree2->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
         tree2->header()->setProperty("Color", "Primary");
         tree2->setModel(model);
-        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        for (auto index = model->index(QDir::homePath()); index.isValid(); index = index.parent())
         {
             tree2->expand(index);
         }
@@ -988,7 +988,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         tree3->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
         tree3->header()->setProperty("Color", "Secondary");
         tree3->setModel(model);
-        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        for (auto index = model->index(QDir::homePath()); index.isValid(); index = index.parent())
         {
             tree3->expand(index);
         }
@@ -1100,11 +1100,11 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
 
         auto model = new FileSystemModel;
         table1->setModel(model);
-        table1->setRootIndex(model->index(QDir::home().absolutePath()));
+        table1->setRootIndex(model->index(QDir::rootPath()));
         table2->setModel(model);
-        table2->setRootIndex(model->index(QDir::home().absolutePath()));
+        table2->setRootIndex(model->index(QDir::rootPath()));
         table3->setModel(model);
-        table3->setRootIndex(model->index(QDir::home().absolutePath()));
+        table3->setRootIndex(model->index(QDir::rootPath()));
 
         auto col = new QVBoxLayout;
         col->addWidget(table1);
