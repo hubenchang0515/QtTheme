@@ -1,0 +1,74 @@
+QTreeView::branch:closed:has-children {
+    image: url(":/icon/chevron_right/{{base[3]}}.svg");
+}
+
+QTreeView::branch:closed:has-children:hover {
+    image: url(":/icon/chevron_right/{{base[1]}}.svg");
+}
+
+QTreeView::branch:open:has-children {
+    image: url(":/icon/chevron_down/{{base[3]}}.svg");
+}
+
+QTreeView::branch:open:has-children:hover {
+    image: url(":/icon/chevron_down/{{base[1]}}.svg");
+}
+
+QTreeView::item {
+    color: {{base[1]}};
+}
+
+QTreeView::item:hover {
+    color: {{base[1]}};
+    background: {{base[6]}};
+}
+
+QTreeView::item:selected:active {
+    color: {{base[1]}};
+    background: {{base[5]}};
+}
+
+QTreeView::item:selected:!active {
+    color: {{base[1]}};
+    background: {{base[6]}};
+}
+
+
+{% for key in colors %}
+
+QTreeView[Color="{{key}}"]::branch:closed:has-children {
+    image: url(":/icon/chevron_right/{{colors[key][4]}}.svg");
+}
+
+QTreeView[Color="{{key}}"]::branch:closed:has-children:hover {
+    image: url(":/icon/chevron_right/{{colors[key][2]}}.svg");
+}
+
+QTreeView[Color="{{key}}"]::branch:open:has-children {
+    image: url(":/icon/chevron_down/{{colors[key][4]}}.svg");
+}
+
+QTreeView[Color="{{key}}"]::branch:open:has-children:hover {
+    image: url(":/icon/chevron_down/{{colors[key][2]}}.svg");
+}
+
+QTreeView[Color="{{key}}"]::item {
+    color: {{base[1]}};
+}
+
+QTreeView[Color="{{key}}"]::item:hover {
+    color: {{base[1]}};
+    background: {{colors[key][7]}};
+}
+
+QTreeView[Color="{{key}}"]::item:selected:active {
+    color: {{base[1]}};
+    background: {{colors[key][6]}};
+}
+
+QTreeView[Color="{{key}}"]::item:selected:!active {
+    color: {{base[1]}};
+    background: {{colors[key][7]}};
+}
+
+{% endfor %}

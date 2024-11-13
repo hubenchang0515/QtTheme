@@ -108,8 +108,8 @@ void MainWindow::adjustDock() noexcept
 
 QSize MainWindow::sizeHint() const noexcept
 {
-    QSize size = QMainWindow::sizeHint();
-    size.rwidth() += preview_->sizeHint().width();
+    QSize size = dock_->sizeHint();
+    size.rwidth() += preview_->minimumSizeHint().width() + 32; // 32 弥补滚动条和各个缝隙的宽度
     size.setHeight(size.width() * 9 / 16); 
     return size;
 }

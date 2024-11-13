@@ -1,0 +1,7 @@
+<svg aria-labelledby="tableHorizontalIconTitle" color="#f44336" fill="none" height="24px" stroke="#f44336" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="tableHorizontalIconTitle">Data table</title>
+ <path d="M22 4V19H2L2 4L22 4Z"/>
+ <line x1="22" x2="2" y1="9" y2="9"/>
+ <line x1="22" x2="2" y1="14" y2="14"/>
+ <path d="M12 19L12 4"/>
+</svg>

@@ -3,6 +3,10 @@ QMenu {
     border: 0;
 }
 
+QMenu::right-arrow {
+    image: url(":/icon/triangle_right/{{base[1]}}.svg");
+}
+
 QMenu::separator {
     height: 1px;
     background: {{base[8]}};
@@ -34,3 +38,48 @@ QMenu::indicator:checked {
 QMenu::indicator:checked:selected {
     image: url(":/icon/check_box_checked/{{base[1]}}.svg");
 }
+
+{% for key in colors %}
+
+QMenu[Color="{{key}}"] {
+    background-color: {{base[9]}};
+    border: 0;
+}
+
+QMenu[Color="{{key}}"]::right-arrow {
+    image: url(":/icon/triangle_right/{{colors[key][5]}}.svg");
+}
+
+QMenu[Color="{{key}}"]::separator {
+    height: 1px;
+    background: {{base[8]}};
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+QMenu[Color="{{key}}"]::item {
+    padding: 4px 8px;
+    background: transparent;
+}
+
+QMenu[Color="{{key}}"]::item:selected {
+    background: {{colors[key][8]}};
+}
+
+QMenu[Color="{{key}}"]::indicator:unchecked {
+    image: url(":/icon/check_box_unchecked/{{colors[key][5]}}.svg");
+}
+
+QMenu[Color="{{key}}"]::indicator:unchecked:selected {
+    image: url(":/icon/check_box_unchecked/{{colors[key][5]}}.svg");
+}
+
+QMenu[Color="{{key}}"]::indicator:checked {
+    image: url(":/icon/check_box_checked/{{colors[key][5]}}.svg");
+}
+
+QMenu[Color="{{key}}"]::indicator:checked:selected {
+    image: url(":/icon/check_box_checked/{{colors[key][5]}}.svg");
+}
+
+{% endfor %}

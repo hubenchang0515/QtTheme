@@ -1,0 +1,7 @@
+QTabWidget {
+    background-color: transparent;
+}
+
+QTabWidget::pane {
+    background-color: transparent;
+}

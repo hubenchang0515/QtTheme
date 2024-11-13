@@ -80,6 +80,4 @@ QComboBox[Color="{{key}}"] QAbstractItemView::item:selected {
     background-color: {{colors[key][6]}};
 }
 
-
-
 {% endfor %}

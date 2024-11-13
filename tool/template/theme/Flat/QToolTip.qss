@@ -1,0 +1,5 @@
+QToolTip {
+    padding: 4px;
+    color: {{base[1]}};
+    background-color: {{base[7]}};
+}

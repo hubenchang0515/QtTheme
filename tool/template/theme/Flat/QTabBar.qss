@@ -1,0 +1,148 @@
+QTabBar::tab {
+    background-color: {{base[7]}};
+    color: {{base[1]}};
+    padding: 3px;
+}
+
+QTabBar::tab:hover  {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+}
+
+QTabBar::tab:top:selected {
+    background-color: {{base[6]}};
+    color: {{base[1]}};
+    border-top: 3px solid {{base[2]}};
+}
+
+QTabBar::tab:bottom:selected {
+    background-color: {{base[6]}};
+    color: {{base[1]}};
+    border-bottom: 3px solid {{base[2]}};
+}
+
+QTabBar::tab:left:selected {
+    background-color: {{base[6]}};
+    color: {{base[1]}};
+    border-left: 3px solid {{base[2]}};
+}
+
+QTabBar::tab:right:selected {
+    background-color: {{base[6]}};
+    color: {{base[1]}};
+    border-right: 3px solid {{base[2]}};
+}
+
+QTabBar::tab:top:!selected {
+    margin-top: 3px;
+}
+
+QTabBar::tab:bottom:!selected {
+    margin-bottom: 3px;
+}
+
+QTabBar::tab:left:!selected {
+    margin-left: 3px;
+}
+
+QTabBar::tab:right:!selected {
+    margin-right: 3px;
+}
+
+QTabBar QToolButton::right-arrow {
+    image: url(":/icon/triangle_right/{{base[2]}}.svg");
+}
+
+QTabBar QToolButton::left-arrow {
+    image: url(":/icon/triangle_left/{{base[2]}}.svg");
+}
+
+QTabBar QToolButton {
+    background-color: {{base[8]}};
+}
+
+QTabBar QToolButton:hover {
+    background-color: {{base[6]}};
+}
+
+
+QTabBar::close-button {
+    image: url(":/icon/close/{{base[2]}}.svg");
+}
+
+QTabBar::close-button:hover {
+    image: url(":/icon/close/{{colors["Danger"][5]}}.svg");
+}
+
+QTabBar::close-button:pressed {
+    image: url(":/icon/close/{{colors["Danger"][7]}}.svg");
+}
+
+QTabBar:top::close-button {
+    margin-top: 3px;
+    subcontrol-position: right;
+}
+
+QTabBar:bottom::close-button {
+    margin-bottom: 3px;
+    subcontrol-position: right;
+}
+
+QTabBar:left::close-button {
+    margin-left: 3px;
+    subcontrol-position: bottom;
+}
+
+QTabBar:right::close-button {
+    margin-right: 3px;
+    subcontrol-position: bottom;
+}
+
+{% for key in colors %}
+
+QTabBar[Color="{{key}}"]::tab:hover  {
+    background-color: {{colors[key][4]}};
+    color: {{base[1]}};
+}
+
+QTabBar[Color="{{key}}"]::tab:top:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+    border-top: 3px solid {{colors[key][2]}};
+}
+
+QTabBar[Color="{{key}}"]::tab:bottom:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+    border-bottom: 3px solid {{colors[key][2]}};
+}
+
+QTabBar[Color="{{key}}"]::tab:left:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+    border-left: 3px solid {{colors[key][2]}};
+}
+
+QTabBar[Color="{{key}}"]::tab:right:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+    border-right: 3px solid {{colors[key][2]}};
+}
+
+QTabBar[Color="{{key}}"] QToolButton::right-arrow {
+    image: url(":/icon/triangle_right/{{colors[key][5]}}.svg");
+}
+
+QTabBar[Color="{{key}}"] QToolButton::left-arrow {
+    image: url(":/icon/triangle_left/{{colors[key][5]}}.svg");
+}
+
+QTabBar[Color="{{key}}"] QToolButton {
+    background-color: {{base[8]}};
+}
+
+QTabBar[Color="{{key}}"] QToolButton:hover {
+    background-color: {{base[6]}};
+}
+
+{% endfor %}

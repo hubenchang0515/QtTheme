@@ -24,14 +24,16 @@ QDoubleSpinBox::down-button:hover {
     background-color: {{base[6]}};
 }
 
-QDoubleSpinBox::up-button:pressed ,
-QDoubleSpinBox::down-button:pressed  {
+QDoubleSpinBox::up-button:pressed,
+QDoubleSpinBox::down-button:pressed {
     width: 24px;
     background-color: {{base[7]}};
 }
 
-QDoubleSpinBox::up-button:disabled ,
-QDoubleSpinBox::down-button:disabled  {
+QDoubleSpinBox::up-button:disabled,
+QDoubleSpinBox::down-button:disabled,
+QDoubleSpinBox::up-button:off,
+QDoubleSpinBox::down-button:off {
     width: 24px;
     background-color: {{base[8]}};
 }

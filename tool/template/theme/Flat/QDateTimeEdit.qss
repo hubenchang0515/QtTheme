@@ -24,14 +24,16 @@ QDateTimeEdit::down-button:hover {
     background-color: {{base[6]}};
 }
 
-QDateTimeEdit::up-button:pressed ,
-QDateTimeEdit::down-button:pressed  {
+QDateTimeEdit::up-button:pressed,
+QDateTimeEdit::down-button:pressed {
     width: 24px;
     background-color: {{base[7]}};
 }
 
-QDateTimeEdit::up-button:disabled ,
-QDateTimeEdit::down-button:disabled  {
+QDateTimeEdit::up-button:disabled,
+QDateTimeEdit::down-button:disabled,
+QDateTimeEdit::up-button:off,
+QDateTimeEdit::down-button:off {
     width: 24px;
     background-color: {{base[8]}};
 }

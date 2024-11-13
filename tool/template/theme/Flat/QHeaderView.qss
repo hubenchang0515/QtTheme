@@ -1,0 +1,55 @@
+QHeaderView::section {
+    color: {{base[1]}};
+    background-color: {{base[7]}};
+    border: 1px solid {{base[6]}};
+    padding: 8px 16px;
+}
+
+QHeaderView::section:horizontal:checked
+{
+    border-top: 3px solid {{base[2]}};
+    padding: 5px 16px 8px 16px;
+}
+
+QHeaderView::section:vertical:checked
+{
+    border-left: 3px solid {{base[2]}};
+    padding: 8px 16px 8px 13px;
+}
+
+QHeaderView::up-arrow {
+    subcontrol-position: center right;
+    image: url(":/icon/chevron_up/{{base[2]}}.svg");
+}
+
+QHeaderView::down-arrow {
+    subcontrol-position: center right;
+    image: url(":/icon/chevron_down/{{base[2]}}.svg");
+}
+
+
+{% for key in colors %}
+
+QHeaderView[Color="{{key}}"]::section:horizontal:checked
+{
+    border-top: 3px solid {{colors[key][5]}};
+    padding: 5px 16px 8px 16px;
+}
+
+QHeaderView[Color="{{key}}"]::section:vertical:checked
+{
+    border-left: 3px solid {{colors[key][5]}};
+    padding: 8px 16px 8px 13px;
+}
+
+QHeaderView[Color="{{key}}"]::up-arrow {
+    subcontrol-position: center right;
+    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+}
+
+QHeaderView[Color="{{key}}"]::down-arrow {
+    subcontrol-position: center right;
+    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+}
+
+{% endfor %}

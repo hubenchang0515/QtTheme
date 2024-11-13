@@ -1,0 +1,59 @@
+QToolBox::tab {
+    background-color: {{base[6]}};
+    color: {{base[1]}};
+
+    padding: 0 4px;
+}
+
+QToolBox::tab:hover {
+    background-color: {{base[4]}};
+    color: {{base[1]}};
+}
+
+QToolBox::tab:pressed {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+}
+
+QToolBox::tab:selected {
+    background-color: {{base[5]}};
+    color: {{base[1]}};
+    border-left: 4px solid {{base[2]}};
+    padding-left: 0;
+}
+
+QToolBox::tab:disabled {
+    background-color: {{base[8]}};
+    color: {{base[5]}};
+}
+
+{% for key in colors %}
+
+QToolBox[Color="{{key}}"]::tab {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QToolBox[Color="{{key}}"]::tab:hover {
+    background-color: {{colors[key][4]}};
+    color: {{base[1]}};
+}
+
+QToolBox[Color="{{key}}"]::tab:pressed {
+    background-color: {{colors[key][6]}};
+    color: {{base[1]}};
+}
+
+QToolBox[Color="{{key}}"]::tab:selected {
+    background-color: {{colors[key][6]}};
+    color: {{base[1]}};
+    border-left: 4px solid {{colors[key][2]}};
+    padding-left: 0;
+}
+
+QToolBox[Color="{{key}}"]::tab:disabled {
+    background-color: {{colors[key][8]}};
+    color: {{base[5]}};
+}
+
+{% endfor %}

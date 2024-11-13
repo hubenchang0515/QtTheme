@@ -13,6 +13,10 @@ QToolButton:disabled {
     color: {{base[5]}};
 }
 
+QToolButton::menu-indicator {
+    image: url(":/icon/triangle_down/{{base[1]}}.svg");
+}
+
 {% for key in colors %}
 
 QToolButton[Color="{{key}}"]:hover {
@@ -28,6 +32,10 @@ QToolButton[Color="{{key}}"]:pressed {
 QToolButton[Color="{{key}}"]:disabled {
     background-color: {{colors[key][8]}};
     color: {{base[5]}};
+}
+
+QToolButton[Color="{{key}}"]::menu-indicator {
+    image: url(":/icon/triangle_down/{{base[1]}}.svg");
 }
 
 {% endfor %}

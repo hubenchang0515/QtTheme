@@ -24,14 +24,16 @@ QSpinBox::down-button:hover {
     background-color: {{base[6]}};
 }
 
-QSpinBox::up-button:pressed ,
-QSpinBox::down-button:pressed  {
+QSpinBox::up-button:pressed,
+QSpinBox::down-button:pressed {
     width: 24px;
     background-color: {{base[7]}};
 }
 
-QSpinBox::up-button:disabled ,
-QSpinBox::down-button:disabled  {
+QSpinBox::up-button:disabled,
+QSpinBox::down-button:disabled,
+QSpinBox::up-button:off,
+QSpinBox::down-button:off {
     width: 24px;
     background-color: {{base[8]}};
 }

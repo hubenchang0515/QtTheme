@@ -5,6 +5,7 @@
 
 #include <QGroupBox>
 #include <QLabel>
+#include <QToolTip>
 #include <QPushButton>
 #include <QSpinBox>
 #include <QTimeEdit>
@@ -28,9 +29,44 @@
 #include <QScrollBar>
 #include <QMessageBox>
 #include <QSplitter>
+#include <QToolBox>
+#include <QTabBar>
+#include <QTabWidget>
+#include <QColumnView>
+#include <QFileSystemModel>
+#include <QHeaderView>
+#include <QTreeView>
+#include <QTreeWidget>
+#include <QTableView>
+#include <QTableWidget>
 
 namespace QtTheme
 {
+
+class FileSystemModel : public QFileSystemModel
+{
+public:
+    FileSystemModel(QObject *parent = nullptr) noexcept:
+        QFileSystemModel(parent)
+    {
+        QFileSystemModel::setRootPath(QDir::currentPath());
+    }
+
+    virtual QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override
+    {
+        switch(role)
+        {
+        case Qt::DecorationRole: // icon
+            return QVariant{};
+
+        case Qt::TextAlignmentRole:
+            return QVariant{Qt::AlignLeft|Qt::AlignVCenter};
+
+        default:
+            return QFileSystemModel::headerData(section, orientation, role);
+        }
+    }
+};
 
 ThemePreview::ThemePreview(QWidget* parent) noexcept:
     QWidget{parent},
@@ -130,7 +166,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QButton"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 0, 1);
+        layout_->addWidget(groupbox, 0, 1, 1, 3);
     }
 
     {
@@ -172,7 +208,22 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QLineEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 1, 1, 1, 1);
+        layout_->addWidget(groupbox, 1, 1, 1, 3);
+    }
+
+    {
+        auto label = new QLabel(tr("Hover Me"));
+        label->setToolTip(tr("ToolTip Message"));
+        label->setProperty("Color", "Success");
+        label->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+
+        auto col = new QVBoxLayout;
+        col->addWidget(label);
+
+        auto groupbox = new QGroupBox(tr("QToolTip"));
+        groupbox->setLayout(col);
+
+        layout_->addWidget(groupbox, 2, 0);
     }
 
     {
@@ -209,7 +260,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QProgressBar"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 2, 0, 1, 2);
+        layout_->addWidget(groupbox, 2, 1, 1, 3);
     }
 
     {
@@ -335,7 +386,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QSlider"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 3, 1, 2, 1);
+        layout_->addWidget(groupbox, 3, 1, 2, 3);
     }
 
     {
@@ -432,7 +483,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QPlainTextEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 5, 1);
+        layout_->addWidget(groupbox, 5, 1, 1, 3);
     }
 
     {
@@ -489,10 +540,81 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QSplitter"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 6, 1);
+        layout_->addWidget(groupbox, 6, 1, 1, 3);
     }
 
+    {
+        auto toolbox1 = new QToolBox;
         {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            toolbox1->addItem(item1, tr("Tool Group 1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            toolbox1->addItem(item2, tr("Tool Group 2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            toolbox1->addItem(item3, tr("Tool Group 3"));
+        }
+        
+
+        auto toolbox2 = new QToolBox;
+        toolbox2->setProperty("Color", "Primary");
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            toolbox2->addItem(item1, tr("Tool Group 1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            toolbox2->addItem(item2, tr("Tool Group 2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            toolbox2->addItem(item3, tr("Tool Group 3"));
+        }
+
+        auto toolbox3 = new QToolBox;
+        toolbox3->setProperty("Color", "Secondary");
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            toolbox3->addItem(item1, tr("Tool Group 1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            toolbox3->addItem(item2, tr("Tool Group 2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            toolbox3->addItem(item3, tr("Tool Group 3"));
+        }
+
+        auto col = new QVBoxLayout;
+        col->addWidget(toolbox1);
+        col->addWidget(new QWidget);
+        col->addWidget(toolbox2);
+        col->addWidget(new QWidget);
+        col->addWidget(toolbox3);
+
+        auto groupbox = new QGroupBox(tr("QToolBox"));
+        groupbox->setLayout(col);
+
+        layout_->addWidget(groupbox, 7, 0, 4, 1);
+    }
+
+    {
         auto spin1 = new QSpinBox;
         auto spin2 = new QSpinBox;
         spin2->setReadOnly(true);
@@ -517,6 +639,24 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         spin9->setProperty("Color", "Secondary");
         spin9->setEnabled(false);
 
+        auto grid = new QGridLayout;
+        grid->addWidget(spin1, 0, 0);
+        grid->addWidget(spin2, 1, 0);
+        grid->addWidget(spin3, 2, 0);
+        grid->addWidget(spin4, 0, 1);
+        grid->addWidget(spin5, 1, 1);
+        grid->addWidget(spin6, 2, 1);
+        grid->addWidget(spin7, 0, 2);
+        grid->addWidget(spin8, 1, 2);
+        grid->addWidget(spin9, 2, 2);
+
+        auto groupbox = new QGroupBox(tr("QSpinbox"));
+        groupbox->setLayout(grid);
+
+        layout_->addWidget(groupbox, 7, 1);
+    }
+
+    {
         auto dspin1 = new QDoubleSpinBox;
         auto dspin2 = new QDoubleSpinBox;
         dspin2->setReadOnly(true);
@@ -540,7 +680,25 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto dspin9 = new QDoubleSpinBox;
         dspin9->setProperty("Color", "Secondary");
         dspin9->setEnabled(false);
+    
+        auto grid = new QGridLayout;
+        grid->addWidget(dspin1, 0, 0);
+        grid->addWidget(dspin2, 1, 0);
+        grid->addWidget(dspin3, 2, 0);
+        grid->addWidget(dspin4, 0, 1);
+        grid->addWidget(dspin5, 1, 1);
+        grid->addWidget(dspin6, 2, 1);
+        grid->addWidget(dspin7, 0, 2);
+        grid->addWidget(dspin8, 1, 2);
+        grid->addWidget(dspin9, 2, 2);
 
+        auto groupbox = new QGroupBox(tr("QDoubleSpinbox"));
+        groupbox->setLayout(grid);
+
+        layout_->addWidget(groupbox, 7, 2);
+    }
+
+    {
         auto time1 = new QTimeEdit{QTime::currentTime()};
         auto time2 = new QTimeEdit{QTime::currentTime()};
         time2->setReadOnly(true);
@@ -565,6 +723,24 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         time9->setProperty("Color", "Secondary");
         time9->setEnabled(false);
 
+        auto grid = new QGridLayout;
+        grid->addWidget(time1, 0, 0);
+        grid->addWidget(time2, 1, 0);
+        grid->addWidget(time3, 2, 0);
+        grid->addWidget(time4, 0, 1);
+        grid->addWidget(time5, 1, 1);
+        grid->addWidget(time6, 2, 1);
+        grid->addWidget(time7, 0, 2);
+        grid->addWidget(time8, 1, 2);
+        grid->addWidget(time9, 2, 2);
+
+        auto groupbox = new QGroupBox(tr("QTimeEdit"));
+        groupbox->setLayout(grid);
+
+        layout_->addWidget(groupbox, 7, 3);
+    }
+
+    {
         auto date1 = new QDateEdit{QDate::currentDate()};
         auto date2 = new QDateEdit{QDate::currentDate()};
         date2->setReadOnly(true);
@@ -589,6 +765,24 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         date9->setProperty("Color", "Secondary");
         date9->setEnabled(false);
 
+        auto grid = new QGridLayout;
+        grid->addWidget(date1, 0, 0);
+        grid->addWidget(date2, 1, 0);
+        grid->addWidget(date3, 2, 0);
+        grid->addWidget(date4, 0, 1);
+        grid->addWidget(date5, 1, 1);
+        grid->addWidget(date6, 2, 1);
+        grid->addWidget(date7, 0, 2);
+        grid->addWidget(date8, 1, 2);
+        grid->addWidget(date9, 2, 2);
+
+        auto groupbox = new QGroupBox(tr("QDateEdit"));
+        groupbox->setLayout(grid);
+
+        layout_->addWidget(groupbox, 8, 1);
+    }
+
+    {
         auto datetime1 = new QDateTimeEdit{QDateTime::currentDateTime()};
         auto datetime2 = new QDateTimeEdit{QDateTime::currentDateTime()};
         datetime2->setReadOnly(true);
@@ -614,63 +808,394 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         datetime9->setEnabled(false);
 
         auto grid = new QGridLayout;
-        grid->addWidget(spin1, 0, 0);
-        grid->addWidget(spin2, 1, 0);
-        grid->addWidget(spin3, 2, 0);
-        grid->addWidget(spin4, 0, 1);
-        grid->addWidget(spin5, 1, 1);
-        grid->addWidget(spin6, 2, 1);
-        grid->addWidget(spin7, 0, 2);
-        grid->addWidget(spin8, 1, 2);
-        grid->addWidget(spin9, 2, 2);
-        
-        grid->addWidget(dspin1, 0, 3);
-        grid->addWidget(dspin2, 1, 3);
-        grid->addWidget(dspin3, 2, 3);
-        grid->addWidget(dspin4, 0, 4);
-        grid->addWidget(dspin5, 1, 4);
-        grid->addWidget(dspin6, 2, 4);
-        grid->addWidget(dspin7, 0, 5);
-        grid->addWidget(dspin8, 1, 5);
-        grid->addWidget(dspin9, 2, 5);
+        grid->addWidget(datetime1, 0, 0);
+        grid->addWidget(datetime2, 1, 0);
+        grid->addWidget(datetime3, 2, 0);
+        grid->addWidget(datetime4, 0, 1);
+        grid->addWidget(datetime5, 1, 1);
+        grid->addWidget(datetime6, 2, 1);
+        grid->addWidget(datetime7, 0, 2);
+        grid->addWidget(datetime8, 1, 2);
+        grid->addWidget(datetime9, 2, 2);
 
-        grid->addWidget(time1, 0, 6);
-        grid->addWidget(time2, 1, 6);
-        grid->addWidget(time3, 2, 6);
-        grid->addWidget(time4, 0, 7);
-        grid->addWidget(time5, 1, 7);
-        grid->addWidget(time6, 2, 7);
-        grid->addWidget(time7, 0, 8);
-        grid->addWidget(time8, 1, 8);
-        grid->addWidget(time9, 2, 8);
-
-        grid->addWidget(date1, 3, 0);
-        grid->addWidget(date2, 4, 0);
-        grid->addWidget(date3, 5, 0);
-        grid->addWidget(date4, 3, 1);
-        grid->addWidget(date5, 4, 1);
-        grid->addWidget(date6, 5, 1);
-        grid->addWidget(date7, 3, 2);
-        grid->addWidget(date8, 4, 2);
-        grid->addWidget(date9, 5, 2);
-
-        grid->addWidget(datetime1, 3, 3, 1, 2);
-        grid->addWidget(datetime2, 4, 3, 1, 2);
-        grid->addWidget(datetime3, 5, 3, 1, 2);
-        grid->addWidget(datetime4, 3, 5, 1, 2);
-        grid->addWidget(datetime5, 4, 5, 1, 2);
-        grid->addWidget(datetime6, 5, 5, 1, 2);
-        grid->addWidget(datetime7, 3, 7, 1, 2);
-        grid->addWidget(datetime8, 4, 7, 1, 2);
-        grid->addWidget(datetime9, 5, 7, 1, 2);
-
-        auto groupbox = new QGroupBox(tr("QSpinbox && QDoubleSpinbox && QTimeEdit && QDateEdit && QDateTimeEdit"));
+        auto groupbox = new QGroupBox(tr("QDateTimeEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 7, 0, 1, 2);
+        layout_->addWidget(groupbox, 8, 2, 1, 2);
     }
 
-    
+    {
+        auto tab1 = new QTabBar;
+        tab1->setTabsClosable(true); 
+        auto tab2 = new QTabBar;
+        tab2->setTabsClosable(true);
+        tab2->setProperty("Color", "Primary");
+        auto tab3 = new QTabBar;
+        tab3->setTabsClosable(true);
+        tab3->setProperty("Color", "Secondary");
+
+        for (int i = 0; i < 30; i++) {
+            tab1->addTab(QString("Tab%1").arg(i+1));
+            tab2->addTab(QString("Tab%1").arg(i+1));
+            tab3->addTab(QString("Tab%1").arg(i+1));
+        }
+        auto col = new QVBoxLayout;
+        col->addWidget(tab1);
+        col->addWidget(tab2);
+        col->addWidget(tab3);
+
+        auto groupbox = new QGroupBox(tr("QTabBar"));
+        groupbox->setLayout(col);
+
+        layout_->addWidget(groupbox, 9, 1, 1, 3);
+    }
+
+    {
+        auto tab1 = new QTabWidget;
+        tab1->setTabsClosable(true);
+        tab1->setTabPosition(QTabWidget::North);
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            tab1->addTab(item1, tr("TAB1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            tab1->addTab(item2, tr("TAB2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            tab1->addTab(item3, tr("TAB3"));
+        }
+
+        auto tab2 = new QTabWidget;
+        tab2->setTabsClosable(true);
+        tab2->setTabPosition(QTabWidget::South);
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            tab2->addTab(item1, tr("TAB1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            tab2->addTab(item2, tr("TAB2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            tab2->addTab(item3, tr("TAB3"));
+        }
+
+        auto tab3 = new QTabWidget;
+        tab3->setTabsClosable(true);
+        tab3->tabBar()->setProperty("Color", "Primary");
+        tab3->setTabPosition(QTabWidget::West);
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            tab3->addTab(item1, tr("TAB1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            tab3->addTab(item2, tr("TAB2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            tab3->addTab(item3, tr("TAB3"));
+        }
+
+        auto tab4 = new QTabWidget;
+        tab4->setTabsClosable(true);
+        tab4->tabBar()->setProperty("Color", "Secondary");
+        tab4->setTabPosition(QTabWidget::East);
+        {
+            auto item1 = new QWidget;
+            item1->setProperty("Color", "Success");
+            item1->setProperty("Depth", 5);
+            tab4->addTab(item1, tr("TAB1"));
+
+            auto item2 = new QWidget;
+            item2->setProperty("Color", "Warning");
+            item2->setProperty("Depth", 5);
+            tab4->addTab(item2, tr("TAB2"));
+
+            auto item3 = new QWidget;
+            item3->setProperty("Color", "Danger");
+            item3->setProperty("Depth", 5);
+            tab4->addTab(item3, tr("TAB3"));
+        }
+
+        auto row = new QHBoxLayout;
+        row->addWidget(tab1);
+        row->addWidget(tab2);
+        row->addWidget(tab3);
+        row->addWidget(tab4);
+
+        auto groupbox = new QGroupBox(tr("QTabWidget"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 10, 1, 1, 3);
+    }
+
+    {
+        auto column = new QColumnView;
+        auto model = new FileSystemModel;
+        column->setModel(model);
+
+        auto row = new QHBoxLayout;
+        row->addWidget(column);
+
+        auto groupbox = new QGroupBox(tr("QColumnView"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 11, 0, 1, 4);
+    }
+
+    {
+        auto model = new FileSystemModel;
+
+        auto tree1 = new QTreeView;
+        tree1->setMinimumHeight(200);
+        tree1->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        tree1->setModel(model);
+        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        {
+            tree1->expand(index);
+        }
+
+        auto tree2 = new QTreeView;
+        tree2->setMinimumHeight(200);
+        tree2->setProperty("Color", "Primary");
+        tree2->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        tree2->header()->setProperty("Color", "Primary");
+        tree2->setModel(model);
+        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        {
+            tree2->expand(index);
+        }
+
+        auto tree3 = new QTreeView;
+        tree3->setMinimumHeight(200);
+        tree3->setProperty("Color", "Secondary");
+        tree3->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        tree3->header()->setProperty("Color", "Secondary");
+        tree3->setModel(model);
+        for (auto index = model->index(QDir::home().absolutePath()); index.isValid(); index = index.parent())
+        {
+            tree3->expand(index);
+        }
+
+        auto row = new QHBoxLayout;
+        row->addWidget(tree1);
+        row->addWidget(tree2);
+        row->addWidget(tree3);
+
+        auto groupbox = new QGroupBox(tr("QTreeView"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 12, 0, 1, 4);
+    }
+
+    {
+        
+
+        auto tree1 = new QTreeWidget;
+        tree1->setMinimumHeight(200);
+        tree1->setHeaderLabels(QStringList{tr("Index"), tr("name"), tr("value")});
+        tree1->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+        auto root1 = new QTreeWidgetItem{QStringList{tr("0"), tr("root"), tr("root")}};
+        for (int i = 0; i < 10; i++) 
+        {
+            auto item = new QTreeWidgetItem{QStringList{QString(tr("%1")).arg(i+1), QString(tr("item-%1")).arg(i), QString(tr("item%1")).arg(i)}};
+            root1->addChild(item);
+        }
+        tree1->addTopLevelItem(root1);
+        root1->setExpanded(true);
+
+        auto tree2 = new QTreeWidget;
+        tree2->setProperty("Color", "Primary");
+        tree2->setMinimumHeight(200);
+        tree2->setHeaderLabels(QStringList{tr("Index"), tr("name"), tr("value")});
+        tree2->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        tree2->header()->setProperty("Color", "Primary");
+
+        auto root2 = new QTreeWidgetItem{QStringList{tr("0"), tr("root"), tr("root")}};
+        for (int i = 0; i < 10; i++) 
+        {
+            auto item = new QTreeWidgetItem{QStringList{QString(tr("%1")).arg(i+1), QString(tr("item-%1")).arg(i), QString(tr("item%1")).arg(i)}};
+            root2->addChild(item);
+        }
+        tree2->addTopLevelItem(root2);
+        root2->setExpanded(true);
+
+        auto tree3 = new QTreeWidget;
+        tree3->setProperty("Color", "Secondary");
+        tree3->setMinimumHeight(200);
+        tree3->setHeaderLabels(QStringList{tr("Index"), tr("name"), tr("value")});
+        tree3->header()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        tree3->header()->setProperty("Color", "Secondary");
+
+        auto root3 = new QTreeWidgetItem{QStringList{tr("0"), tr("root"), tr("root")}};
+        for (int i = 0; i < 10; i++) 
+        {
+            auto item = new QTreeWidgetItem{QStringList{QString(tr("%1")).arg(i+1), QString(tr("item-%1")).arg(i), QString(tr("item%1")).arg(i)}};
+            root3->addChild(item);
+        }
+        tree3->addTopLevelItem(root3);
+        root3->setExpanded(true);
+
+        auto row = new QHBoxLayout;
+        row->addWidget(tree1);
+        row->addWidget(tree2);
+        row->addWidget(tree3);
+
+        auto groupbox = new QGroupBox(tr("QTreeWidget"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 13, 0, 1, 4);
+    }
+
+    {
+        auto table1 = new QTableView;
+        table1->setMinimumHeight(200);
+        table1->setAlternatingRowColors(true);
+        table1->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table1->horizontalHeader()->setStretchLastSection(true);
+        table1->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table1->setSortingEnabled(true);
+        table1->sortByColumn(0, Qt::AscendingOrder);
+
+        auto table2 = new QTableView;
+        table2->setProperty("Color", "Primary");
+        table2->setMinimumHeight(200);
+        table2->setAlternatingRowColors(true);
+        table2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table2->horizontalHeader()->setStretchLastSection(true);
+        table2->horizontalHeader()->setProperty("Color", "Primary");
+        table2->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table2->verticalHeader()->setProperty("Color", "Primary");
+        table2->setSortingEnabled(true);
+        table2->sortByColumn(0, Qt::AscendingOrder);
+
+        auto table3 = new QTableView;
+        table3->setProperty("Color", "Secondary");
+        table3->setMinimumHeight(200);
+        table3->setAlternatingRowColors(true);
+        table3->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table3->horizontalHeader()->setStretchLastSection(true);
+        table3->horizontalHeader()->setProperty("Color", "Secondary");
+        table3->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table3->verticalHeader()->setProperty("Color", "Secondary");
+        table3->setSortingEnabled(true);
+        table3->sortByColumn(0, Qt::AscendingOrder);
+
+        auto model = new FileSystemModel;
+        table1->setModel(model);
+        table1->setRootIndex(model->index(QDir::home().absolutePath()));
+        table2->setModel(model);
+        table2->setRootIndex(model->index(QDir::home().absolutePath()));
+        table3->setModel(model);
+        table3->setRootIndex(model->index(QDir::home().absolutePath()));
+
+        auto col = new QVBoxLayout;
+        col->addWidget(table1);
+        col->addWidget(table2);
+        col->addWidget(table3);
+
+        auto groupbox = new QGroupBox(tr("QTableView"));
+        groupbox->setLayout(col);
+
+        layout_->addWidget(groupbox, 14, 0, 1, 4);
+    }
+
+    {
+        auto table1 = new QTableWidget;
+        table1->setMinimumHeight(200);
+        table1->setAlternatingRowColors(true);
+        table1->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table1->horizontalHeader()->setStretchLastSection(true);
+        table1->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table1->setSortingEnabled(true);
+        table1->sortByColumn(0, Qt::AscendingOrder);
+
+        table1->setRowCount(10);
+        table1->setColumnCount(10);
+        for (int row = 0; row < 10; row++) 
+        {
+            for (int col = 0; col < 10; col++)
+            {
+                table1->setItem(row, col, new QTableWidgetItem(QString("%1").arg(row*10+col+1)));
+            } 
+        }
+
+        auto table2 = new QTableWidget;
+        table2->setProperty("Color", "Primary");
+        table2->setMinimumHeight(200);
+        table2->setAlternatingRowColors(true);
+        table2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table2->horizontalHeader()->setStretchLastSection(true);
+        table2->horizontalHeader()->setProperty("Color", "Primary");
+        table2->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table2->verticalHeader()->setProperty("Color", "Primary");
+        table2->setSortingEnabled(true);
+        table2->sortByColumn(0, Qt::AscendingOrder);
+
+        table2->setRowCount(10);
+        table2->setColumnCount(10);
+        for (int row = 0; row < 10; row++) 
+        {
+            for (int col = 0; col < 10; col++)
+            {
+                table2->setItem(row, col, new QTableWidgetItem(QString("%1").arg(row*10+col+1)));
+            } 
+        }
+
+        auto table3 = new QTableWidget;
+        table3->setProperty("Color", "Secondary");
+        table3->setMinimumHeight(200);
+        table3->setAlternatingRowColors(true);
+        table3->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table3->horizontalHeader()->setStretchLastSection(true);
+        table3->horizontalHeader()->setProperty("Color", "Secondary");
+        table3->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        table3->verticalHeader()->setProperty("Color", "Secondary");
+        table3->setSortingEnabled(true);
+        table3->sortByColumn(0, Qt::AscendingOrder);
+
+        table3->setRowCount(10);
+        table3->setColumnCount(10);
+        for (int row = 0; row < 10; row++) 
+        {
+            for (int col = 0; col < 10; col++)
+            {
+                table3->setItem(row, col, new QTableWidgetItem(QString("%1").arg(row*10+col+1)));
+            } 
+        }
+
+        auto col = new QVBoxLayout;
+        col->addWidget(table1);
+        col->addWidget(table2);
+        col->addWidget(table3);
+
+        auto groupbox = new QGroupBox(tr("QTableWidget"));
+        groupbox->setLayout(col);
+
+        layout_->addWidget(groupbox, 15, 0, 1, 4);
+    }
+
+    layout_->setColumnStretch(0, 1);
+    layout_->setColumnStretch(1, 2);
+    layout_->setColumnStretch(2, 2);
+    layout_->setColumnStretch(3, 2);
     this->setLayout(layout_);
 }
 

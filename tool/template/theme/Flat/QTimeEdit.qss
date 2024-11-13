@@ -24,14 +24,16 @@ QTimeEdit::down-button:hover {
     background-color: {{base[6]}};
 }
 
-QTimeEdit::up-button:pressed ,
-QTimeEdit::down-button:pressed  {
+QTimeEdit::up-button:pressed,
+QTimeEdit::down-button:pressed {
     width: 24px;
     background-color: {{base[7]}};
 }
 
-QTimeEdit::up-button:disabled ,
-QTimeEdit::down-button:disabled  {
+QTimeEdit::up-button:disabled,
+QTimeEdit::down-button:disabled,
+QTimeEdit::up-button:off,
+QTimeEdit::down-button:off {
     width: 24px;
     background-color: {{base[8]}};
 }

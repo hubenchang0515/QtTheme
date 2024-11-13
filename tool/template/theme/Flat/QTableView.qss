@@ -1,0 +1,33 @@
+QTableView QTableCornerButton::section {
+    background-color: {{base[7]}};
+    border: 1px solid {{base[7]}};
+    image: url(":/icon/table/{{base[3]}}.svg");
+}
+
+QTableView {
+    color: {{base[1]}};
+    background-color: {{base[9]}};
+    alternate-background-color: {{base[8]}};
+    selection-color: {{base[1]}};
+    selection-background-color: {{base[6]}};
+    gridline-color: {{base[7]}};
+}
+
+{% for key in colors %}
+
+QTableView[Color="{{key}}"] QTableCornerButton::section {
+    background-color: {{base[7]}};
+    border: 1px solid {{base[7]}};
+    image: url(":/icon/table/{{colors[key][5]}}.svg");
+}
+
+QTableView[Color="{{key}}"] {
+    color: {{base[1]}};
+    background-color: {{base[9]}};
+    alternate-background-color: {{base[8]}};
+    selection-color: {{base[1]}};
+    selection-background-color: {{colors[key][5]}};
+    gridline-color: {{base[7]}};
+}
+
+{% endfor %}
