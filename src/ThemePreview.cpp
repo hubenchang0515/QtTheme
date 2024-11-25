@@ -526,16 +526,23 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         widget3->setProperty("Color", "Danger");
         widget3->setProperty("Depth", 5);
 
-        auto spliter = new QSplitter;
-        spliter->setProperty("Color", "Primary");
-        spliter->addWidget(widget1);
-        spliter->addWidget(widget2);
-        spliter->addWidget(widget3);
-        spliter->handle(1)->setAttribute(Qt::WA_Hover, true);
-        spliter->handle(2)->setAttribute(Qt::WA_Hover, true);
+        auto splitter1 = new QSplitter{Qt::Horizontal};
+        splitter1->setProperty("Color", "Primary");
+
+        auto splitter2 = new QSplitter{Qt::Vertical};
+        splitter2->setProperty("Color", "Primary");
+        splitter2->addWidget(widget2);
+        splitter2->addWidget(widget3);
+
+        splitter1->addWidget(widget1);
+        splitter1->addWidget(splitter2);
+        splitter1->setSizes({1, 1});
+
+        splitter2->handle(1)->setAttribute(Qt::WA_Hover, true);
+        splitter1->handle(1)->setAttribute(Qt::WA_Hover, true);
 
         auto row = new QHBoxLayout;
-        row->addWidget(spliter);
+        row->addWidget(splitter1);
 
         auto groupbox = new QGroupBox(tr("QSplitter"));
         groupbox->setLayout(row);
@@ -940,6 +947,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         row->addWidget(tab4);
 
         auto groupbox = new QGroupBox(tr("QTabWidget"));
+        groupbox->setMinimumHeight(300);
         groupbox->setLayout(row);
 
         layout_->addWidget(groupbox, 10, 1, 1, 3);
