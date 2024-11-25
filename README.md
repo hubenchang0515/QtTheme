@@ -6,9 +6,9 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 ## Preview - 预览
 
-![dark](./doc/image/dark.webp)
+![dark](./doc/image/dark.png)
 
-![light](./doc/image/light.webp)
+![light](./doc/image/light.png)
 
 ## Usage - 使用说明
 
