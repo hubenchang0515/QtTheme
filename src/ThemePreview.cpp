@@ -309,6 +309,10 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         check6->setProperty("Color", "Secondary");
         check6->setEnabled(false);
 
+        check1->setTristate(true);
+        check3->setTristate(true);
+        check5->setTristate(true);
+
         auto grid = new QGridLayout;
         grid->addWidget(check1, 0, 0);
         grid->addWidget(check2, 0, 1);
