@@ -75,3 +75,16 @@ void CustomWidget::paintEvent(QPaintEvent *)
     style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 ```
+
+当样式表引用的属性值发生变化时，样式不会自动更新，必须手动更新：
+
+Style will not update itself automatically when the value of a property referenced from the style sheet changes, you must update it manually: 
+
+```cpp
+// property changes
+widget->setProperty("Color", "Secondary");
+
+// update style manually
+widget->style()->unpolish(widget);
+widget->style()->polish(widget);
+```
