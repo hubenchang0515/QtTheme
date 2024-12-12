@@ -14,7 +14,7 @@ QToolButton:disabled {
 }
 
 QToolButton::menu-indicator {
-    image: url(":/icon/triangle_down/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/triangle_down/{{base[1]}}.svg");
 }
 
 {% for key in colors %}
@@ -35,7 +35,7 @@ QToolButton[Color="{{key}}"]:disabled {
 }
 
 QToolButton[Color="{{key}}"]::menu-indicator {
-    image: url(":/icon/triangle_down/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/triangle_down/{{base[1]}}.svg");
 }
 
 {% endfor %}

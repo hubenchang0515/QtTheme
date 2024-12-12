@@ -1,27 +1,27 @@
 QColumnView QColumnViewGrip {
-    image: url(":/icon/size_grip/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/size_grip/{{base[2]}}.svg");
 }
 
 QColumnView::left-arrow {
-    image: url(":/icon/chevron_left/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{base[5]}}.svg");
 }
 
 QColumnView::right-arrow {
-    image: url(":/icon/chevron_right/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{base[5]}}.svg");
 }
 
 {% for key in colors %}
 
 QColumnView[Color="{{key}}"] QColumnViewGrip {
-    image: url(":/icon/size_grip/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/size_grip/{{colors[key][5]}}.svg");
 }
 
 QColumnView[Color="{{key}}"]::left-arrow {
-    image: url(":/icon/chevron_left/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{base[5]}}.svg");
 }
 
 QColumnView[Color="{{key}}"]::right-arrow {
-    image: url(":/icon/chevron_right/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{base[5]}}.svg");
 }
 
 {% endfor %}

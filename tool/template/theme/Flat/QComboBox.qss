@@ -11,7 +11,7 @@ QComboBox::drop-down {
 }
 
 QComboBox::down-arrow {
-    image: url(":/icon/chevron_down/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[5]}}.svg");
 }
 
 QComboBox QAbstractItemView {
@@ -54,7 +54,7 @@ QComboBox[Color="{{key}}"]::drop-down {
 }
 
 QComboBox[Color="{{key}}"]::down-arrow {
-    image: url(":/icon/chevron_down/{{colors[key][7]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][7]}}.svg");
 }
 
 QComboBox[Color="{{key}}"] QAbstractItemView {

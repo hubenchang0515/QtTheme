@@ -28,32 +28,32 @@ QScrollBar::add-line:vertical {
 
 QScrollBar::up-arrow:vertical {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_up/{{base[3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[3]}}.svg");
 }
 
 QScrollBar::up-arrow:vertical:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_up/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[1]}}.svg");
 }
 
 QScrollBar::up-arrow:vertical:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_up/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[2]}}.svg");
 }
 
 QScrollBar::down-arrow:vertical {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_down/{{base[3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[3]}}.svg");
 }
 
 QScrollBar::down-arrow:vertical:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_down/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[1]}}.svg");
 }
 
 QScrollBar::down-arrow:vertical:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_down/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[2]}}.svg");
 }
 
 QScrollBar:horizontal {
@@ -86,32 +86,32 @@ QScrollBar::add-line:horizontal {
 
 QScrollBar::left-arrow:horizontal {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_left/{{base[3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{base[3]}}.svg");
 }
 
 QScrollBar::left-arrow:horizontal:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_left/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{base[1]}}.svg");
 }
 
 QScrollBar::left-arrow:horizontal:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_left/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{base[2]}}.svg");
 }
 
 QScrollBar::right-arrow:horizontal {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_right/{{base[3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{base[3]}}.svg");
 }
 
 QScrollBar::right-arrow:horizontal:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_right/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{base[1]}}.svg");
 }
 
 QScrollBar::right-arrow:horizontal:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_right/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{base[2]}}.svg");
 }
 
 QScrollBar::handle:disabled {
@@ -161,32 +161,32 @@ QScrollBar[Color="{{key}}"]::handle:vertical {
 
 QScrollBar[Color="{{key}}"]::up-arrow:vertical {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][5]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::up-arrow:vertical:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_up/{{colors[key][3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][3]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::up-arrow:vertical:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_up/{{colors[key][4]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][4]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::down-arrow:vertical {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][5]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::down-arrow:vertical:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_down/{{colors[key][3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][3]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::down-arrow:vertical:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_down/{{colors[key][4]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][4]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::handle:horizontal {
@@ -198,32 +198,32 @@ QScrollBar[Color="{{key}}"]::handle:horizontal {
 
 QScrollBar[Color="{{key}}"]::left-arrow:horizontal {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_left/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{colors[key][5]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::left-arrow:horizontal:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_left/{{colors[key][3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{colors[key][3]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::left-arrow:horizontal:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_left/{{colors[key][4]}}.svg");
+    image: url(":/QtTheme/icon/chevron_left/{{colors[key][4]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::right-arrow:horizontal {
     background-color: {{base[8]}};
-    image: url(":/icon/chevron_right/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{colors[key][5]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::right-arrow:horizontal:hover {
     background-color: {{base[6]}};
-    image: url(":/icon/chevron_right/{{colors[key][3]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{colors[key][3]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::right-arrow:horizontal:pressed {
     background-color: {{base[7]}};
-    image: url(":/icon/chevron_right/{{colors[key][4]}}.svg");
+    image: url(":/QtTheme/icon/chevron_right/{{colors[key][4]}}.svg");
 }
 
 QScrollBar[Color="{{key}}"]::handle:disabled {

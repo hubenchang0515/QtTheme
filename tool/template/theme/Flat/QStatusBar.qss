@@ -13,6 +13,6 @@ QStatusBar[Color="{{key}}"] {
 QStatusBar[Color="{{key}}"] > QSizeGrip {
     width: 16px;
     height: 16px;
-    image: url(":/icon/size_grip/{{colors[key][2]}}.svg");
+    image: url(":/QtTheme/icon/size_grip/{{colors[key][2]}}.svg");
 }
 {% endfor %}

@@ -34,7 +34,7 @@ ThemeManager& ThemeManager::singleton() noexcept
 QStringList ThemeManager::getThemes() const noexcept
 {
     QStringList themes;
-    QDirIterator iter(":/theme");
+    QDirIterator iter(":/QtTheme/theme");
     while(iter.hasNext())
     {
         QFileInfo info(iter.next());
@@ -47,7 +47,7 @@ QStringList ThemeManager::getThemes() const noexcept
 QStringList ThemeManager::getBaseColors(const QString& name) const noexcept
 {
     QStringList colors;
-    QDirIterator iter(QString(":/theme/%1").arg(name));
+    QDirIterator iter(QString(":/QtTheme/theme/%1").arg(name));
     while(iter.hasNext())
     {
         QFileInfo info(iter.next());
@@ -60,7 +60,7 @@ QStringList ThemeManager::getBaseColors(const QString& name) const noexcept
 QStringList ThemeManager::getPrimaryColors(const QString& name, const QString& base) const noexcept
 {
     QStringList colors;
-    QDirIterator iter(QString(":/theme/%1/%2").arg(name).arg(base));
+    QDirIterator iter(QString(":/QtTheme/theme/%1/%2").arg(name).arg(base));
     while(iter.hasNext())
     {
         QFileInfo info(iter.next());
@@ -73,7 +73,7 @@ QStringList ThemeManager::getPrimaryColors(const QString& name, const QString& b
 QStringList ThemeManager::getSecondaryColors(const QString& name, const QString& base, const QString& primary) const noexcept
 {
     QStringList colors;
-    QDirIterator iter(QString(":/theme/%1/%2/%3").arg(name).arg(base).arg(primary));
+    QDirIterator iter(QString(":/QtTheme/theme/%1/%2/%3").arg(name).arg(base).arg(primary));
     while(iter.hasNext())
     {
         QFileInfo info(iter.next());
@@ -85,7 +85,7 @@ QStringList ThemeManager::getSecondaryColors(const QString& name, const QString&
 
 QString ThemeManager::getTheme(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept
 {
-    QFile file(QString(":/theme/%1/%2/%3/%4.qss").arg(name).arg(base).arg(primary).arg(secondary));
+    QFile file(QString(":/QtTheme/theme/%1/%2/%3/%4.qss").arg(name).arg(base).arg(primary).arg(secondary));
     file.open(QFile::ReadOnly);
     return file.readAll();
 }

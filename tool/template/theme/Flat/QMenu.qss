@@ -4,7 +4,7 @@ QMenu {
 }
 
 QMenu::right-arrow {
-    image: url(":/icon/triangle_right/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/triangle_right/{{base[1]}}.svg");
 }
 
 QMenu::separator {
@@ -24,19 +24,19 @@ QMenu::item:selected {
 }
 
 QMenu::indicator:unchecked {
-    image: url(":/icon/check_box_unchecked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/check_box_unchecked/{{base[1]}}.svg");
 }
 
 QMenu::indicator:unchecked:selected {
-    image: url(":/icon/check_box_unchecked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/check_box_unchecked/{{base[1]}}.svg");
 }
 
 QMenu::indicator:checked {
-    image: url(":/icon/check_box_checked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/check_box_checked/{{base[1]}}.svg");
 }
 
 QMenu::indicator:checked:selected {
-    image: url(":/icon/check_box_checked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/check_box_checked/{{base[1]}}.svg");
 }
 
 {% for key in colors %}
@@ -47,7 +47,7 @@ QMenu[Color="{{key}}"] {
 }
 
 QMenu[Color="{{key}}"]::right-arrow {
-    image: url(":/icon/triangle_right/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/triangle_right/{{colors[key][5]}}.svg");
 }
 
 QMenu[Color="{{key}}"]::separator {
@@ -67,19 +67,19 @@ QMenu[Color="{{key}}"]::item:selected {
 }
 
 QMenu[Color="{{key}}"]::indicator:unchecked {
-    image: url(":/icon/check_box_unchecked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/check_box_unchecked/{{colors[key][5]}}.svg");
 }
 
 QMenu[Color="{{key}}"]::indicator:unchecked:selected {
-    image: url(":/icon/check_box_unchecked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/check_box_unchecked/{{colors[key][5]}}.svg");
 }
 
 QMenu[Color="{{key}}"]::indicator:checked {
-    image: url(":/icon/check_box_checked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/check_box_checked/{{colors[key][5]}}.svg");
 }
 
 QMenu[Color="{{key}}"]::indicator:checked:selected {
-    image: url(":/icon/check_box_checked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/check_box_checked/{{colors[key][5]}}.svg");
 }
 
 {% endfor %}

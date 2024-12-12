@@ -40,24 +40,24 @@ QSpinBox::down-button:off {
 
 QSpinBox::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[5]}}.svg");
 }
 
 QSpinBox::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[5]}}.svg");
 }
 
 QSpinBox::up-arrow:disabled,
 QSpinBox::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[6]}}.svg");
 }
 
 QSpinBox::down-arrow:disabled,
 QSpinBox::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[6]}}.svg");
 }
 
 {% for key in colors %}
@@ -78,24 +78,24 @@ QSpinBox[Color="{{key}}"]:disabled {
 
 QSpinBox[Color="{{key}}"]::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][5]}}.svg");
 }
 
 QSpinBox[Color="{{key}}"]::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][5]}}.svg");
 }
 
 QSpinBox[Color="{{key}}"]::up-arrow:disabled,
 QSpinBox[Color="{{key}}"]::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][8]}}.svg");
 }
 
 QSpinBox[Color="{{key}}"]::down-arrow:disabled,
 QSpinBox[Color="{{key}}"]::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][8]}}.svg");
 }
 
 {% endfor %}

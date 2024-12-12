@@ -74,14 +74,15 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
     QString qrc = "";
     QTextStream stream{&qrc, QIODevice::WriteOnly};
     stream << "<RCC>\n";
-    stream << "  <qresource prefix=\"/\">\n";
+    stream << "  <qresource prefix=\"/QtTheme/\">\n";
 
-    QString qssFileName = QString("%1_%2_%3_%4.qss").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
+    QString fileName = QString("QtTheme_%1_%2_%3_%4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
+    QString qssFileName = QString("%1.qss").arg(fileName);
     QString qssContent = QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor);
     stream << QString("    <file>%1</file>\n").arg(qssFileName);
     packer_->addFile(qssFileName, qssContent.toUtf8());
 
-    QRegularExpression regexp("url\\(\"(:/(icon/.*))\"\\)");
+    QRegularExpression regexp("url\\(\"(:/QtTheme/(icon/.*))\"\\)");
     QRegularExpressionMatchIterator iter = regexp.globalMatch(qssContent);
     while (iter.hasNext())
     {
@@ -97,8 +98,10 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
 
     stream << "  </qresource>\n";
     stream << "</RCC>\n";
-    packer_->addFile("resource.qrc", qrc.toUtf8());
-    QFileDialog::saveFileContent(packer_->data(), "theme.zip");
+
+    QString qrcFileName = QString("%1.qrc").arg(fileName);
+    packer_->addFile(qrcFileName, qrc.toUtf8());
+    QFileDialog::saveFileContent(packer_->data(), "QtTheme.zip");
 }
 
 void MainWindow::adjustDock() noexcept
@@ -132,7 +135,7 @@ void MainWindow::initActions() noexcept
         auto menu = new QMenu{tr("&Application"), this};
         menus_->addMenu(menu);
 
-        auto exportTheme = menu->addAction(QIcon(":/icon/save/#26c6da.svg"), tr("&Export Theme"));
+        auto exportTheme = menu->addAction(QIcon(":/QtTheme/icon/save/#26c6da.svg"), tr("&Export Theme"));
         exportTheme->setShortcut(QKeySequence::Save);
         connect(exportTheme, &QAction::triggered, config_, &ThemeConfigurator::emitExportTheme);
         tools_->addAction(exportTheme);
@@ -140,7 +143,7 @@ void MainWindow::initActions() noexcept
         menu->addSeparator();
         tools_->addSeparator();
 
-        auto go = menu->addMenu(QIcon(":/icon/link/#26c6da.svg"), tr("&Go"));
+        auto go = menu->addMenu(QIcon(":/QtTheme/icon/link/#26c6da.svg"), tr("&Go"));
         auto gotoSource = go->addAction(tr("Go to &Source Page"));
         connect(gotoSource, &QAction::triggered, Utils::toOpenUrl("https://github.com/hubenchang0515/QtTheme"));
         auto gotoPreview = go->addAction(tr("Go to &Preview Page"));
@@ -149,7 +152,7 @@ void MainWindow::initActions() noexcept
         connect(gotoDownload, &QAction::triggered, Utils::toOpenUrl("https://github.com/hubenchang0515/QtTheme/releases"));
         tools_->addWidget(Utils::makeQToolButton(go));
 
-        auto share = menu->addMenu(QIcon(":/icon/share/#26c6da.svg"), tr("&Share"));
+        auto share = menu->addMenu(QIcon(":/QtTheme/icon/share/#26c6da.svg"), tr("&Share"));
         auto copySource = share->addAction(tr("Copy &Source Page Link"));
         connect(copySource, &QAction::triggered, Utils::toCopyText("https://github.com/hubenchang0515/QtTheme"));
         auto copyPreview = share->addAction(tr("Copy &Preview Page Link"));
@@ -161,7 +164,7 @@ void MainWindow::initActions() noexcept
         menu->addSeparator();
         tools_->addSeparator();
 
-        auto quit = menu->addAction(QIcon(":/icon/close/#f44336.svg"), tr("&Quit"));
+        auto quit = menu->addAction(QIcon(":/QtTheme/icon/close/#f44336.svg"), tr("&Quit"));
         quit->setShortcut(QKeySequence::Quit);
         connect(quit, &QAction::triggered, this, &MainWindow::close);
     }
@@ -185,11 +188,11 @@ void MainWindow::initActions() noexcept
         auto menu = new QMenu{tr("&Help"), this};
         menus_->addMenu(menu);
 
-        auto doc = menu->addAction(QIcon(":/icon/book/#26c6da.svg"), tr("&Document"));
+        auto doc = menu->addAction(QIcon(":/QtTheme/icon/book/#26c6da.svg"), tr("&Document"));
         connect(doc, &QAction::triggered, Utils::toOpenUrl("https://github.com/hubenchang0515/QtTheme/tree/master/doc"));
         tools_->addAction(doc);
 
-        auto about = menu->addAction(QIcon(":/icon/help/#26c6da.svg"), tr("&About"));
+        auto about = menu->addAction(QIcon(":/QtTheme/icon/help/#26c6da.svg"), tr("&About"));
         connect(about, &QAction::triggered, [this](){QMessageBox::aboutQt(this);});
         tools_->addAction(about);
     }

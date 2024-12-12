@@ -2,8 +2,8 @@ QDockWidget {
     icon-size: 16px;
     color: {{base[1]}};
     background-color: {{base[9]}};
-    titlebar-normal-icon: url(":/icon/chevron_down/{{base[5]}}.svg");
-    titlebar-close-icon: url(":/icon/close/{{base[5]}}.svg");
+    titlebar-normal-icon: url(":/QtTheme/icon/chevron_down/{{base[5]}}.svg");
+    titlebar-close-icon: url(":/QtTheme/icon/close/{{base[5]}}.svg");
 }
 
 QDockWidget::title {
@@ -36,8 +36,8 @@ QDockWidget::float-button:pressed {
 QDockWidget[Color="{{key}}"] {
     color: {{base[1]}};
     background-color: {{colors[key][5]}};
-    titlebar-normal-icon: url(":/icon/chevron_down/{{base[2]}}.svg");
-    titlebar-close-icon: url(":/icon/close/{{base[2]}}.svg");
+    titlebar-normal-icon: url(":/QtTheme/icon/chevron_down/{{base[2]}}.svg");
+    titlebar-close-icon: url(":/QtTheme/icon/close/{{base[2]}}.svg");
 }
 
 QDockWidget[Color="{{key}}"]::title {

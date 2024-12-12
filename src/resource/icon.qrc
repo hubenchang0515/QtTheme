@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/QtTheme/">
         <file>icon/add/#004d40.svg</file>
         <file>icon/add/#006064.svg</file>
         <file>icon/add/#00695c.svg</file>

@@ -3,15 +3,15 @@ QRadioButton {
 }
 
 QRadioButton::indicator {
-    image: url(":/icon/radio_button_unchecked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_unchecked/{{base[1]}}.svg");
 }
 
 QRadioButton::indicator:checked {
-    image: url(":/icon/radio_button_checked/{{base[1]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_checked/{{base[1]}}.svg");
 }
 
 QRadioButton::indicator:disabled {
-    image: url(":/icon/radio_button_unchecked/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_unchecked/{{base[5]}}.svg");
 }
 
 {% for key in colors %}
@@ -21,17 +21,17 @@ QRadioButton[Color="{{key}}"] {
 }
 
 QRadioButton[Color="{{key}}"]::indicator {
-    image: url(":/icon/radio_button_unchecked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_unchecked/{{colors[key][5]}}.svg");
     color: {{colors[key][5]}};
 }
 
 QRadioButton[Color="{{key}}"]::indicator:checked {
-    image: url(":/icon/radio_button_checked/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_checked/{{colors[key][5]}}.svg");
     color: {{colors[key][5]}};
 }
 
 QRadioButton[Color="{{key}}"]::indicator:disabled {
-    image: url(":/icon/radio_button_unchecked/{{colors[key][7]}}.svg");
+    image: url(":/QtTheme/icon/radio_button_unchecked/{{colors[key][7]}}.svg");
     color: {{colors[key][7]}};
 }
 

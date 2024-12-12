@@ -1,7 +1,7 @@
 QTableView QTableCornerButton::section {
     background-color: {{base[7]}};
     border: 1px solid {{base[7]}};
-    image: url(":/icon/table/{{base[3]}}.svg");
+    image: url(":/QtTheme/icon/table/{{base[3]}}.svg");
 }
 
 QTableView {
@@ -18,7 +18,7 @@ QTableView {
 QTableView[Color="{{key}}"] QTableCornerButton::section {
     background-color: {{base[7]}};
     border: 1px solid {{base[7]}};
-    image: url(":/icon/table/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/table/{{colors[key][5]}}.svg");
 }
 
 QTableView[Color="{{key}}"] {

@@ -19,12 +19,12 @@ QHeaderView::section:vertical:checked
 
 QHeaderView::up-arrow {
     subcontrol-position: center right;
-    image: url(":/icon/chevron_up/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[2]}}.svg");
 }
 
 QHeaderView::down-arrow {
     subcontrol-position: center right;
-    image: url(":/icon/chevron_down/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[2]}}.svg");
 }
 
 
@@ -44,12 +44,12 @@ QHeaderView[Color="{{key}}"]::section:vertical:checked
 
 QHeaderView[Color="{{key}}"]::up-arrow {
     subcontrol-position: center right;
-    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][5]}}.svg");
 }
 
 QHeaderView[Color="{{key}}"]::down-arrow {
     subcontrol-position: center right;
-    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][5]}}.svg");
 }
 
 {% endfor %}

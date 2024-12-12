@@ -6,12 +6,12 @@ QToolBar {
 
 QToolBar::handle:top,
 QToolBar::handle:bottom {
-    image: url(":/icon/ellipsis_vertical/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/ellipsis_vertical/{{base[5]}}.svg");
 }
 
 QToolBar::handle:left,
 QToolBar::handle:right {
-    image: url(":/icon/ellipsis/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/ellipsis/{{base[5]}}.svg");
 }
 
 

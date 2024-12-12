@@ -66,11 +66,11 @@ QTabBar::tab:right:selected {
 }
 
 QTabBar QToolButton::right-arrow {
-    image: url(":/icon/triangle_right/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/triangle_right/{{base[2]}}.svg");
 }
 
 QTabBar QToolButton::left-arrow {
-    image: url(":/icon/triangle_left/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/triangle_left/{{base[2]}}.svg");
 }
 
 QTabBar QToolButton {
@@ -83,15 +83,15 @@ QTabBar QToolButton:hover {
 
 
 QTabBar::close-button {
-    image: url(":/icon/close/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/close/{{base[2]}}.svg");
 }
 
 QTabBar::close-button:hover {
-    image: url(":/icon/close/{{colors["Danger"][5]}}.svg");
+    image: url(":/QtTheme/icon/close/{{colors["Danger"][5]}}.svg");
 }
 
 QTabBar::close-button:pressed {
-    image: url(":/icon/close/{{colors["Danger"][7]}}.svg");
+    image: url(":/QtTheme/icon/close/{{colors["Danger"][7]}}.svg");
 }
 
 QTabBar:top::close-button {
@@ -150,11 +150,11 @@ QTabBar[Color="{{key}}"]::tab:right:selected {
 }
 
 QTabBar[Color="{{key}}"] QToolButton::right-arrow {
-    image: url(":/icon/triangle_right/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/triangle_right/{{colors[key][5]}}.svg");
 }
 
 QTabBar[Color="{{key}}"] QToolButton::left-arrow {
-    image: url(":/icon/triangle_left/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/triangle_left/{{colors[key][5]}}.svg");
 }
 
 QTabBar[Color="{{key}}"] QToolButton {

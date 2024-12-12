@@ -1,7 +1,7 @@
 QSizeGrip {
     width: 16px;
     height: 16px;
-    image: url(":/icon/size_grip/{{base[2]}}.svg");
+    image: url(":/QtTheme/icon/size_grip/{{base[2]}}.svg");
 }
 
 {% for key in colors %}
@@ -9,7 +9,7 @@ QSizeGrip {
 QSizeGrip[Color="{{key}}"] {
     width: 16px;
     height: 16px;
-    image: url(":/icon/size_grip/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/size_grip/{{colors[key][5]}}.svg");
 }
 
 {% endfor %}

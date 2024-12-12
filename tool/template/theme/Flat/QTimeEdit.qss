@@ -40,24 +40,24 @@ QTimeEdit::down-button:off {
 
 QTimeEdit::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[5]}}.svg");
 }
 
 QTimeEdit::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[5]}}.svg");
 }
 
 QTimeEdit::up-arrow:disabled,
 QTimeEdit::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[6]}}.svg");
 }
 
 QTimeEdit::down-arrow:disabled,
 QTimeEdit::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[6]}}.svg");
 }
 
 {% for key in colors %}
@@ -78,24 +78,24 @@ QTimeEdit[Color="{{key}}"]:disabled {
 
 QTimeEdit[Color="{{key}}"]::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][5]}}.svg");
 }
 
 QTimeEdit[Color="{{key}}"]::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][5]}}.svg");
 }
 
 QTimeEdit[Color="{{key}}"]::up-arrow:disabled,
 QTimeEdit[Color="{{key}}"]::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][8]}}.svg");
 }
 
 QTimeEdit[Color="{{key}}"]::down-arrow:disabled,
 QTimeEdit[Color="{{key}}"]::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][8]}}.svg");
 }
 
 {% endfor %}

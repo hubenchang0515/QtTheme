@@ -40,24 +40,24 @@ QDateTimeEdit::down-button:off {
 
 QDateTimeEdit::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[5]}}.svg");
 }
 
 QDateTimeEdit::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[5]}}.svg");
 }
 
 QDateTimeEdit::up-arrow:disabled,
 QDateTimeEdit::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{base[6]}}.svg");
 }
 
 QDateTimeEdit::down-arrow:disabled,
 QDateTimeEdit::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{base[6]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{base[6]}}.svg");
 }
 
 {% for key in colors %}
@@ -78,24 +78,24 @@ QDateTimeEdit[Color="{{key}}"]:disabled {
 
 QDateTimeEdit[Color="{{key}}"]::up-arrow {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][5]}}.svg");
 }
 
 QDateTimeEdit[Color="{{key}}"]::down-arrow {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][5]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][5]}}.svg");
 }
 
 QDateTimeEdit[Color="{{key}}"]::up-arrow:disabled,
 QDateTimeEdit[Color="{{key}}"]::up-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_up/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_up/{{colors[key][8]}}.svg");
 }
 
 QDateTimeEdit[Color="{{key}}"]::down-arrow:disabled,
 QDateTimeEdit[Color="{{key}}"]::down-arrow:off {
     width: 24px;
-    image: url(":/icon/chevron_down/{{colors[key][8]}}.svg");
+    image: url(":/QtTheme/icon/chevron_down/{{colors[key][8]}}.svg");
 }
 
 {% endfor %}
