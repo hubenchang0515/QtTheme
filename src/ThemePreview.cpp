@@ -24,6 +24,7 @@
 #include <QRadioButton>
 #include <QCheckBox>
 #include <QListView>
+#include <QListWidget>
 #include <QSlider>
 #include <QPlainTextEdit>
 #include <QScrollBar>
@@ -959,6 +960,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
 
     {
         auto column = new QColumnView;
+        column->setMinimumHeight(200);
         auto model = new FileSystemModel;
         column->setModel(model);
 
@@ -969,6 +971,74 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         groupbox->setLayout(row);
 
         layout_->addWidget(groupbox, 11, 0, 1, 4);
+    }
+
+    {
+        auto model = new FileSystemModel;
+        auto index = model->index(QDir::rootPath());
+
+        auto list1 = new QListView;
+        list1->setMinimumHeight(200);
+        list1->setModel(model);
+        list1->setRootIndex(index);
+
+        auto list2 = new QListView;
+        list2->setMinimumHeight(200);
+        list2->setProperty("Color", "Primary");
+        list2->setModel(model);
+        list2->setRootIndex(index);
+
+        auto list3 = new QListView;
+        list3->setMinimumHeight(200);
+        list3->setProperty("Color", "Secondary");
+        list3->setModel(model);
+        list3->setRootIndex(index);
+
+        auto row = new QHBoxLayout;
+        row->addWidget(list1);
+        row->addWidget(list2);
+        row->addWidget(list3);
+
+        auto groupbox = new QGroupBox(tr("QListView"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 12, 0, 1, 4);
+    }
+
+    {
+        auto list1 = new QListWidget;
+        list1->setMinimumHeight(200);
+        for (int i = 0; i < 10; i++) 
+        {
+            list1->addItem(QString("item-%1").arg(i));
+        }
+        
+
+        auto list2 = new QListWidget;
+        list2->setMinimumHeight(200);
+        list2->setProperty("Color", "Primary");
+        for (int i = 0; i < 10; i++) 
+        {
+            list2->addItem(QString("item-%1").arg(i));
+        }
+
+        auto list3 = new QListWidget;
+        list3->setMinimumHeight(200);
+        list3->setProperty("Color", "Secondary");
+        for (int i = 0; i < 10; i++) 
+        {
+            list3->addItem(QString("item-%1").arg(i));
+        }
+
+        auto row = new QHBoxLayout;
+        row->addWidget(list1);
+        row->addWidget(list2);
+        row->addWidget(list3);
+
+        auto groupbox = new QGroupBox(tr("QListWidget"));
+        groupbox->setLayout(row);
+
+        layout_->addWidget(groupbox, 13, 0, 1, 4);
     }
 
     {
@@ -1013,12 +1083,10 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTreeView"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 12, 0, 1, 4);
+        layout_->addWidget(groupbox, 14, 0, 1, 4);
     }
 
     {
-        
-
         auto tree1 = new QTreeWidget;
         tree1->setMinimumHeight(200);
         tree1->setHeaderLabels(QStringList{tr("Index"), tr("name"), tr("value")});
@@ -1073,7 +1141,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTreeWidget"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 13, 0, 1, 4);
+        layout_->addWidget(groupbox, 15, 0, 1, 4);
     }
 
     {
@@ -1126,7 +1194,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTableView"));
         groupbox->setLayout(col);
 
-        layout_->addWidget(groupbox, 14, 0, 1, 4);
+        layout_->addWidget(groupbox, 16, 0, 1, 4);
     }
 
     {
@@ -1201,7 +1269,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTableWidget"));
         groupbox->setLayout(col);
 
-        layout_->addWidget(groupbox, 15, 0, 1, 4);
+        layout_->addWidget(groupbox, 17, 0, 1, 4);
     }
 
     layout_->setColumnStretch(0, 1);

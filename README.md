@@ -62,9 +62,11 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 ## Notice - 注意事项
 
-Customized `QWidget` subclasses must override `paintEvent`, otherwise the style will not take effect on this class:
+Customized `QWidget` subclasses must override `paintEvent`, otherwise the style will not take effect on this class:  
 
 自定义的 `QWidget` 子类，必须重载 `paintEvent`，否则样式不会再该类上生效:  
+
+> https://doc.qt.io/qt-6/stylesheet-reference.html#qwidget-widget
 
 ```cpp
 void CustomWidget::paintEvent(QPaintEvent *)
@@ -76,9 +78,12 @@ void CustomWidget::paintEvent(QPaintEvent *)
 }
 ```
 
-当样式表引用的属性值发生变化时，样式不会自动更新，必须手动更新：
 
-Style will not update itself automatically when the value of a property referenced from the style sheet changes, you must update it manually: 
+Style will not update itself automatically when the value of a property referenced from the style sheet changes, you must update it manually:  
+
+当样式表引用的属性值发生变化时，样式不会自动更新，必须手动更新:  
+
+> https://wiki.qt.io/Dynamic_Properties_and_Stylesheets
 
 ```cpp
 // property changes
@@ -87,4 +92,14 @@ widget->setProperty("Color", "Secondary");
 // update style manually
 widget->style()->unpolish(widget);
 widget->style()->polish(widget);
+```
+
+QComboBox must set the view for the internal style to take effect:  
+
+QComboBox 必须设置 view, 内部的样式才能生效:  
+
+> https://doc.qt.io/qt-6/stylesheet-reference.html#qcombobox-widget
+
+```cpp
+comboBox->setView(new QListView);
 ```
