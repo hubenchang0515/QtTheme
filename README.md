@@ -16,7 +16,7 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 2. Use `QMainWindow::setStyleSheet` to set the global style.
     ```c++
-    QFile file(":/theme/Flat_Dark_Cyan_Indigo.qss");
+    QFile file(":/QtTheme/QtTheme_Flat_Dark_LightBlue_Indigo.qss");
     file.open(QFile::ReadOnly);
     setStyleSheet(file.readAll());
     ```
@@ -40,7 +40,7 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 2. 使用 `QMainWindow::setStyleSheet` 设置全局样式。
     ```c++
-    QFile file(":/theme/Flat_Dark_Cyan_Indigo.qss");
+    QFile file(":/QtTheme/QtTheme_Flat_Dark_LightBlue_Indigo.qss");
     file.open(QFile::ReadOnly);
     setStyleSheet(file.readAll());
     ```
