@@ -1,5 +1,6 @@
 #! /usr/bin/bash
 set -e
+TOOL_DIR=$(dirname $(readlink -f $0))
 TARGET_REPO=$(git remote get-url origin)
 TARGET_BRANCH="gh-pages"
 TARGET_DIR=$1
@@ -17,6 +18,8 @@ then
     echo Target directory is invalid, '.git' exist.
     exit 1
 fi
+
+cp "${TOOL_DIR}"/PWA/* .
 
 git init .
 git remote add origin $TARGET_REPO
