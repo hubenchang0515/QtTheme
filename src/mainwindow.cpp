@@ -147,7 +147,7 @@ void MainWindow::initActions() noexcept
         auto gotoSource = go->addAction(tr("Go to &Source Page"));
         connect(gotoSource, &QAction::triggered, Utils::toOpenUrl("https://github.com/hubenchang0515/QtTheme"));
         auto gotoPreview = go->addAction(tr("Go to &Preview Page"));
-        connect(gotoPreview, &QAction::triggered, Utils::toOpenUrl("https://hubenchang0515.github.io/QtTheme/QtTheme.html"));
+        connect(gotoPreview, &QAction::triggered, Utils::toOpenUrl("https://hubenchang0515.github.io/QtTheme"));
         auto gotoDownload = go->addAction(tr("Go to &Download Page"));
         connect(gotoDownload, &QAction::triggered, Utils::toOpenUrl("https://github.com/hubenchang0515/QtTheme/releases"));
         tools_->addWidget(Utils::makeQToolButton(go));
@@ -156,7 +156,7 @@ void MainWindow::initActions() noexcept
         auto copySource = share->addAction(tr("Copy &Source Page Link"));
         connect(copySource, &QAction::triggered, Utils::toCopyText("https://github.com/hubenchang0515/QtTheme"));
         auto copyPreview = share->addAction(tr("Copy &Preview Page Link"));
-        connect(copyPreview, &QAction::triggered, Utils::toCopyText("https://hubenchang0515.github.io/QtTheme/QtTheme.html"));
+        connect(copyPreview, &QAction::triggered, Utils::toCopyText("https://hubenchang0515.github.io/QtTheme"));
         auto copyDownload = share->addAction(tr("Copy &Download Page Link"));
         connect(copyDownload, &QAction::triggered, Utils::toCopyText("https://github.com/hubenchang0515/QtTheme/releases"));
         tools_->addWidget(Utils::makeQToolButton(share));
