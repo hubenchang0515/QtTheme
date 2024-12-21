@@ -46,9 +46,11 @@ private:
     ThemeConfigurator* config_;
     QScrollArea* scroll_;
     ThemePreview* preview_;
+    QLabel* placeholder_;
     QtTheme::ZipPacker* packer_;
 
     void initActions() noexcept;
+    void init() noexcept;
 };
 
 }; // namespace QtTheme

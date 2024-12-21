@@ -13,46 +13,28 @@
 #include <QClipboard>
 #include <QKeySequence>
 #include <QToolButton>
+#include <QTimer>
+#include <QStyle>
+#include <QScreen>
 
 namespace QtTheme
 {
 
 MainWindow::MainWindow(QWidget* parent) noexcept:
     QMainWindow{parent},
-    menus_{new QMenuBar},
-    tools_{new QToolBar},
-    dock_{new QDockWidget{tr("Theme Config")}},
-    status_{new QStatusBar},
-    config_{new ThemeConfigurator},
-    scroll_{new QScrollArea},
-    preview_{new ThemePreview},
-    packer_{new QtTheme::ZipPacker{this}}
+    menus_{nullptr},
+    tools_{nullptr},
+    dock_{nullptr},
+    status_{nullptr},
+    config_{nullptr},
+    scroll_{nullptr},
+    preview_{nullptr},
+    packer_{nullptr},
+    placeholder_{new QLabel{"Loading..."}}
 {
-    connect(config_, &ThemeConfigurator::currentThemeChanged, this, &MainWindow::setTheme);
-    connect(config_, &ThemeConfigurator::exportThemeClicked, this, &MainWindow::exportTheme);
-    connect(dock_, &QDockWidget::topLevelChanged, this, &MainWindow::adjustDock);
-
-    setMenuBar(menus_);
-    addToolBar(tools_);
-
-    config_->setProperty("Depth", 9);
-    dock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    dock_->setWidget(config_);
-    addDockWidget(Qt::LeftDockWidgetArea, dock_);
-
-    status_->setProperty("Color", "Primary");
-    setStatusBar(status_);
-
-    scroll_->setWidget(preview_);
-    scroll_->setWidgetResizable(true);
-    setCentralWidget(scroll_);
-
-    initActions();
-
-    config_->setTheme("Flat");
-    config_->setBaseColor("Dark");
-    config_->setPrimaryColor("Blue");
-    config_->setSecondaryColor("Pink");
+    placeholder_->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+    setCentralWidget(placeholder_);
+    QTimer::singleShot(1000, this, &MainWindow::init);
 }
 
 void MainWindow::showStatus(const QString& message, int ms) const noexcept
@@ -62,9 +44,17 @@ void MainWindow::showStatus(const QString& message, int ms) const noexcept
 
 void MainWindow::setTheme(const QString& themeName, const QString& baseColor, const QString& primaryColor, const QString& secondaryColor) noexcept
 {
-    showStatus(QString("Set theme: %1 %2 %3 %4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor));
+    if (scroll_) {
+        scroll_->takeWidget();
+        scroll_->setWidget(placeholder_);
+        qApp->processEvents();
+    }
     setStyleSheet(QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor));
-    qApp->processEvents();
+    if (scroll_) {
+        scroll_->takeWidget();
+        scroll_->setWidget(preview_);
+        showStatus(QString("Set theme: %1 %2 %3 %4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor));
+    }
 }
 
 void MainWindow::exportTheme(const QString& themeName, const QString& baseColor, const QString& primaryColor, const QString& secondaryColor) const noexcept
@@ -111,10 +101,18 @@ void MainWindow::adjustDock() noexcept
 
 QSize MainWindow::sizeHint() const noexcept
 {
-    QSize size = dock_->sizeHint();
-    size.rwidth() += preview_->minimumSizeHint().width() + 32; // 32 弥补滚动条和各个缝隙的宽度
-    size.setHeight(size.width() * 9 / 16); 
-    return size;
+    if (preview_)
+    {
+        QSize size = dock_->sizeHint();
+        size.rwidth() += preview_->minimumSizeHint().width() + 32; // 32 弥补滚动条和各个缝隙的宽度
+        size.setHeight(size.width() * 9 / 16); 
+        return size;
+    }
+    else
+    {
+        return QSize{300, 100};
+    }
+
 }
 
 void MainWindow::closeEvent(QCloseEvent* event) noexcept
@@ -198,5 +196,57 @@ void MainWindow::initActions() noexcept
     }
     
 }
+
+
+void MainWindow::init() noexcept
+{
+    blockSignals(true);
+    menus_ = new QMenuBar,
+    tools_ = new QToolBar,
+    dock_ = new QDockWidget{tr("Theme Config")},
+    status_ = new QStatusBar,
+    config_ = new ThemeConfigurator,
+    scroll_ = new QScrollArea,
+    preview_ = new ThemePreview;
+    packer_ = new QtTheme::ZipPacker{this};
+
+    config_->setProperty("Depth", 9);
+    dock_->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    dock_->setWidget(config_);
+    status_->setProperty("Color", "Primary");
+
+    scroll_->takeWidget();
+    scroll_->setWidget(preview_);
+    scroll_->setWidgetResizable(true);
+
+    initActions();
+
+    config_->setTheme("Flat");
+    config_->setBaseColor("Dark");
+    config_->setPrimaryColor("Blue");
+    config_->setSecondaryColor("Pink");
+
+    connect(config_, &ThemeConfigurator::currentThemeChanged, this, &MainWindow::setTheme);
+    connect(config_, &ThemeConfigurator::exportThemeClicked, this, &MainWindow::exportTheme);
+    connect(dock_, &QDockWidget::topLevelChanged, this, &MainWindow::adjustDock);
+    config_->emitCurrentTheme();
+
+    setMenuBar(menus_);
+    addToolBar(tools_);
+    addDockWidget(Qt::LeftDockWidgetArea, dock_);
+    setStatusBar(status_);
+    takeCentralWidget();
+    setCentralWidget(scroll_);
+
+    setGeometry(
+        QStyle::alignedRect(
+            Qt::LeftToRight,
+            Qt::AlignCenter,
+            sizeHint(),
+            qApp->primaryScreen()->availableGeometry()
+        )
+    );
+}
+
 
 }; // namespace QtTheme
