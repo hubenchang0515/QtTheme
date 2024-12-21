@@ -66,7 +66,6 @@ bool ThemeConfigurator::setTheme(const QString& themeName) noexcept
         return false;
 
     themeName_->setCurrentIndex(index);
-    emitCurrentTheme();
     return true;
 }
 
@@ -77,7 +76,6 @@ bool ThemeConfigurator::setBaseColor(const QString color) noexcept
         return false;
 
     baseColor_->setCurrentIndex(index);
-    emitCurrentTheme();
     return true;
 }
 
@@ -88,7 +86,6 @@ bool ThemeConfigurator::setPrimaryColor(const QString color) noexcept
         return false;
 
     primaryColor_->setCurrentIndex(index);
-    emitCurrentTheme();
     return true;
 }
 
@@ -99,7 +96,6 @@ bool ThemeConfigurator::setSecondaryColor(const QString color) noexcept
         return false;
 
     secondaryColor_->setCurrentIndex(index);
-    emitCurrentTheme();
     return true;
 }
 
@@ -129,12 +125,12 @@ void ThemeConfigurator::setOptions(QComboBox* box, QStringList options) noexcept
     box->clear();
     options.sort();
     box->addItems(options);
-    box->blockSignals(false);
     int index = box->findText(prev);
     if (index >= 0)
     {
         box->setCurrentIndex(index);
     }
+    box->blockSignals(false);
 }
 
 void ThemeConfigurator::themeNameChanged() noexcept
