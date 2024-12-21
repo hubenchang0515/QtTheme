@@ -18,14 +18,18 @@ int main(int argc, char* argv[])
 
     QApplication app(argc, argv);
     MainWindow window;
-    window.setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            window.sizeHint(),
-            qApp->primaryScreen()->availableGeometry()
-        )
-    );
+
+    #ifndef Q_OS_WASM
+        window.setGeometry(
+            QStyle::alignedRect(
+                Qt::LeftToRight,
+                Qt::AlignCenter,
+                window.sizeHint(),
+                qApp->primaryScreen()->availableGeometry()
+            )
+        );
+    #endif
+
     window.show();
     return app.exec();
 }

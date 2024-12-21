@@ -32,9 +32,13 @@ MainWindow::MainWindow(QWidget* parent) noexcept:
     packer_{nullptr},
     placeholder_{new QLabel{"Loading..."}}
 {
-    placeholder_->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-    setCentralWidget(placeholder_);
-    QTimer::singleShot(1000, this, &MainWindow::init);
+    #ifndef Q_OS_WASM
+        placeholder_->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+        setCentralWidget(placeholder_);
+        QTimer::singleShot(1000, this, &MainWindow::init);
+    #else
+        init();
+    #endif
 }
 
 void MainWindow::showStatus(const QString& message, int ms) const noexcept
@@ -238,14 +242,16 @@ void MainWindow::init() noexcept
     takeCentralWidget();
     setCentralWidget(scroll_);
 
-    setGeometry(
-        QStyle::alignedRect(
-            Qt::LeftToRight,
-            Qt::AlignCenter,
-            sizeHint(),
-            qApp->primaryScreen()->availableGeometry()
-        )
-    );
+    #ifndef Q_OS_WASM
+        setGeometry(
+            QStyle::alignedRect(
+                Qt::LeftToRight,
+                Qt::AlignCenter,
+                sizeHint(),
+                qApp->primaryScreen()->availableGeometry()
+            )
+        );
+    #endif
 }
 
 
