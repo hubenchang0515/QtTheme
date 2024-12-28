@@ -11,7 +11,6 @@
 #include <QTimeEdit>
 #include <QDateEdit>
 #include <QLineEdit>
-#include <QSpinBox>
 #include <QDoubleSpinBox>
 #include <QTimeEdit>
 #include <QDateEdit>
@@ -167,7 +166,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QButton"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 0, 1, 1, 3);
+        layout_->addWidget(groupbox, 0, 1, 1, 2);
     }
 
     {
@@ -209,7 +208,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QLineEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 1, 1, 1, 3);
+        layout_->addWidget(groupbox, 1, 1, 1, 2);
     }
 
     {
@@ -261,7 +260,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QProgressBar"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 2, 1, 1, 3);
+        layout_->addWidget(groupbox, 2, 1, 1, 2);
     }
 
     {
@@ -391,7 +390,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QSlider"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 3, 1, 2, 3);
+        layout_->addWidget(groupbox, 3, 1, 2, 2);
     }
 
     {
@@ -488,7 +487,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QPlainTextEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 5, 1, 1, 3);
+        layout_->addWidget(groupbox, 5, 1, 1, 2);
     }
 
     {
@@ -552,7 +551,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QSplitter"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 6, 1, 1, 3);
+        layout_->addWidget(groupbox, 6, 1, 1, 2);
     }
 
     {
@@ -749,7 +748,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTimeEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 7, 3);
+        layout_->addWidget(groupbox, 8, 1);
     }
 
     {
@@ -791,7 +790,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QDateEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 8, 1);
+        layout_->addWidget(groupbox, 8, 2);
     }
 
     {
@@ -833,7 +832,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QDateTimeEdit"));
         groupbox->setLayout(grid);
 
-        layout_->addWidget(groupbox, 8, 2, 1, 2);
+        layout_->addWidget(groupbox, 9, 1, 1, 2);
     }
 
     {
@@ -859,7 +858,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTabBar"));
         groupbox->setLayout(col);
 
-        layout_->addWidget(groupbox, 9, 1, 1, 3);
+        layout_->addWidget(groupbox, 10, 1, 1, 2);
     }
 
     {
@@ -955,7 +954,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         groupbox->setMinimumHeight(300);
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 10, 1, 1, 3);
+        layout_->addWidget(groupbox, 11, 0, 1, 3);
     }
 
     {
@@ -970,7 +969,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QColumnView"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 11, 0, 1, 4);
+        layout_->addWidget(groupbox, 12, 0, 1, 3);
     }
 
     {
@@ -1002,7 +1001,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QListView"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 12, 0, 1, 4);
+        layout_->addWidget(groupbox, 13, 0, 1, 3);
     }
 
     {
@@ -1038,7 +1037,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QListWidget"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 13, 0, 1, 4);
+        layout_->addWidget(groupbox, 14, 0, 1, 3);
     }
 
     {
@@ -1083,7 +1082,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTreeView"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 14, 0, 1, 4);
+        layout_->addWidget(groupbox, 15, 0, 1, 3);
     }
 
     {
@@ -1141,7 +1140,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTreeWidget"));
         groupbox->setLayout(row);
 
-        layout_->addWidget(groupbox, 15, 0, 1, 4);
+        layout_->addWidget(groupbox, 16, 0, 1, 3);
     }
 
     {
@@ -1194,7 +1193,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTableView"));
         groupbox->setLayout(col);
 
-        layout_->addWidget(groupbox, 16, 0, 1, 4);
+        layout_->addWidget(groupbox, 17, 0, 1, 3);
     }
 
     {
@@ -1269,13 +1268,12 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         auto groupbox = new QGroupBox(tr("QTableWidget"));
         groupbox->setLayout(col);
 
-        layout_->addWidget(groupbox, 17, 0, 1, 4);
+        layout_->addWidget(groupbox, 18, 0, 1, 3);
     }
 
     layout_->setColumnStretch(0, 1);
     layout_->setColumnStretch(1, 2);
     layout_->setColumnStretch(2, 2);
-    layout_->setColumnStretch(3, 2);
     this->setLayout(layout_);
 }
 
