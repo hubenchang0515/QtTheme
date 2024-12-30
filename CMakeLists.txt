@@ -14,10 +14,10 @@ if(WIN32)
   add_link_options("$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,GNU>,$<STREQUAL:$<CONFIG>,Release>>:-mwindows>")
 endif()
 
-find_package(Qt6 COMPONENTS Core Widgets QUIET)
+find_package(Qt6 COMPONENTS Core Widgets UiTools QUIET)
 
 if (NOT Qt6_FOUND)
-  find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+  find_package(Qt5 COMPONENTS Core Widgets UiTools REQUIRED)
 endif (NOT Qt6_FOUND)
 
 SET(CMAKE_AUTOMOC ON)
@@ -32,6 +32,6 @@ else()
   add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/theme.qrc src/resource/icon.qrc)
 endif()
 
-target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets zip)
+target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets Qt::UiTools zip)
                         
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets zip)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets Qt::UiTools zip)

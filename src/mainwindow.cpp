@@ -16,6 +16,8 @@
 #include <QTimer>
 #include <QStyle>
 #include <QScreen>
+#include <QUiLoader>
+#include <QBuffer>
 
 namespace QtTheme
 {
@@ -27,6 +29,7 @@ MainWindow::MainWindow(QWidget* parent) noexcept:
     dock_{nullptr},
     status_{nullptr},
     config_{nullptr},
+    tabs_{nullptr},
     scroll_{nullptr},
     preview_{nullptr},
     packer_{nullptr},
@@ -48,17 +51,15 @@ void MainWindow::showStatus(const QString& message, int ms) const noexcept
 
 void MainWindow::setTheme(const QString& themeName, const QString& baseColor, const QString& primaryColor, const QString& secondaryColor) noexcept
 {
-    if (scroll_) {
-        scroll_->takeWidget();
-        scroll_->setWidget(placeholder_);
-        qApp->processEvents();
-    }
+    takeCentralWidget();
+    setCentralWidget(placeholder_);
+    qApp->processEvents();
+
     setStyleSheet(QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor));
-    if (scroll_) {
-        scroll_->takeWidget();
-        scroll_->setWidget(preview_);
-        showStatus(QString("Set theme: %1 %2 %3 %4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor));
-    }
+
+    takeCentralWidget();
+    setCentralWidget(tabs_);
+    showStatus(QString("Set theme: %1 %2 %3 %4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor));
 }
 
 void MainWindow::exportTheme(const QString& themeName, const QString& baseColor, const QString& primaryColor, const QString& secondaryColor) const noexcept
@@ -103,6 +104,17 @@ void MainWindow::adjustDock() noexcept
     dock_->adjustSize();
 }
 
+void MainWindow::loadUiFile(const QString& filepath, const QByteArray& data) noexcept
+{
+    QFileInfo info{filepath};
+    QBuffer buffer;
+    buffer.setData(data);
+    QUiLoader loader;
+    QWidget* widget = loader.load(&buffer);
+    tabs_->addTab(widget, info.fileName());
+    tabs_->setCurrentWidget(widget);
+}
+
 QSize MainWindow::sizeHint() const noexcept
 {
     if (preview_)
@@ -141,6 +153,11 @@ void MainWindow::initActions() noexcept
         exportTheme->setShortcut(QKeySequence::Save);
         connect(exportTheme, &QAction::triggered, config_, &ThemeConfigurator::emitExportTheme);
         tools_->addAction(exportTheme);
+
+        auto loadUi = menu->addAction(QIcon(":/QtTheme/icon/arrow_down/#26c6da.svg"), tr("&Load UI File"));
+        loadUi->setShortcut(QKeySequence::Open);
+        connect(loadUi, &QAction::triggered, this, &MainWindow::loadUiWidget);
+        tools_->addAction(loadUi);
 
         menu->addSeparator();
         tools_->addSeparator();
@@ -204,13 +221,13 @@ void MainWindow::initActions() noexcept
 
 void MainWindow::init() noexcept
 {
-    blockSignals(true);
-    menus_ = new QMenuBar,
-    tools_ = new QToolBar,
-    dock_ = new QDockWidget{tr("Theme Config")},
-    status_ = new QStatusBar,
-    config_ = new ThemeConfigurator,
-    scroll_ = new QScrollArea,
+    menus_ = new QMenuBar;
+    tools_ = new QToolBar;
+    dock_ = new QDockWidget{tr("Theme Config")};
+    status_ = new QStatusBar;
+    config_ = new ThemeConfigurator;
+    tabs_ = new QTabWidget;
+    scroll_ = new QScrollArea;
     preview_ = new ThemePreview;
     packer_ = new QtTheme::ZipPacker{this};
 
@@ -222,6 +239,12 @@ void MainWindow::init() noexcept
     scroll_->takeWidget();
     scroll_->setWidget(preview_);
     scroll_->setWidgetResizable(true);
+
+    tabs_->addTab(scroll_, "Preview");
+    tabs_->setTabsClosable(true);
+    tabs_->tabBar()->setTabButton(0, QTabBar::RightSide, nullptr); // 禁止关闭默认的预览页
+    tabs_->tabBar()->setTabButton(0, QTabBar::LeftSide, nullptr);
+    connect(tabs_, &QTabWidget::tabCloseRequested, this, &MainWindow::closeUiWidget);
 
     initActions();
 
@@ -240,7 +263,7 @@ void MainWindow::init() noexcept
     addDockWidget(Qt::LeftDockWidgetArea, dock_);
     setStatusBar(status_);
     takeCentralWidget();
-    setCentralWidget(scroll_);
+    setCentralWidget(tabs_);
 
     #ifndef Q_OS_WASM
         setGeometry(
@@ -253,6 +276,19 @@ void MainWindow::init() noexcept
         );
     #endif
 }
+
+void MainWindow::loadUiWidget() noexcept
+{
+    QFileDialog::getOpenFileContent("UI File(*.ui *.xml)", [this](const QString& filepath, const QByteArray& data){
+        this->loadUiFile(filepath, data);
+    });
+}
+
+void MainWindow::closeUiWidget(int index) noexcept
+{
+    tabs_->widget(index)->deleteLater();
+}
+
 
 
 }; // namespace QtTheme
