@@ -4,4 +4,55 @@ QTabWidget {
 
 QTabWidget::pane {
     background-color: transparent;
+    border: 2px solid {{base[6]}};
 }
+
+{% for key in colors %}
+
+QTabWidget[Color="{{key}}"]::pane {
+    background-color: transparent;
+    border: 2px solid {{colors[key][5]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar::tab:hover  {
+    background-color: {{colors[key][4]}};
+    color: {{base[1]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar::tab:top:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar::tab:bottom:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar::tab:left:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar::tab:right:selected {
+    background-color: {{colors[key][5]}};
+    color: {{base[1]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar QToolButton::right-arrow {
+    image: url(":/QtTheme/icon/triangle_right/{{colors[key][5]}}.svg");
+}
+
+QTabWidget[Color="{{key}}"] QTabBar QToolButton::left-arrow {
+    image: url(":/QtTheme/icon/triangle_left/{{colors[key][5]}}.svg");
+}
+
+QTabWidget[Color="{{key}}"] QTabBar QToolButton {
+    background-color: {{base[8]}};
+}
+
+QTabWidget[Color="{{key}}"] QTabBar QToolButton:hover {
+    background-color: {{base[6]}};
+}
+
+{% endfor %}

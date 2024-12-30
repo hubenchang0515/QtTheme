@@ -1,5 +1,5 @@
 QTabBar::tab:top {
-    background-color: {{base[7]}};
+    background-color: {{base[8]}};
     color: {{base[1]}};
     padding-left: 1em;
     padding-right: 1em;
@@ -8,7 +8,7 @@ QTabBar::tab:top {
 }
 
 QTabBar::tab:bottom {
-    background-color: {{base[7]}};
+    background-color: {{base[8]}};
     color: {{base[1]}};
     padding-left: 1em;
     padding-right: 1em;
@@ -17,7 +17,7 @@ QTabBar::tab:bottom {
 }
 
 QTabBar::tab:left {
-    background-color: {{base[7]}};
+    background-color: {{base[8]}};
     color: {{base[1]}};
     padding-top: 1em;
     padding-bottom: 1em;
@@ -26,7 +26,7 @@ QTabBar::tab:left {
 }
 
 QTabBar::tab:right {
-    background-color: {{base[7]}};
+    background-color: {{base[8]}};
     color: {{base[1]}};
     padding-top: 1em;
     padding-bottom: 1em;
@@ -40,29 +40,21 @@ QTabBar::tab:hover  {
 QTabBar::tab:top:selected {
     background-color: {{base[6]}};
     color: {{base[1]}};
-    border-bottom: 3px solid {{base[2]}};
-    border-top: 3px solid {{base[6]}};
 }
 
 QTabBar::tab:bottom:selected {
     background-color: {{base[6]}};
     color: {{base[1]}};
-    border-top: 3px solid {{base[2]}};
-    border-bottom: 3px solid {{base[6]}};
 }
 
 QTabBar::tab:left:selected {
     background-color: {{base[6]}};
     color: {{base[1]}};
-    border-right: 3px solid {{base[2]}};
-    border-left: 3px solid {{base[6]}};
 }
 
 QTabBar::tab:right:selected {
     background-color: {{base[6]}};
     color: {{base[1]}};
-    border-left: 3px solid {{base[2]}};
-    border-right: 3px solid {{base[6]}};
 }
 
 QTabBar QToolButton::right-arrow {
@@ -80,7 +72,6 @@ QTabBar QToolButton {
 QTabBar QToolButton:hover {
     background-color: {{base[6]}};
 }
-
 
 QTabBar::close-button {
     image: url(":/QtTheme/icon/close/{{base[2]}}.svg");
@@ -124,29 +115,21 @@ QTabBar[Color="{{key}}"]::tab:hover  {
 QTabBar[Color="{{key}}"]::tab:top:selected {
     background-color: {{colors[key][5]}};
     color: {{base[1]}};
-    border-top: 3px solid {{colors[key][5]}};
-    border-bottom: 3px solid {{colors[key][2]}};
 }
 
 QTabBar[Color="{{key}}"]::tab:bottom:selected {
     background-color: {{colors[key][5]}};
     color: {{base[1]}};
-    border-bottom: 3px solid {{colors[key][5]}};
-    border-top: 3px solid {{colors[key][2]}};
 }
 
 QTabBar[Color="{{key}}"]::tab:left:selected {
     background-color: {{colors[key][5]}};
     color: {{base[1]}};
-    border-left: 3px solid {{colors[key][5]}};
-    border-right: 3px solid {{colors[key][2]}};
 }
 
 QTabBar[Color="{{key}}"]::tab:right:selected {
     background-color: {{colors[key][5]}};
     color: {{base[1]}};
-    border-right: 3px solid {{colors[key][5]}};
-    border-left: 3px solid {{colors[key][2]}};
 }
 
 QTabBar[Color="{{key}}"] QToolButton::right-arrow {

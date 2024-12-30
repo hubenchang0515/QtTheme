@@ -903,8 +903,8 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         }
 
         auto tab3 = new QTabWidget;
+        tab3->setProperty("Color", "Primary");
         tab3->setTabsClosable(true);
-        tab3->tabBar()->setProperty("Color", "Primary");
         tab3->setTabPosition(QTabWidget::West);
         {
             auto item1 = new QWidget;
@@ -924,8 +924,8 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         }
 
         auto tab4 = new QTabWidget;
+        tab4->setProperty("Color", "Secondary");
         tab4->setTabsClosable(true);
-        tab4->tabBar()->setProperty("Color", "Secondary");
         tab4->setTabPosition(QTabWidget::East);
         {
             auto item1 = new QWidget;
