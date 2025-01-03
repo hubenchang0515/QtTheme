@@ -121,7 +121,8 @@ if __name__ == "__main__":
     theme_dir:File = resource_dir.join("theme")
     icon_dir:File = resource_dir.join("icon")
 
-    resource_dir.remove()
+    theme_dir.remove()
+    icon_dir.remove()
     
     with palette_file.open() as fp:
         dark_palette:Dict[str, List[str]] = json.loads(fp.read())
