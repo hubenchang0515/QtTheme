@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QStyle>
 #include <QScreen>
+#include <QFontDatabase>
 #include "mainwindow.h"
 
 using namespace QtTheme;
@@ -17,6 +18,7 @@ int main(int argc, char* argv[])
 #endif
 
     QApplication app(argc, argv);
+    QFontDatabase::addApplicationFont(":/QtTheme/font/SourceHanSansSC-VF.otf");
     MainWindow window;
 
     #ifndef Q_OS_WASM

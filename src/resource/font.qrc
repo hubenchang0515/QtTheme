@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/QtTheme/">
+        <file>font/SourceHanSansSC-VF.otf</file>
+    </qresource>
+</RCC>
