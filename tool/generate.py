@@ -61,7 +61,7 @@ class ThemeRenderer(object):
 
     def sort_files(x):
         prior = ['license.qss', 'base.qss', 'QWidget.qss']
-        return prior.index(x) if x in prior else len(prior)
+        return (prior.index(x), x) if x in prior else (len(prior), x)
 
     def merge(self) -> str:
         templates:List[str] = []

@@ -1,0 +1,7 @@
+<svg aria-labelledby="circleArrowRightIconTitle" color="#5d4037" fill="none" height="24px" role="img" stroke="#5d4037" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="circleArrowRightIconTitle">Arrow Right</title>
+ <path d="M13.5 9l3 3-3 3"/>
+ <path d="M7.5 12H15"/>
+ <path d="M16.5 12H15" stroke-linecap="round"/>
+ <circle cx="12" cy="12" r="10"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg aria-labelledby="arrowUpIconTitle" color="#0277bd" fill="none" height="24px" role="img" stroke="#0277bd" stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+ <title id="arrowUpIconTitle">Arrow Up</title>
+ <path d="M9 10.5l3-3 3 3"/>
+ <path d="M12 16.5V9"/>
+ <path d="M12 7.5V9" stroke-linecap="round"/>
+ <circle cx="12" cy="12" r="10"/>
+</svg>
