@@ -17,6 +17,8 @@ std::function<void(void)> toCopyText(QString text);
 
 QToolButton* makeQToolButton(QMenu* menu, QWidget* parent=nullptr) noexcept;
 
+void setFont(QWidget* widget, const QFont& font) noexcept;
+
 }; // namespace Utils
 
 }; // namespace QtTheme

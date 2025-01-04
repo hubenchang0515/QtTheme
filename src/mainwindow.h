@@ -52,6 +52,7 @@ private:
     ThemePreview* preview_;
     QLabel* placeholder_;
     QtTheme::ZipPacker* packer_;
+    QFont font_;
 
     void initActions() noexcept;
     void init() noexcept;

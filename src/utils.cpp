@@ -46,6 +46,16 @@ QToolButton* makeQToolButton(QMenu* menu, QWidget* parent) noexcept
     return tool;
 }
 
+void setFont(QWidget* root, const QFont& font) noexcept
+{
+    root->setFont(font);
+    auto widgets = root->findChildren<QWidget*>();
+    for (auto widget : widgets)
+    {
+        widget->setFont(font);
+    }
+}
+
 }; // namespace Utils
 
 }; // namespace QtTheme

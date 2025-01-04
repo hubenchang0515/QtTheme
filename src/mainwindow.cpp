@@ -112,6 +112,7 @@ void MainWindow::loadUiFile(const QString& filepath, const QByteArray& data) noe
     buffer.setData(data);
     QUiLoader loader;
     QWidget* widget = loader.load(&buffer);
+    Utils::setFont(widget, font_);
     tabs_->addTab(widget, info.fileName());
     tabs_->setCurrentWidget(widget);
 }
@@ -119,14 +120,16 @@ void MainWindow::loadUiFile(const QString& filepath, const QByteArray& data) noe
 
 void MainWindow::loadFontFile(const QString& filepath, const QByteArray& data) noexcept
 {
-    this->setStyleSheet(""); // 清除样式，样式会导致字体设置不生效
     int id = QFontDatabase::addApplicationFontFromData(data);
     if (id >= 0)
     {
-        QFont font{QFontDatabase::applicationFontFamilies(id)[0]};
-        tabs_->setFont(font);
+        font_ = QFont{QFontDatabase::applicationFontFamilies(id)[0]};
+        int n = tabs_->count();
+        for (int i = 1; i < n; i++)
+        {
+            Utils::setFont(tabs_->widget(i), font_);
+        }
     }
-    config_->emitCurrentTheme(); // 恢复样式
 }
 
 QSize MainWindow::sizeHint() const noexcept
