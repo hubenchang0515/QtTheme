@@ -33,6 +33,7 @@ public:
     void exportTheme(const QString& themeName, const QString& baseColor, const QString& primaryColor, const QString& secondaryColor) const noexcept;
     void adjustDock() noexcept;
     void loadUiFile(const QString& filepath, const QByteArray& data) noexcept;
+    void loadFontFile(const QString& filepath, const QByteArray& data) noexcept;
 
     virtual QSize sizeHint() const noexcept override;
     
@@ -56,6 +57,7 @@ private:
     void init() noexcept;
     void loadUiWidget() noexcept;
     void closeUiWidget(int index) noexcept;
+    void loadFont() noexcept;
 };
 
 }; // namespace QtTheme

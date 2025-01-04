@@ -18,6 +18,7 @@
 #include <QScreen>
 #include <QUiLoader>
 #include <QBuffer>
+#include <QFontDatabase>
 
 namespace QtTheme
 {
@@ -115,6 +116,19 @@ void MainWindow::loadUiFile(const QString& filepath, const QByteArray& data) noe
     tabs_->setCurrentWidget(widget);
 }
 
+
+void MainWindow::loadFontFile(const QString& filepath, const QByteArray& data) noexcept
+{
+    this->setStyleSheet(""); // 清除样式，样式会导致字体设置不生效
+    int id = QFontDatabase::addApplicationFontFromData(data);
+    if (id >= 0)
+    {
+        QFont font{QFontDatabase::applicationFontFamilies(id)[0]};
+        tabs_->setFont(font);
+    }
+    config_->emitCurrentTheme(); // 恢复样式
+}
+
 QSize MainWindow::sizeHint() const noexcept
 {
     if (preview_)
@@ -154,11 +168,6 @@ void MainWindow::initActions() noexcept
         connect(exportTheme, &QAction::triggered, config_, &ThemeConfigurator::emitExportTheme);
         tools_->addAction(exportTheme);
 
-        auto loadUi = menu->addAction(QIcon(":/QtTheme/icon/arrow_down/#26c6da.svg"), tr("&Load UI File"));
-        loadUi->setShortcut(QKeySequence::Open);
-        connect(loadUi, &QAction::triggered, this, &MainWindow::loadUiWidget);
-        tools_->addAction(loadUi);
-
         menu->addSeparator();
         tools_->addSeparator();
 
@@ -186,6 +195,21 @@ void MainWindow::initActions() noexcept
         auto quit = menu->addAction(QIcon(":/QtTheme/icon/close/#f44336.svg"), tr("&Quit"));
         quit->setShortcut(QKeySequence::Quit);
         connect(quit, &QAction::triggered, this, &MainWindow::close);
+    }
+
+    {
+        auto menu = new QMenu{tr("&File"), this};
+        menus_->addMenu(menu);
+
+        auto loadUi = menu->addAction(QIcon(":/QtTheme/icon/arrow_up_circle/#26c6da.svg"), tr("Load &UI File"));
+        connect(loadUi, &QAction::triggered, this, &MainWindow::loadUiWidget);
+        tools_->addAction(loadUi);
+
+        auto loadFont = menu->addAction(QIcon(":/QtTheme/icon/font/#26c6da.svg"), tr("Load &Font File"));
+        connect(loadFont, &QAction::triggered, this, &MainWindow::loadFont);
+        tools_->addAction(loadFont);
+
+        tools_->addSeparator();
     }
 
 
@@ -290,5 +314,11 @@ void MainWindow::closeUiWidget(int index) noexcept
 }
 
 
+void MainWindow::loadFont() noexcept
+{
+    QFileDialog::getOpenFileContent("Font File(*.otf *.ttf *.woff *.woff2)", [this](const QString& filepath, const QByteArray& data){
+        this->loadFontFile(filepath, data);
+    });
+}
 
 }; // namespace QtTheme
