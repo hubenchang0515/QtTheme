@@ -1,6 +1,7 @@
 QPushButton {
     background-color: {{base[6]}};
     color: {{base[1]}};
+    outline: 0;
 
     padding: 8px 16px;
 }
