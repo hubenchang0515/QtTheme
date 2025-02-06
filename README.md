@@ -103,3 +103,22 @@ QComboBox 必须设置 view, 内部的样式才能生效:
 ```cpp
 comboBox->setView(new QListView);
 ```
+
+## Build - 构建
+
+**Dependencies - 依赖**  
+
+* Deb & Qt5: `qtbase5-dev`, `qttools5-dev`  
+* Deb & Qt6: `qt6-base-dev`, `qt6-tools-dev`  
+* Rpm & Qt5: `qt5-qtbase-devel`, `qt5-qttools-devel`  
+* Rpm & Qt6: `qt6-qtbase-devel`, `qt6-qttools-devel`  
+
+```bash
+git clone git@github.com:hubenchang0515/QtTheme.git
+cd QtTheme
+git submodule update --init
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build . --config Release --parallel
+```
