@@ -1,5 +1,12 @@
 # Qt Theme
 
+![CMake Build on Qt5](https://github.com/hubenchang0515/QtTheme/actions/workflows/cmake-qt5.yml/badge.svg)
+![CMake Build on Qt5](https://github.com/hubenchang0515/QtTheme/actions/workflows/cmake-qt6.yml/badge.svg)
+![License](https://img.shields.io/github/license/hubenchang0515/QtTheme?label=License
+)
+![License: MIT](https://img.shields.io/badge/License-MIT-lightgreen.svg)
+![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)
+
 Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 [Preview and Export Resource Package Online - 在线预览和导出资源包](https://hubenchang0515.github.io/moe-tools/#/qt-theme)
@@ -11,6 +18,8 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 ![light](./doc/image/light.png)
 
 ## Usage - 使用说明
+
+> QtTheme is a pure QSS project, no language restrictions, use C++ description here.
 
 1. Export the resource package from [here](https://hubenchang0515.github.io/moe-tools/#/qt-theme), and add it to your project.
 
@@ -36,6 +45,8 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 --- 
 
+> QtTheme 是纯 QSS 的项目，不受语言限制，这里使用 C++ 描述。
+
 1. 在[这里](https://hubenchang0515.github.io/moe-tools/#/qt-theme)导出资源包，然后将其加入你的项目。
 
 2. 使用 `QMainWindow::setStyleSheet` 设置全局样式。
@@ -52,13 +63,12 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
     ```
 
 | 颜色          | 说明                                                         |
-| :----------- | :---------------------------------------------------------- |
-| Primary      | 导出时选择的主要颜色                                             |
-| Secondary    | 导出时选择的次要颜色                                             |
+| :----------- | :----------------------------------------------------------  |
+| Primary      | 导出时选择的主要颜色                                           |
+| Secondary    | 导出时选择的次要颜色                                           |
 | Success      | 成功色(![绿色](https://placehold.co/16x16/4caf50/4caf50.png)) |
 | Warning      | 警告色(![橙色](https://placehold.co/16x16/ff9800/ff9800.png)) |
 | Danger       | 危险色(![红色](https://placehold.co/16x16/f44336/f44336.png)) |
-
 
 ## Notice - 注意事项
 
@@ -104,6 +114,28 @@ QComboBox 必须设置 view, 内部的样式才能生效:
 comboBox->setView(new QListView);
 ```
 
+## Python
+
+![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)
+
+Install - 安装:  
+
+```bash
+pip install QtTheme
+```
+
+Usage - 使用:  
+
+See [here](https://pypi.org/project/QtTheme/) - 看[这里](https://pypi.org/project/QtTheme/)
+
+> This method will include all resources of QtTheme. 
+> It is recommended to export the resource package from [here](https://hubenchang0515.github.io/QtTheme/), 
+> and add it to your project by RCC (`pyrcc5` or `pyside6-rcc`).
+
+> 这种方式将会包含 QtTheme 的全部资源。
+> 建议从 [这里](https://hubenchang0515.github.io/QtTheme/) 导出资源包，
+> 然后通过 RCC (`pyrcc5` or `pyside6-rcc`) 将它加入你的项目。
+
 ## Build - 构建
 
 **Dependencies - 依赖**  
@@ -122,3 +154,16 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release --parallel
 ```
+
+## License
+
+![License](https://img.shields.io/github/license/hubenchang0515/QtTheme?label=License
+)
+![License: MIT](https://img.shields.io/badge/License-MIT-lightgreen.svg)
+
+* This Project - 这个项目: `AGPL-3.0-or-later` 
+* Exported Resource - 导出的资源: `MIT`
+
+## Contributors
+
+![contributors](https://contrib.rocks/image?repo=hubenchang0515/QtTheme)
