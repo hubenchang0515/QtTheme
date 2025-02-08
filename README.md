@@ -32,7 +32,7 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 | Secondary    | The secondary color selected when exporting                                |
 | Success      | The success color(![GREEN](https://placehold.co/16x16/4caf50/4caf50.png))  |
 | Warning      | The warning color(![ORANGE](https://placehold.co/16x16/ff9800/ff9800.png)) |
-| Danger        | The error color(![RED](https://placehold.co/16x16/f44336/f44336.png))      |
+| Danger       | The error color(![RED](https://placehold.co/16x16/f44336/f44336.png))      |
 
 --- 
 
