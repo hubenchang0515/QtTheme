@@ -10,36 +10,18 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 ## Usage
 
-### PySide6
-
 ```python
 # import resource
 import QtTheme.PySide6
+# import QtTheme.PySide2
+# import QtTheme.PyQt6
+# import QtTheme.PyQt5
 
 # open qss file
 qss = QFile(":/QtTheme/theme/Flat/Dark/Blue/Pink.qss")
-qss.Open(QFile.OpenModeFlag.ReadOnly)
+qss.open(QFile.OpenModeFlag.ReadOnly)
 
 # set style sheet of the root widget
-mainwindow.setStyleSheet(qss.readAll().data().decode())
-
-# set color of widgets
-button.setProperty("Color", "Primary")
-```
-
-
-
-### PyQt5
-
-```python
-# import resource
-import QtTheme.PyQt5
-
-# open qss file
-qss = QFile(":/QtTheme/theme/Flat/Dark/Blue/Pink.qss")
-qss.Open(QFile.OpenModeFlag.ReadOnly)
-
-# set style sheet to the root widgets
 mainwindow.setStyleSheet(qss.readAll().data().decode())
 
 # set color of widgets

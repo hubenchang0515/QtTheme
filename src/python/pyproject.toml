@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "QtTheme"
-version = "1.1"
+version = "1.2"
 authors = [
   { name="Plan C", email="hubenchang0515@outlook.com" },
 ]
