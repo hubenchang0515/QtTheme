@@ -1,24 +1,19 @@
 QTextEdit {
     background-color: {{base[8]}};
     color: {{base[2]}};
-    border: 1px solid {{base[5]}};
-    margin: 1px;
-
-    padding: 0.5em 1em;
+    border: 1px solid {{base[5]}}
 }
 
 QTextEdit:focus {
     background-color: {{base[7]}};
     color: {{base[1]}};
-    border: 2px solid {{base[4]}};
-    margin: 0;
+    border: 1px solid {{base[4]}};
 }
 
 QTextEdit:disabled {
     background-color: {{base[8]}};
     color: {{base[5]}};
     border: 1px solid {{base[6]}};
-    margin: 1px;
 }
 
 {% for key in colors %}
@@ -27,16 +22,12 @@ QTextEdit[Color="{{key}}"] {
     background-color: {{base[8]}};
     color: {{colors[key][6]}};
     border: 1px solid {{colors[key][6]}};
-    margin: 1px;
-
-    padding: 0.5em 1em;
 }
 
 QTextEdit[Color="{{key}}"]:focus {
     background-color: {{base[7]}};
     color: {{colors[key][5]}};
-    border: 2px solid {{colors[key][5]}};
-    margin: 0;
+    border: 1px solid {{colors[key][5]}};
 
 }
 
@@ -44,7 +35,6 @@ QTextEdit[Color="{{key}}"]:disabled {
     background-color: {{base[8]}};
     color: {{colors[key][7]}};
     border: 1px solid {{colors[key][8]}};
-    margin: 1px;
 }
 
 {% endfor %}
