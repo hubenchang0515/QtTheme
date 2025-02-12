@@ -1,7 +1,10 @@
 QHeaderView::section {
     color: {{base[1]}};
     background-color: {{base[7]}};
-    border: 1px solid {{base[6]}};
+    border-top: 1px solid {{base[7]}};
+    border-left: 1px solid {{base[7]}};
+    border-bottom: 1px solid {{base[6]}};
+    border-right: 1px solid {{base[6]}};
     padding: 8px 16px;
 }
 
