@@ -11,6 +11,32 @@ QGroupBox::title {
     padding: 0 0.3em;
 }
 
+QGroupBox::indicator {
+    height: 1em;
+    width: 1em;
+    image: url(":/QtTheme/icon/check_box_unchecked/{{base[1]}}.svg");
+}
+
+QGroupBox::indicator:checked {
+    image: url(":/QtTheme/icon/check_box_checked/{{base[1]}}.svg");
+}
+
+QGroupBox::indicator:indeterminate {
+    image: url(:/QtTheme/icon/checkbox_partially/{{base[1]}}.svg);
+}
+
+QGroupBox::indicator:disabled {
+    image: url(":/QtTheme/icon/check_box_unchecked/{{base[5]}}.svg");
+}
+
+QGroupBox::indicator:checked:disabled {
+    image: url(":/QtTheme/icon/check_box_checked/{{base[5]}}.svg");
+}
+
+QGroupBox::indicator:indeterminate:disabled {
+    image: url(:/QtTheme/icon/checkbox_partially/{{base[5]}}.svg);
+}
+
 {% for key in colors %}
 
 QGroupBox[Color="{{key}}"] {
@@ -18,4 +44,27 @@ QGroupBox[Color="{{key}}"] {
     border: 1px solid {{colors[key][8]}};
 }
 
+QGroupBox[Color="{{key}}"]::indicator {
+    image: url(":/QtTheme/icon/check_box_unchecked/{{colors[key][5]}}.svg");
+}
+
+QGroupBox[Color="{{key}}"]::indicator:checked {
+    image: url(":/QtTheme/icon/check_box_checked/{{colors[key][5]}}.svg");
+}
+
+QGroupBox[Color="{{key}}"]::indicator:indeterminate {
+    image: url(:/QtTheme/icon/checkbox_partially/{{colors[key][5]}}.svg);
+}
+
+QGroupBox[Color="{{key}}"]::indicator:disabled {
+    image: url(":/QtTheme/icon/check_box_unchecked/{{colors[key][7]}}.svg");
+}
+
+QGroupBox[Color="{{key}}"]::indicator:checked:disabled {
+    image: url(":/QtTheme/icon/check_box_checked/{{colors[key][7]}}.svg");
+}
+
+QGroupBox[Color="{{key}}"]::indicator:indeterminate:disabled {
+    image: url(:/QtTheme/icon/checkbox_partially/{{colors[key][7]}}.svg);
+}
 {% endfor %}
