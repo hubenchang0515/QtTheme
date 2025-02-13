@@ -5,7 +5,11 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_subdirectory(3rdparty EXCLUDE_FROM_ALL)
+option(USE_3RDPARTY ON "Use the libraries in 3rdparty to build, or use the system libraries.")
+
+if (USE_3RDPARTY)
+  add_subdirectory(3rdparty EXCLUDE_FROM_ALL)
+endif(USE_3RDPARTY)
 
 if(WIN32)
   add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
@@ -35,3 +39,9 @@ endif()
 target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets Qt::UiTools zip)
                         
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets Qt::UiTools zip)
+
+install(TARGETS ${PROJECT_NAME}
+        LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+        RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
+        PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include/${PROJECT_NAME})

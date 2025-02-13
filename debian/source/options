@@ -1,0 +1,2 @@
+tar-ignore = "3rdparty"
+tar-ignore = "build"

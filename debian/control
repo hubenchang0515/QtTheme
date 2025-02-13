@@ -1,0 +1,24 @@
+Source: qttheme
+Section: admin
+Priority: optional
+Maintainer: planc <hubenchang0515@outlook.com>
+Build-Depends: cmake, debhelper-compat (= 13), qt6-base-dev, qt6-tools-dev, libzip-dev, zlib1g-dev
+Standards-Version: 4.6.1
+Homepage: https://github.com/hubenchang0515/QtTheme
+Rules-Requires-Root: no
+#Vcs-Git: https://salsa.debian.org/debian/qttheme.git
+#Vcs-Browser: https://salsa.debian.org/debian/qttheme
+
+Package: qttheme
+Architecture: any
+Multi-Arch: foreign
+Depends: libqt6core6,
+         libqt6svg6,
+         libqt6uitools6,
+         libqt6widgets6,
+         libzip4,
+         zlib1g,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Qt theme in pure qss
+  Generate, preview and export style source package 

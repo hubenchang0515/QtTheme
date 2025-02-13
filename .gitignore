@@ -196,3 +196,11 @@ cython_debug/
 
 /build
 /.vscode
+
+*.deb
+obj-*-linux-gnu
+debian/.debhelper
+debian/qttheme
+debian/debhelper-build-stamp
+debian/files
+debian/qttheme.substvars
