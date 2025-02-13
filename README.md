@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/github/license/hubenchang0515/QtTheme?label=License
 )
 ![License: MIT](https://img.shields.io/badge/License-MIT-lightgreen.svg)
-![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)
+[![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)](https://pypi.org/project/QtTheme/)
 
 Qt theme in pure qss - 纯 qss 的 Qt 主题
 
@@ -116,7 +116,7 @@ comboBox->setView(new QListView);
 
 ## Python
 
-![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)
+[![PyPI](https://img.shields.io/pypi/v/QtTheme?label=pypi%20package)](https://pypi.org/project/QtTheme/)
 
 Install - 安装:  
 
