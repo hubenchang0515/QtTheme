@@ -3,16 +3,12 @@ set -e
 TOOL_DIR=$(dirname $(readlink -f $0))
 
 # qtbase5-dev-tools
-/usr/lib/qt5/bin/rcc -g python -o "${TOOL_DIR}/../src/python/QtTheme/PySide2/theme.py" "${TOOL_DIR}/../src/resource/theme.qrc"
-/usr/lib/qt5/bin/rcc -g python -o "${TOOL_DIR}/../src/python/QtTheme/PySide2/icon.py" "${TOOL_DIR}/../src/resource/icon.qrc"
+QT_SELECT=qt5 rcc -g python -o "${TOOL_DIR}/../src/python/QtTheme/PySide2/resource.py" "${TOOL_DIR}/../src/resource/QtTheme.qrc" --compress-algo zlib
 
 # qt6-base-dev-tools
-/usr/lib/qt6/libexec/rcc -g python -o "${TOOL_DIR}/../src/python/QtTheme/PySide6/theme.py" "${TOOL_DIR}/../src/resource/theme.qrc"
-/usr/lib/qt6/libexec/rcc -g python -o "${TOOL_DIR}/../src/python/QtTheme/PySide6/icon.py" "${TOOL_DIR}/../src/resource/icon.qrc"
+pyside6-rcc -o "${TOOL_DIR}/../src/python/QtTheme/PySide6/resource.py" "${TOOL_DIR}/../src/resource/QtTheme.qrc" --compress-algo zlib
 
 # pyqt5-dev-tools
-pyrcc5 -o "${TOOL_DIR}/../src/python/QtTheme/PyQt5/theme.py" "${TOOL_DIR}/../src/resource/theme.qrc"
-pyrcc5 -o "${TOOL_DIR}/../src/python/QtTheme/PyQt5/icon.py" "${TOOL_DIR}/../src/resource/icon.qrc"
+pyrcc5 -o "${TOOL_DIR}/../src/python/QtTheme/PyQt5/resource.py" "${TOOL_DIR}/../src/resource/QtTheme.qrc"
 
-sed 's/PySide6/PyQt6/g' "${TOOL_DIR}/../src/python/QtTheme/PySide6/theme.py" > "${TOOL_DIR}/../src/python/QtTheme/PyQt6/theme.py"
-sed 's/PySide6/PyQt6/g' "${TOOL_DIR}/../src/python/QtTheme/PySide6/icon.py" > "${TOOL_DIR}/../src/python/QtTheme/PyQt6/icon.py"
+sed 's/PySide6/PyQt6/g' "${TOOL_DIR}/../src/python/QtTheme/PySide6/resource.py" > "${TOOL_DIR}/../src/python/QtTheme/PyQt6/resource.py"
