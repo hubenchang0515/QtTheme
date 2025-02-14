@@ -31,9 +31,9 @@ SET(CXX_STANDARD 11)
 aux_source_directory(src CUSTOM_WIDGETS_SOURCE)
 
 if (Qt6_FOUND)
-  qt_add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/theme.qrc src/resource/icon.qrc)
+  qt_add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/QtTheme.qrc)
 else()
-  add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/theme.qrc src/resource/icon.qrc)
+  add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/QtTheme.qrc)
 endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets Qt::UiTools zip)
