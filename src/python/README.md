@@ -45,3 +45,6 @@ QWidget.setProperty("Color", "XXX")
 | Danger       | The error color(![RED](https://placehold.co/16x16/f44336/f44336.png))      |
 
 
+## Tips
+
+* [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
