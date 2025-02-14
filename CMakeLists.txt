@@ -5,7 +5,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-option(USE_3RDPARTY ON "Use the libraries in 3rdparty to build, or use the system libraries.")
+option(USE_3RDPARTY "Use the libraries in 3rdparty to build, or use the system libraries." ON)
 
 if (USE_3RDPARTY)
   add_subdirectory(3rdparty EXCLUDE_FROM_ALL)
