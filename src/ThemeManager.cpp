@@ -8,8 +8,7 @@
 
 static inline void initResource()
 {
-    Q_INIT_RESOURCE(theme);
-    Q_INIT_RESOURCE(icon);
+    Q_INIT_RESOURCE(QtTheme);
 }
 
 namespace QtTheme

@@ -1,2 +1,1 @@
-from . import icon
-from . import theme
+from . import resource

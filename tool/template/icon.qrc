@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/QtTheme/">
-    {%- for file in files %}
-        <file>icon/{{file}}</file>
-    {%- endfor%}
-    </qresource>
-</RCC>

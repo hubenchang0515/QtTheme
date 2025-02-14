@@ -87,8 +87,6 @@ class ThemeRenderer(object):
 
         return themes
 
-
-
 class IconRenderer(object):
     def __init__(self, template:File) -> None:
         with template.open() as fp:
@@ -100,15 +98,14 @@ class IconRenderer(object):
             icons[color] = self.__template.render(color=color)
         return icons
 
-
-
-def render_resource_qrc(qrc:File, template:File, files:List[str]):
-    files.sort()
+def render_resource_qrc(qrc:File, template:File, themes:List[str], icons:List[str]):
+    themes.sort()
+    icons.sort()
     with template.open() as fp:
         renderer:Template = Template(fp.read())
 
     with qrc.open("w") as fp:
-        fp.write(renderer.render(files=files))
+        fp.write(renderer.render(themes=themes, icons=icons))
 
 if __name__ == "__main__":
     tool_dir:File = File(os.path.dirname(__file__))
@@ -160,5 +157,4 @@ if __name__ == "__main__":
             with icon_dir.join(icon_file).open("w") as fp:
                 fp.write(icons[color])
 
-    render_resource_qrc(resource_dir.join("theme.qrc"), template_dir.join("theme.qrc"), theme_files)
-    render_resource_qrc(resource_dir.join("icon.qrc"), template_dir.join("icon.qrc"), icon_files)
+    render_resource_qrc(resource_dir.join("QtTheme.qrc"), template_dir.join("QtTheme.qrc"), theme_files, icon_files)

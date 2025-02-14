@@ -72,8 +72,7 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
     stream << "<RCC>\n";
     stream << "  <qresource prefix=\"/QtTheme/\">\n";
 
-    QString fileName = QString("QtTheme_%1_%2_%3_%4").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
-    QString qssFileName = QString("%1.qss").arg(fileName);
+    QString qssFileName = QString("theme/%1/%2/%3/%4.qss").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
     QString qssContent = QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor);
     stream << QString("    <file>%1</file>\n").arg(qssFileName);
     packer_->addFile(qssFileName, qssContent.toUtf8());
@@ -95,7 +94,7 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
     stream << "  </qresource>\n";
     stream << "</RCC>\n";
 
-    QString qrcFileName = QString("%1.qrc").arg(fileName);
+    QString qrcFileName = "QtTheme.qrc";
     packer_->addFile(qrcFileName, qrc.toUtf8());
     QFileDialog::saveFileContent(packer_->data(), "QtTheme.zip");
 }
