@@ -1,3 +1,11 @@
+qttheme (1.0.1) UNRELEASED; urgency=low
+
+  * add debian config
+  * file path normalization
+  * optimize compatibility
+
+ -- planc <hubenchang0515@outlook.com>  Thu, 15 Feb 2025 00:21:09 +0000
+
 qttheme (1.0.0) UNRELEASED; urgency=low
 
   * https://github.com/hubenchang0515/QtTheme/commits/v1.0.0

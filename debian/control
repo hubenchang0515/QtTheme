@@ -2,7 +2,12 @@ Source: qttheme
 Section: admin
 Priority: optional
 Maintainer: planc <hubenchang0515@outlook.com>
-Build-Depends: cmake, debhelper-compat (= 13), qt6-base-dev, qt6-tools-dev, libzip-dev, zlib1g-dev
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               libzip-dev,
+               qt6-base-dev,
+               qt6-tools-dev,
+               zlib1g-dev
 Standards-Version: 4.6.1
 Homepage: https://github.com/hubenchang0515/QtTheme
 Rules-Requires-Root: no
@@ -21,4 +26,4 @@ Depends: libqt6core6,
          ${misc:Depends},
          ${shlibs:Depends}
 Description: Qt theme in pure qss
-  Generate, preview and export style source package 
+  Generate, preview and export style source package
