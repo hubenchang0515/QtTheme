@@ -19,6 +19,7 @@
 #include <QUiLoader>
 #include <QBuffer>
 #include <QFontDatabase>
+#include <QSet>
 
 namespace QtTheme
 {
@@ -79,11 +80,17 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
 
     QRegularExpression regexp("url\\(\"(:/QtTheme/(icon/.*))\"\\)");
     QRegularExpressionMatchIterator iter = regexp.globalMatch(qssContent);
+    QSet<QString> set;
     while (iter.hasNext())
     {
         QRegularExpressionMatch match = iter.next();
         QString resPath = match.captured(1);
         QString iconPath = match.captured(2);
+        if (set.contains(resPath)) 
+        {
+            continue;
+        }
+        set.insert(resPath);
         QFile icon{resPath};
         icon.open(QFile::ReadOnly);
 
