@@ -58,7 +58,7 @@ void MainWindow::setTheme(const QString& themeName, const QString& baseColor, co
     setCentralWidget(placeholder_);
     qApp->processEvents();
 
-    setStyleSheet(QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor));
+    setStyleSheet(QtTheme::getThemeStyle(themeName, baseColor, primaryColor, secondaryColor));
 
     takeCentralWidget();
     setCentralWidget(tabs_);
@@ -75,7 +75,7 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
     stream << "  <qresource prefix=\"/QtTheme/\">\n";
 
     QString qssFileName = QString("theme/%1/%2/%3/%4.qss").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
-    QString qssContent = QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor);
+    QString qssContent = QtTheme::getThemeStyle(themeName, baseColor, primaryColor, secondaryColor);
     stream << QString("    <file>%1</file>\n").arg(qssFileName);
     packer_->addFile(qssFileName, qssContent.toUtf8());
 

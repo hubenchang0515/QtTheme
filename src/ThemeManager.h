@@ -16,42 +16,42 @@ public:
     static ThemeManager& singleton() noexcept;
 
     /***********************************
-    * @brief get valid themes
-    * @return string list of valid themes
+    * @brief 获取主题名称列表
+    * @return 主题名称列表
     ************************************/
     QStringList getThemes() const noexcept;
 
     /***********************************
-    * @brief get valid base colors
-    * @param name theme name
-    * @return string list of valid base colors
+    * @brief 获取主题的基础色列表（通常为Dark、Light）
+    * @param name 主题名称
+    * @return 基础色列表
     ************************************/
     QStringList getBaseColors(const QString& name) const noexcept;
 
     /***********************************
-    * @brief get valid primary colors
-    * @param name theme name
-    * @param base base color
-    * @return string list of valid primary colors
+    * @brief 获取主题的主配色列表
+    * @param name 主题名称
+    * @param base 基础色
+    * @return 主配色列表
     ************************************/
     QStringList getPrimaryColors(const QString& name, const QString& base) const noexcept;
 
     /***********************************
-    * @brief get valid secondary colors
-    * @param name theme name
-    * @param base base color
-    * @param primary primary clolor
-    * @return string list of valid secondary colors
+    * @brief 获取主题的次配色列表
+    * @param name 主题名称
+    * @param base 基础色
+    * @param primary 主配色
+    * @return 次配色列表
     ************************************/
     QStringList getSecondaryColors(const QString& name, const QString& base, const QString& primary) const noexcept;
 
     /***********************************
-    * @brief get theme qss string
-    * @param name theme name
-    * @param base base color
-    * @param primary primary clolor
-    * @param secondary secondary color
-    * @return qss string
+    * @brief 获取主题配置
+    * @param name 主题名称
+    * @param base 基础色
+    * @param primary 主配色
+    * @param secondary 次配色
+    * @return 主题的 QSS 配置，不存在时为空字符串
     ************************************/
     QString getThemeStyle(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept;
 
