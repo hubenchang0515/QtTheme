@@ -43,7 +43,7 @@ endif()
 
 set_target_properties(${PROJECT_NAME}_static 
                       PROPERTIES 
-                      OUTPUT_NAME ${PROJECT_NAME}
+                      OUTPUT_NAME ${PROJECT_NAME}_static
                       PUBLIC_HEADER "${QTTHEME_HEADER}")
 
 set_target_properties(${PROJECT_NAME}_shared 
