@@ -3,8 +3,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QDirIterator>
-#include <QSet>
-#include <QRegularExpression>
 
 static inline void initResource()
 {

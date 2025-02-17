@@ -7,7 +7,7 @@ namespace QtTheme
 {
 
 /***********************************
-* @brief get valid themes
+* @brief Get valid themes
 * @return string list of valid themes
 ************************************/
 inline QStringList getThemes() noexcept
@@ -16,7 +16,7 @@ inline QStringList getThemes() noexcept
 }
 
 /***********************************
-* @brief get valid base colors
+* @brief Get valid base colors
 * @param name theme name
 * @return string list of valid base colors
 ************************************/
@@ -26,7 +26,7 @@ inline QStringList getBaseColors(const QString& name) noexcept
 }
 
 /***********************************
-* @brief get valid primary colors
+* @brief Get valid primary colors
 * @param name theme name
 * @param base base color
 * @return string list of valid primary colors
@@ -37,7 +37,7 @@ inline QStringList getPrimaryColors(const QString& name, const QString& base) no
 }
 
 /***********************************
-* @brief get valid secondary colors
+* @brief Get valid secondary colors
 * @param name theme name
 * @param base base color
 * @param primary primary clolor
@@ -49,7 +49,7 @@ inline QStringList getSecondaryColors(const QString& name, const QString& base, 
 }
 
 /***********************************
-* @brief get theme qss string
+* @brief Get theme qss string
 * @param name theme name
 * @param base base color
 * @param primary primary clolor

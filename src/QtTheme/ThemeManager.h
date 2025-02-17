@@ -3,7 +3,6 @@
 
 #include <QString>
 #include <QStringList>
-#include <QMap>
 
 namespace QtTheme
 {
@@ -16,20 +15,20 @@ public:
     static ThemeManager& singleton() noexcept;
 
     /***********************************
-    * @brief get valid themes
+    * @brief Get valid themes
     * @return string list of valid themes
     ************************************/
     QStringList getThemes() const noexcept;
 
     /***********************************
-    * @brief get valid base colors
+    * @brief Get valid base colors
     * @param name theme name
     * @return string list of valid base colors
     ************************************/
     QStringList getBaseColors(const QString& name) const noexcept;
 
     /***********************************
-    * @brief get valid primary colors
+    * @brief Get valid primary colors
     * @param name theme name
     * @param base base color
     * @return string list of valid primary colors
@@ -37,7 +36,7 @@ public:
     QStringList getPrimaryColors(const QString& name, const QString& base) const noexcept;
 
     /***********************************
-    * @brief get valid secondary colors
+    * @brief Get valid secondary colors
     * @param name theme name
     * @param base base color
     * @param primary primary clolor
@@ -46,7 +45,7 @@ public:
     QStringList getSecondaryColors(const QString& name, const QString& base, const QString& primary) const noexcept;
 
     /***********************************
-    * @brief get theme qss string
+    * @brief Get theme qss string
     * @param name theme name
     * @param base base color
     * @param primary primary clolor
