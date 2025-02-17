@@ -4,7 +4,7 @@
 #include <QListView>
 #include <QPainter>
 
-#include "QtTheme.h"
+#include <QtTheme/QtTheme.h>
 
 namespace QtTheme
 {

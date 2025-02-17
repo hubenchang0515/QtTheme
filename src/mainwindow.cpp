@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "QtTheme.h"
 #include "utils.h"
 
 #include <QApplication>
@@ -20,6 +19,8 @@
 #include <QBuffer>
 #include <QFontDatabase>
 #include <QSet>
+
+#include <QtTheme/QtTheme.h>
 
 namespace QtTheme
 {

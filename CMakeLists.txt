@@ -28,19 +28,39 @@ SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTORCC ON)
 SET(CXX_STANDARD 11)
 
-aux_source_directory(src CUSTOM_WIDGETS_SOURCE)
+file(GLOB QTTHEME_HEADER "${CMAKE_CURRENT_SOURCE_DIR}/src/QtTheme/*.h")
+aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}/src/QtTheme" LIB_SOURCE)
+aux_source_directory("${CMAKE_CURRENT_SOURCE_DIR}/src/" EXEC_SOURCE)
 
 if (Qt6_FOUND)
-  qt_add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/QtTheme.qrc)
+  qt_add_library(${PROJECT_NAME}_static STATIC ${LIB_SOURCE} src/resource/QtTheme.qrc)
+  qt_add_library(${PROJECT_NAME}_shared SHARED ${LIB_SOURCE} src/resource/QtTheme.qrc)
+  qt_add_executable(${PROJECT_NAME} ${EXEC_SOURCE})
 else()
-  add_executable(${PROJECT_NAME} ${CUSTOM_WIDGETS_SOURCE} src/resource/QtTheme.qrc)
+  add_library(${PROJECT_NAME}_static STATIC ${LIB_SOURCE} src/resource/QtTheme.qrc)
+  add_library(${PROJECT_NAME}_shared SHARED ${LIB_SOURCE} src/resource/QtTheme.qrc)
+  add_executable(${PROJECT_NAME} ${EXEC_SOURCE})
 endif()
 
-target_include_directories(${PROJECT_NAME} PUBLIC Qt::Core Qt::Widgets Qt::UiTools zip)
-                        
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets Qt::UiTools zip)
+set_target_properties(${PROJECT_NAME}_static 
+                      PROPERTIES 
+                      OUTPUT_NAME ${PROJECT_NAME}
+                      PUBLIC_HEADER "${QTTHEME_HEADER}")
 
-install(TARGETS ${PROJECT_NAME}
+set_target_properties(${PROJECT_NAME}_shared 
+                      PROPERTIES 
+                      OUTPUT_NAME ${PROJECT_NAME}
+                      PUBLIC_HEADER "${QTTHEME_HEADER}")
+
+target_include_directories(${PROJECT_NAME}_static PUBLIC Qt::Core)
+target_include_directories(${PROJECT_NAME}_shared PUBLIC Qt::Core)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}_static Qt::Core Qt::Widgets Qt::UiTools zip "${CMAKE_CURRENT_SOURCE_DIR}/src/")
+
+target_link_libraries(${PROJECT_NAME}_static PRIVATE Qt::Core)
+target_link_libraries(${PROJECT_NAME}_shared PRIVATE Qt::Core)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_static Qt::Core Qt::Widgets Qt::UiTools zip "${CMAKE_CURRENT_SOURCE_DIR}/src/")
+
+install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_static ${PROJECT_NAME}_shared
         LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
         ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
         RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin
