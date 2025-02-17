@@ -14,8 +14,7 @@ endif(USE_3RDPARTY)
 if(WIN32)
   add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
   add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
-  add_link_options("$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,MSVC>,$<STREQUAL:$<CONFIG>,Release>>:/SUBSYSTEM:windows;/ENTRY:mainCRTStartup>")
-  add_link_options("$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,GNU>,$<STREQUAL:$<CONFIG>,Release>>:-mwindows>")
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
 find_package(Qt6 COMPONENTS Core Widgets UiTools QUIET)
@@ -59,6 +58,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}_static Qt::Cor
 target_link_libraries(${PROJECT_NAME}_static PRIVATE Qt::Core)
 target_link_libraries(${PROJECT_NAME}_shared PRIVATE Qt::Core)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_static Qt::Core Qt::Widgets Qt::UiTools zip "${CMAKE_CURRENT_SOURCE_DIR}/src/")
+
+if (WIN32)
+  target_link_options(${PROJECT_NAME} PRIVATE "$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,MSVC>,$<STREQUAL:$<CONFIG>,Release>>:/SUBSYSTEM:windows;/ENTRY:mainCRTStartup>")
+  target_link_options(${PROJECT_NAME} PRIVATE "$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,GNU>,$<STREQUAL:$<CONFIG>,Release>>:-mwindows>")
+endif(WIN32)
 
 install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_static ${PROJECT_NAME}_shared
         LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
