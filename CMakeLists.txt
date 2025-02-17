@@ -53,11 +53,11 @@ set_target_properties(${PROJECT_NAME}_shared
 
 target_include_directories(${PROJECT_NAME}_static PUBLIC Qt::Core)
 target_include_directories(${PROJECT_NAME}_shared PUBLIC Qt::Core)
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}_static Qt::Core Qt::Widgets Qt::UiTools zip "${CMAKE_CURRENT_SOURCE_DIR}/src/")
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}_shared Qt::Core Qt::Widgets Qt::UiTools zip "${CMAKE_CURRENT_SOURCE_DIR}/src/")
 
 target_link_libraries(${PROJECT_NAME}_static PRIVATE Qt::Core)
 target_link_libraries(${PROJECT_NAME}_shared PRIVATE Qt::Core)
-target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_static Qt::Core Qt::Widgets Qt::UiTools zip)
+target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_shared Qt::Core Qt::Widgets Qt::UiTools zip)
 
 if (WIN32)
   target_link_options(${PROJECT_NAME} PRIVATE "$<$<AND:$<STREQUAL:$<CXX_COMPILER_ID>,MSVC>,$<STREQUAL:$<CONFIG>,Release>>:/SUBSYSTEM:windows;/ENTRY:mainCRTStartup>")
