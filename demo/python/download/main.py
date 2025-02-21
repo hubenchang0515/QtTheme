@@ -1,8 +1,19 @@
+#!/usr/bin/env python3
+
 import sys
 from PySide6.QtCore import Qt, QUrl, QFile
-from PySide6.QtWidgets import QApplication, QGridLayout, QDialog, QLabel, QLineEdit, QPushButton, QProgressBar
+from PySide6.QtWidgets import (
+    QApplication,
+    QGridLayout,
+    QDialog,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QProgressBar,
+)
 from PySide6.QtNetwork import QNetworkAccessManager, QNetworkRequest, QNetworkReply
 import QtTheme.PySide6 as QtTheme
+
 
 class Window(QDialog):
     def __init__(self, *args, **kwargs):
@@ -36,7 +47,7 @@ class Window(QDialog):
 
         self.__btn.clicked.connect(self.download)
 
-    def setProgressColor(self, color:str):
+    def setProgressColor(self, color: str):
         self.__progress.setProperty("Color", color)
         self.__progress.style().unpolish(self.__progress)
         self.__progress.style().polish(self.__progress)
@@ -62,15 +73,19 @@ class Window(QDialog):
 
     def readyRead(self):
         if self.__file is None:
-            disposition:str = self.__reply.header(QNetworkRequest.KnownHeaders.ContentDispositionHeader)
+            disposition: str = self.__reply.header(
+                QNetworkRequest.KnownHeaders.ContentDispositionHeader
+            )
 
-            if disposition is not None and disposition.startswith("attachment; filename="):
-                filename = disposition[len("attachment; filename="):]
+            if disposition is not None and disposition.startswith(
+                "attachment; filename="
+            ):
+                filename = disposition[len("attachment; filename=") :]
             else:
-                filename = 'unknown.download'
+                filename = "unknown.download"
             self.__file = QFile(filename)
             self.__file.open(QFile.OpenModeFlag.WriteOnly)
-        
+
         data = self.__reply.readAll()
         self.__file.write(data)
 
@@ -96,6 +111,7 @@ class Window(QDialog):
         self.__progress.setRange(0, total)
         self.__progress.setValue(done)
         self.__label.setText(f"{done}/{total}")
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
