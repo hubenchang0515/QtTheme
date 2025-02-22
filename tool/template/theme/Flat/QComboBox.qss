@@ -1,7 +1,7 @@
 QComboBox {
     color: {{base[2]}};
     border: 1px solid {{base[5]}};
-    padding: 0.5em 1em;
+    padding: 0.5em 0;
 }
 
 QComboBox::drop-down {
