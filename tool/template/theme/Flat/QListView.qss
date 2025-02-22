@@ -6,17 +6,17 @@ QListView {
 }
 
 QListView::item  {
-    padding: 0.5em 0;
+   padding: 6px 0;
 }
 
 QListView::item:hover:!selected {
-    padding: 0.5em 0;
+   padding: 6px 0;
     color: {{base[2]}};
     background-color: {{base[7]}};
 }
 
 QListView::item:selected {
-    padding: 0.5em 0;
+   padding: 6px 0;
     color: {{base[2]}};
     background-color: {{base[6]}};
 }
@@ -32,17 +32,17 @@ QListView[Color="{{key}}"] {
 }
 
 QListView[Color="{{key}}"]::item  {
-    padding: 0.5em 0;
+   padding: 6px 0;
 }
 
 QListView[Color="{{key}}"]::item:hover:!selected {
-    padding: 0.5em 0;
+   padding: 6px 0;
     color: {{base[3]}};
     background-color: {{colors[key][7]}};
 }
 
 QListView[Color="{{key}}"]::item:selected {
-    padding: 0.5em 0;
+   padding: 6px 0;
     color: {{base[3]}};
     background-color: {{colors[key][6]}};
 }

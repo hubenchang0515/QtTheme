@@ -1,13 +1,14 @@
 QComboBox {
     color: {{base[2]}};
     border: 1px solid {{base[5]}};
-    padding: 0.5em 0;
+    padding: 6px 8px;
 }
 
 QComboBox::drop-down {
-    width: 2em;
+    width: 1em;
     background-color: transparent;
     border: 0;
+    margin: 0 8px 0 0;
 }
 
 QComboBox::down-arrow {
@@ -22,17 +23,17 @@ QComboBox QAbstractItemView {
 }
 
 QComboBox QAbstractItemView::item  {
-    padding: 0.5em 0;
+    padding: 6px 8px;
 }
 
 QComboBox QAbstractItemView::item:hover:!selected {
-    padding: 0.5em 0;
+    padding: 6px 8px;
     color: {{base[2]}};
     background-color: {{base[7]}};
 }
 
 QComboBox QAbstractItemView::item:selected {
-    padding: 0.5em 0;
+    padding: 6px 8px;
     color: {{base[2]}};
     background-color: {{base[6]}};
 }
@@ -44,13 +45,14 @@ QComboBox QAbstractItemView::item:selected {
 QComboBox[Color="{{key}}"] {
     color: {{colors[key][5]}};
     border: 1px solid {{colors[key][7]}};
-    padding: 0.5em 0;
+    padding: 6px 8px;
 }
 
 QComboBox[Color="{{key}}"]::drop-down {
-    width: 2em;
+    width: 1em;
     background-color: transparent;
     border: 0;
+    margin: 0 8px 0 0;
 }
 
 QComboBox[Color="{{key}}"]::down-arrow {
@@ -65,17 +67,18 @@ QComboBox[Color="{{key}}"] QAbstractItemView {
 }
 
 QComboBox[Color="{{key}}"] QAbstractItemView::item  {
-    padding: 0.5em 0;
+    padding: 6px 8px;
+    background-color: {{base[9]}};
 }
 
 QComboBox[Color="{{key}}"] QAbstractItemView::item:hover:!selected {
-    padding: 0.5em 0;
+    padding: 6px 8px;
     color: {{base[3]}};
     background-color: {{colors[key][7]}};
 }
 
 QComboBox[Color="{{key}}"] QAbstractItemView::item:selected {
-    padding: 0.5em 0;
+    padding: 6px 8px;
     color: {{base[3]}};
     background-color: {{colors[key][6]}};
 }

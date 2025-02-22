@@ -3,7 +3,7 @@ QLineEdit {
     color: {{base[2]}};
     border: 1px solid {{base[5]}};
 
-    padding: 0.5em 0;
+   padding: 6px 0;
 }
 
 QLineEdit:focus {
@@ -26,7 +26,7 @@ QLineEdit[Color="{{key}}"] {
     color: {{colors[key][6]}};
     border: 1px solid {{colors[key][6]}};
 
-    padding: 0.5em 0;
+   padding: 6px 0;
 }
 
 QLineEdit[Color="{{key}}"]:focus {
