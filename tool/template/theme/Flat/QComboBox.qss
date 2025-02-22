@@ -44,7 +44,7 @@ QComboBox QAbstractItemView::item:selected {
 QComboBox[Color="{{key}}"] {
     color: {{colors[key][5]}};
     border: 1px solid {{colors[key][7]}};
-    padding: 0.5em 1em;
+    padding: 0.5em 0;
 }
 
 QComboBox[Color="{{key}}"]::drop-down {
