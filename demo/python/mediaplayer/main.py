@@ -71,7 +71,7 @@ class Control(QWidget):
         self.__forward = QPushButton(forwardIcon, "")
 
         self.__progress.setRange(0, 0)
-        self.__progress.setStyle(SliderStyle(self.__progress.style()))
+        self.__progress.setStyle(SliderStyle())
 
         self.__layout = QGridLayout()
         self.__layout.addWidget(self.__progress, 0, 0, 1, -1)
@@ -226,7 +226,6 @@ class Window(QGraphicsView):
 
 
 if __name__ == "__main__":
-    print(sys.argv)
     app = QApplication(sys.argv)
     window = Window()
     window.show()
