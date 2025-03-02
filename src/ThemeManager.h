@@ -53,7 +53,7 @@ public:
     * @param secondary 次配色
     * @return 主题的 QSS 配置，不存在时为空字符串
     ************************************/
-    QString getTheme(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept;
+    QString getThemeStyle(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept;
 
 private:
     ThemeManager() noexcept;

@@ -10,12 +10,33 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
 
 ## Usage
 
+Install by `pip install QtTheme` then:  
+
 ```python
 # import resource
-import QtTheme.PySide6
-# import QtTheme.PySide2
-# import QtTheme.PyQt6
-# import QtTheme.PyQt5
+import QtTheme.PySide6 as QtTheme
+# import QtTheme.PySide2 as QtTheme
+# import QtTheme.PyQt6 as QtTheme
+# import QtTheme.PyQt5 as QtTheme
+
+# set style sheet of the root widget
+mainwindow.setStyleSheet(QtTheme.getThemeStyle('Flat', 'Dark', 'Blue', 'Pink'))
+
+# set color of widgets
+button.setProperty("Color", "Primary")
+```
+
+---
+
+Alternatively, without installing QtTheme, you can export a single-style qrc resource package through the [online website](https://hubenchang0515.github.io/QtTheme/). Use [RCC](https://doc.qt.io/qt-6/rcc.html) to add it to your project.
+
+```bash
+pyside6-rcc -o resource.py QtTheme.qrc
+```
+
+```python
+# import resource
+import resource
 
 # open qss file
 qss = QFile(":/QtTheme/theme/Flat/Dark/Blue/Pink.qss")
@@ -30,7 +51,7 @@ button.setProperty("Color", "Primary")
 
 ### API
 
-Only one API:  
+Use `QWidget.setProperty` to set color of widget:  
 
 ```python
 QWidget.setProperty("Color", "XXX")
@@ -44,6 +65,18 @@ QWidget.setProperty("Color", "XXX")
 | Warning      | The warning color(![ORANGE](https://placehold.co/16x16/ff9800/ff9800.png)) |
 | Danger       | The error color(![RED](https://placehold.co/16x16/f44336/f44336.png))      |
 
+To get themes: 
+```python
+def getThemes(): ...
+
+def getBaseColors(theme:str): ...
+
+def getPrimaryColors(theme:str, base:str): ...
+
+def getSecondaryColors(theme:str, base:str, primary:str): ...
+
+def getThemeStyle(theme:str, base:str, primary:str, secondary:str): ...
+```
 
 ## Tips
 

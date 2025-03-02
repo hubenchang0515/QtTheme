@@ -3,8 +3,6 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QDirIterator>
-#include <QSet>
-#include <QRegularExpression>
 
 static inline void initResource()
 {
@@ -82,7 +80,7 @@ QStringList ThemeManager::getSecondaryColors(const QString& name, const QString&
     return colors;
 }
 
-QString ThemeManager::getTheme(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept
+QString ThemeManager::getThemeStyle(const QString& name, const QString& base, const QString& primary, const QString& secondary) const noexcept
 {
     QFile file(QString(":/QtTheme/theme/%1/%2/%3/%4.qss").arg(name).arg(base).arg(primary).arg(secondary));
     file.open(QFile::ReadOnly);

@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "QtTheme.h"
 #include "utils.h"
 
 #include <QApplication>
@@ -19,6 +18,9 @@
 #include <QUiLoader>
 #include <QBuffer>
 #include <QFontDatabase>
+#include <QSet>
+
+#include <QtTheme/QtTheme.h>
 
 namespace QtTheme
 {
@@ -56,7 +58,7 @@ void MainWindow::setTheme(const QString& themeName, const QString& baseColor, co
     setCentralWidget(placeholder_);
     qApp->processEvents();
 
-    setStyleSheet(QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor));
+    setStyleSheet(QtTheme::getThemeStyle(themeName, baseColor, primaryColor, secondaryColor));
 
     takeCentralWidget();
     setCentralWidget(tabs_);
@@ -73,17 +75,23 @@ void MainWindow::exportTheme(const QString& themeName, const QString& baseColor,
     stream << "  <qresource prefix=\"/QtTheme/\">\n";
 
     QString qssFileName = QString("theme/%1/%2/%3/%4.qss").arg(themeName).arg(baseColor).arg(primaryColor).arg(secondaryColor);
-    QString qssContent = QtTheme::getTheme(themeName, baseColor, primaryColor, secondaryColor);
+    QString qssContent = QtTheme::getThemeStyle(themeName, baseColor, primaryColor, secondaryColor);
     stream << QString("    <file>%1</file>\n").arg(qssFileName);
     packer_->addFile(qssFileName, qssContent.toUtf8());
 
     QRegularExpression regexp("url\\(\"(:/QtTheme/(icon/.*))\"\\)");
     QRegularExpressionMatchIterator iter = regexp.globalMatch(qssContent);
+    QSet<QString> set;
     while (iter.hasNext())
     {
         QRegularExpressionMatch match = iter.next();
         QString resPath = match.captured(1);
         QString iconPath = match.captured(2);
+        if (set.contains(resPath)) 
+        {
+            continue;
+        }
+        set.insert(resPath);
         QFile icon{resPath};
         icon.open(QFile::ReadOnly);
 
