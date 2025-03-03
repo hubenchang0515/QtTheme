@@ -1,3 +1,11 @@
+qttheme (1.0.2) UNRELEASED; urgency=low
+
+  * build library in c++
+  * add python api to access styles
+  * adjust some styles
+
+ -- planc <hubenchang0515@outlook.com>  Mon, 03 Mar 2025 08:40:24 +0000
+
 qttheme (1.0.1) UNRELEASED; urgency=low
 
   * add debian config
