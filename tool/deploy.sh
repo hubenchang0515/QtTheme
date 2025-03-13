@@ -19,7 +19,7 @@ then
     exit 1
 fi
 
-cp "${TOOL_DIR}"/PWA/* .
+cp "${TOOL_DIR}"/static/* .
 
 git init .
 git remote add origin $TARGET_REPO
