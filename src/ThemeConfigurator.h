@@ -43,6 +43,7 @@ private:
     QLabel* secondaryLabel_;
     QComboBox* secondaryColor_;
     QPushButton* exportButton_;
+    QPushButton* moreButton_;
 
 private slots:
     static void setOptions(QComboBox* box, QStringList options) noexcept;

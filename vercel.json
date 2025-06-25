@@ -1,0 +1,15 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/QtTheme/",
+      "destination": "/"
+    },
+
+    {
+      "source": "/QtTheme/:path*",
+      "destination": "/:path*"
+    }
+  ]
+}
+
