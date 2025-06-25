@@ -1,4 +1,5 @@
 #include "ThemeConfigurator.h"
+#include "utils.h"
 
 #include <QSpacerItem>
 #include <QListView>
@@ -20,7 +21,8 @@ ThemeConfigurator::ThemeConfigurator(QWidget* parent) noexcept:
     primaryColor_{new QComboBox},
     secondaryLabel_{new QLabel{tr("Secondary Color")}},
     secondaryColor_{new QComboBox},
-    exportButton_{new QPushButton{tr("EXPORT")}}
+    exportButton_{new QPushButton{tr("EXPORT")}},
+    moreButton_{new QPushButton{tr("More")}}
 {
     primaryLabel_->setProperty("Color", "Primary");
     primaryColor_->setProperty("Color", "Primary");
@@ -29,17 +31,19 @@ ThemeConfigurator::ThemeConfigurator(QWidget* parent) noexcept:
     secondaryColor_->setProperty("Color", "Secondary");
 
     exportButton_->setProperty("Color", "Success");
+    moreButton_->setProperty("Color", "Warning");
 
     layout_->addWidget(themeLabel_, 0, 0);
     layout_->addWidget(themeName_, 0, 1);
     layout_->addWidget(baseLabel_, 1, 0);
     layout_->addWidget(baseColor_, 1, 1);
-    layout_->addWidget(primaryLabel_, 2, 0);
+    layout_->addWidget(primaryLabel_, 2, 0); 
     layout_->addWidget(primaryColor_, 2, 1);
     layout_->addWidget(secondaryLabel_, 3, 0);
     layout_->addWidget(secondaryColor_, 3, 1);
     layout_->addWidget(exportButton_, 4, 0, 1, 2);
-    layout_->addItem(new QSpacerItem{0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding}, 5, 0);
+    layout_->addWidget(moreButton_, 5, 0, 1, 2);
+    layout_->addItem(new QSpacerItem{0, 0, QSizePolicy::Preferred, QSizePolicy::Expanding}, 6, 0);
     setLayout(layout_);
 
     themeName_->setView(new QListView);
@@ -57,6 +61,7 @@ ThemeConfigurator::ThemeConfigurator(QWidget* parent) noexcept:
     connect(primaryColor_, &QComboBox::currentTextChanged, this, &ThemeConfigurator::primaryColorChanged);
     connect(secondaryColor_, &QComboBox::currentTextChanged, this, &ThemeConfigurator::secondaryColorChanged);
     connect(exportButton_, &QPushButton::clicked, this, &ThemeConfigurator::emitExportTheme);
+    connect(moreButton_, &QPushButton::clicked, Utils::toOpenUrl("https://xplanc.org/"));
 }
 
 bool ThemeConfigurator::setTheme(const QString& themeName) noexcept

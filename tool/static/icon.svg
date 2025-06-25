@@ -1,14 +1,8 @@
 <svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
- <title>QtTheme</title>
-
- <g>
-  <title>Layer 1</title>
-  <path transform="rotate(-90 50 150)" stroke="#000" id="svg_47" d="m0,200.00005l0,-100.00005l100.00006,100.00005l-100.00006,0z" stroke-width="0" fill="#41cd52"/>
-  <path transform="rotate(90 550 450)" stroke="#000" id="svg_45" d="m499.99998,500.00008l0,-100.00006l100.00006,100.00006l-100.00006,0z" stroke-width="0" fill="#41cd52"/>
-  <rect id="svg_44" height="100" width="500" y="400" x="0" stroke-width="0" stroke="#000" fill="#41cd52"/>
-  <rect id="svg_42" height="100" width="500" y="100" x="100" stroke-width="0" stroke="#000" fill="#41cd52"/>
-  <rect id="svg_40" height="200" width="600" y="200" x="0" stroke-width="0" stroke="#000" fill="#41cd52"/>
-  <text style="cursor: move;" stroke-width="0" font-weight="normal" font-style="normal" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="200" id="svg_1" y="293.33414" x="116.49997" stroke="#000" fill="#ffffff">Qt</text>
-  <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Noto Sans JP" font-size="120" id="svg_2" y="449.66749" x="116.49997" stroke-width="0" fill="#ffffff">Theme</text>
- </g>
+    <title>QtTheme</title>
+    <g>
+        <polygon points="100,100 600,100 600,400 500,500 0,500 0,200" fill="#41cd52"/>
+        <text style="cursor: move;" stroke-width="0" font-weight="normal" font-style="normal" xml:space="preserve" text-anchor="start" font-family="Consolas" font-size="200" id="svg_1" y="293.33414" x="116.49997" stroke="#000" fill="#ffffff">Qt</text>
+        <text stroke="#000" xml:space="preserve" text-anchor="start" font-family="Consolas" font-size="120" id="svg_2" y="449.66749" x="116.49997" stroke-width="0" fill="#ffffff">Theme</text>
+    </g>
 </svg>
