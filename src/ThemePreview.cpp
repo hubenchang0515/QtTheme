@@ -163,7 +163,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(button8, 1, 2);
         grid->addWidget(button9, 2, 2);
         
-        auto groupbox = new QGroupBox(tr("QButton"));
+        auto groupbox = new QGroupBox(tr("QPushButton"));
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 0, 1, 1, 2);
