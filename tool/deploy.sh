@@ -11,6 +11,10 @@ then
     exit 1
 fi
 
+# copy static files
+cp -r "${TOOL_DIR}"/static/* "$TARGET_DIR"
+
+# push to gh-pages
 cd $TARGET_DIR
 
 if [ -e .git ]

@@ -13,12 +13,30 @@
     <meta name="viewport" content="width=device-width, height=device-height, user-scalable=0"/>
 
     <meta name="description" content="Download Qt QSS Theme Style Online - 在线下载 Qt QSS 主题样式">
-
     <title>QtTheme</title>
     <style>
       /* Make the html body cover the entire (visual) viewport with no scroll bars. */
-      html, body { padding: 0; margin: 0; overflow: hidden; height: 100% }
+      html, body { padding: 0; margin: 0; overflow: hidden; height: 100%;color: #fafafa; background: #121212;}
       #screen { width: 100%; height: 100%; }
+      #qtstatus {position: sticky; top: 0; background: #121212; z-index: 9999;}
+      mark{color: #0f0; background: #121212;}
+      a {color: green;}
+      table {
+        border-collapse: collapse;
+        width: 90%;
+        margin: auto;
+      }
+
+      table th,
+      table td {
+        border: 1px solid #333;
+        padding: 12px;
+        text-align: left;
+      }
+
+      hr {
+        border: 1px solid #333;
+      }
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
@@ -29,40 +47,78 @@
       gtag('config', 'G-HEWPX7E6EV');
     </script>
   </head>
-  <body onload="init()">
-    <figure style="overflow:visible;" id="qtspinner">
-      <center style="margin-top:1.5em; line-height:150%">
-        <img src="qtlogo.svg" width="320" height="200" style="display:block"></img>
-        <h1>QtTheme - Download Qt QSS Theme Style Online</h1>
-        <div id="qtstatus"></div>
-        <p>Qt QSS theme style free download and online generation tool</p>
-        <p>Download free Qt QSS theme styles and UI templates!</p>
-        <p>Customizable designs with code examples for Windows, macOS, Linux and WASM.</p>
-        <p>Boost your Qt app's visual appeal in minutes!</p>
-        <p>
-          Official documentation:  
-          <a href="https://doc.qt.io/qt-6/stylesheet-reference.html">Qt Style Sheets Reference</a>
-        </p>
-        <p>
-          Home Page:  
-          <a href="https://hubenchang0515.github.io/">Plan C (hubenchang0515)'s Home Page</a>
-        </p>
-
-        <p>Qt QSS 主题样式免费下载与在线生成工具</p>
-        <p>立即免费下载高质量 Qt QSS 主题样式！</p>
-        <p>提供可定制的 Qt 界面美化模板、QSS 代码示例和在线生成工具，适用于 Windows/macOS/Linux/WASM 跨平台开发。</p>
-        <p>开发者首选资源库，快速提升Qt应用UI设计效果！</p>
-        <p>
-          官方文档:  
-          <a href="https://doc.qt.io/qt-6/stylesheet-reference.html">Qt Style Sheets Reference</a>
-        </p>
-        <p>
-          主页:  
-          <a href="https://hubenchang0515.github.io/">Plan C (hubenchang0515) 的主页</a>
-        </p>
-        <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
-      </center>
-    </figure>
+  <body class="markdown-body" onload="init()">
+    <div style="height:100%; overflow:auto;" id="qtspinner">
+      <img src="qtlogo.svg" width="320" height="200" style="display:block;margin: auto;"></img>
+      <h1 style="text-align: center;">QtTheme - Download Qt QSS Theme Style Online</h1>
+      <div id="qtstatus" style="text-align: center;">
+        <mark>Loading WASM, please wait.</mark>
+      </div>
+      <div style="max-width:1080px;margin:auto;">
+<p>Qt theme in pure qss - 纯 qss 的 Qt 主题</p>
+<h2>Preview - 预览</h2>
+<p><img style="display: block; margin: auto; max-width: 100%;" referrerpolicy="no-referrer" src="https://github.com/hubenchang0515/QtTheme/raw/master/doc/image/dark.png"></p>
+<p><img style="display: block; margin: auto; max-width: 100%;" referrerpolicy="no-referrer" src="https://github.com/hubenchang0515/QtTheme/raw/master/doc/image/light.png"></p>
+<h2>Usage - 使用说明</h2>
+<blockquote>
+<p>QtTheme is a pure QSS project, no language restrictions, use C++ description here.</p>
+</blockquote>
+<ol>
+<li>
+<p>Export the resource package from <a href="https://hubenchang0515.github.io/moe-tools/#/qt-theme" target="_blank">here</a>, and add it to your project.</p>
+</li>
+<li>
+<p>Use <code>QMainWindow::setStyleSheet</code> to set the global style.</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-c++" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-c" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-c++" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class=""><span>QFile</span><span> </span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>":/QtTheme/theme/Flat/Dark/Blue/Pink.qss"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>2</span></span><span class=""><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>open</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class=""><span>QFile</span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>::</span></span><span class=""><span>ReadOnly</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>3</span></span><span class=""></span><span class="token function" style="color: rgb(199, 146, 234);"><span>setStyleSheet</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class=""><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>readAll</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span></code></code></pre></pre>
+</li>
+<li>
+<p>Use <code>QWdiget::setProperty</code> to set the color.</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-c++" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-c" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-c++" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class="token keyword" style="color: rgb(199, 146, 234);"><span>auto</span></span><span class=""><span> </span><span>button</span><span> </span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>=</span></span><span class=""><span> </span><span>new</span><span> </span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>QPushButton</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>tr</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Button"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>2</span></span><span class=""><span>button</span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>-&gt;</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>setProperty</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Color"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Primary"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span></code></code></pre></pre>
+</li>
+</ol>
+<table><thead><tr><th style="text-align: left;">Color</th><th style="text-align: left;">Explain</th></tr></thead><tbody><tr><td style="text-align: left;">Primary</td><td style="text-align: left;">The primary color selected when exporting</td></tr><tr><td style="text-align: left;">Secondary</td><td style="text-align: left;">The secondary color selected when exporting</td></tr><tr><td style="text-align: left;">Success</td><td style="text-align: left;">The success color(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/4caf50/4caf50.png">)</td></tr><tr><td style="text-align: left;">Warning</td><td style="text-align: left;">The warning color(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/ff9800/ff9800.png">)</td></tr><tr><td style="text-align: left;">Danger</td><td style="text-align: left;">The error color(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/f44336/f44336.png">)</td></tr></tbody></table>
+<hr>
+<blockquote>
+<p>QtTheme 是纯 QSS 的项目，不受语言限制，这里使用 C++ 描述。</p>
+</blockquote>
+<ol>
+<li>
+<p>在<a href="https://hubenchang0515.github.io/moe-tools/#/qt-theme" target="_blank">这里</a>导出资源包，然后将其加入你的项目。</p>
+</li>
+<li>
+<p>使用 <code>QMainWindow::setStyleSheet</code> 设置全局样式。</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-c++" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-c" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-c++" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class=""><span>QFile</span><span> </span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>":/QtTheme/theme/Flat/Dark/Blue/Pink.qss"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>2</span></span><span class=""><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>open</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class=""><span>QFile</span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>::</span></span><span class=""><span>ReadOnly</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>3</span></span><span class=""></span><span class="token function" style="color: rgb(199, 146, 234);"><span>setStyleSheet</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class=""><span>file</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>readAll</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span></code></code></pre></pre>
+</li>
+<li>
+<p>使用 <code>QWdiget::setProperty</code> 设置颜色。</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-c++" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-c" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-c++" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class="token keyword" style="color: rgb(199, 146, 234);"><span>auto</span></span><span class=""><span> </span><span>button</span><span> </span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>=</span></span><span class=""><span> </span><span>new</span><span> </span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>QPushButton</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>tr</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Button"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>2</span></span><span class=""><span>button</span></span><span class="token operator" style="color: rgb(137, 221, 255);"><span>-&gt;</span></span><span class="token function" style="color: rgb(199, 146, 234);"><span>setProperty</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Color"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Primary"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>;</span></span></code></code></pre></pre>
+</li>
+</ol>
+<table><thead><tr><th style="text-align: left;">颜色</th><th style="text-align: left;">说明</th></tr></thead><tbody><tr><td style="text-align: left;">Primary</td><td style="text-align: left;">导出时选择的主要颜色</td></tr><tr><td style="text-align: left;">Secondary</td><td style="text-align: left;">导出时选择的次要颜色</td></tr><tr><td style="text-align: left;">Success</td><td style="text-align: left;">成功色(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/4caf50/4caf50.png">)</td></tr><tr><td style="text-align: left;">Warning</td><td style="text-align: left;">警告色(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/ff9800/ff9800.png">)</td></tr><tr><td style="text-align: left;">Danger</td><td style="text-align: left;">危险色(<img referrerpolicy="no-referrer" src="https://placehold.co/16x16/f44336/f44336.png">)</td></tr></tbody></table>
+<h2>Python</h2>
+<p>Install - 安装:</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-bash" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-bash" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-bash" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 1em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class=""><span>pip</span><span> </span></span><span class="token function" style="color: rgb(199, 146, 234);"><a href="https://xplanc.org/primers/document/zh/10.Bash/90.%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C/EX.install.md" rel="nofollow" style="color: unset;">install</a></span><span class=""><span> </span><span>QtTheme</span></span></code></code></pre></pre>
+<p>Usage - 使用:</p>
+<pre style="background: transparent; margin: 0px; padding: 0px;"><pre class="language-python" style="text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none; overflow: auto; position: relative; margin: 0.5em 0px; padding: 1.25em 1em;"><code class="language-python" style="white-space: pre; text-align: left; word-spacing: normal; word-break: normal; overflow-wrap: normal; color: rgb(238, 238, 238); background: rgb(47, 47, 47); font-family: Roboto Mono, monospace; font-size: 1em; line-height: 1.5em; tab-size: 4; hyphens: none;"><code class="language-python" style="white-space: pre;"><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>1</span></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><span>import</span><span> </span><span>resource</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>2</span></span><span class=""></span><span class="token builtin" style="color: rgb(199, 146, 234);"><a href="https://xplanc.org/primers/document/zh/02.Python/EX.%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/EX.__import__.md" rel="nofollow" style="color: unset;">import</a></span><span class=""><span> </span><span>QtTheme</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class=""><span>PySide6</span><span> </span></span><span class="token keyword" style="color: rgb(199, 146, 234);"><span>as</span></span><span class=""><span> </span><span>QtTheme</span><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>3</span></span><span class=""></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><span>import</span><span> </span><span>QtTheme.PySide2</span><span> </span><span>as</span><span> </span><span>QtTheme</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>4</span></span><span class=""></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><span>import</span><span> </span><span>QtTheme.PyQt6</span><span> </span><span>as</span><span> </span><span>QtTheme</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>5</span></span><span class=""></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><span>import</span><span> </span><span>QtTheme.PyQt5</span><span> </span><span>as</span><span> </span><span>QtTheme</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>6</span></span><span>
+</span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>7</span></span><span class=""></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><a href="https://xplanc.org/primers/document/zh/02.Python/EX.%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/EX.set.md" rel="nofollow" style="color: unset;">set</a><span> </span><span>style</span><span> </span><span>sheet</span><span> </span><span>of</span><span> </span><span>the</span><span> </span><span>root</span><span> </span><span>widget</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>8</span></span><span class=""><span>mainwindow</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class=""><span>setStyleSheet</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class=""><span>QtTheme</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class=""><span>getThemeStyle</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>'Flat'</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>'Dark'</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>'Blue'</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>'Pink'</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>9</span></span><span>
+</span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>10</span></span><span class=""></span><span class="token comment" style="color: rgb(97, 97, 97);"><span>#</span><span> </span><a href="https://xplanc.org/primers/document/zh/02.Python/EX.%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0/EX.set.md" rel="nofollow" style="color: unset;">set</a><span> </span><span>color</span><span> </span><span>of</span><span> </span><span>widgets</span></span><span class=""><span>
+</span></span><span class="comment linenumber react-syntax-highlighter-line-number" style="color: rgb(97, 97, 97); display: inline-block; min-width: 2em; padding-right: 1em; text-align: right; user-select: none;"><span>11</span></span><span class=""><span>button</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>.</span></span><span class=""><span>setProperty</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>(</span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Color"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>,</span></span><span class=""><span> </span></span><span class="token string" style="color: rgb(165, 232, 68);"><span>"Primary"</span></span><span class="token punctuation" style="color: rgb(137, 221, 255);"><span>)</span></span></code></code></pre></pre>
+      </div>
+      <noscript>JavaScript is disabled. Please enable JavaScript to use this application.</noscript>
+    </div>
     <div id="screen"></div>
 
     <script type="text/javascript">
@@ -81,7 +137,7 @@
 
             try {
                 showUi(spinner);
-                status.innerHTML = '<mark>Loading...</mark>';
+                status.innerHTML = '<mark>Loading WASM, please wait.</mark>';
 
                 const instance = await qtLoad({
                     qt: {
