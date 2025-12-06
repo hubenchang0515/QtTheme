@@ -167,3 +167,11 @@ cmake --build . --config Release --parallel
 ## Contributors
 
 ![contributors](https://contrib.rocks/image?repo=hubenchang0515/QtTheme)
+
+## Examples
+
+
+| Windows Native                                        | QtTheme Flat                                          |
+| :-:                                                   | :-:                                                   |
+| ![example1-win](./doc/image/example1-win.png)         | ![example1-flat](./doc/image/example1-flat.png)       |
+| ![example2-win](./doc/image/example2-win.png)         | ![example2-flat](./doc/image/example2-flat.png)       |
