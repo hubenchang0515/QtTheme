@@ -19,6 +19,11 @@ QMenu::item {
     background: transparent;
 }
 
+QMenu::icon {
+    padding: 0 4px;
+    background: transparent;
+}
+
 QMenu::item:selected {
     background: {{base[7]}};
 }
