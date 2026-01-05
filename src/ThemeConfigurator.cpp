@@ -24,14 +24,22 @@ ThemeConfigurator::ThemeConfigurator(QWidget* parent) noexcept:
     exportButton_{new QPushButton{tr("EXPORT")}},
     moreButton_{new QPushButton{tr("More")}}
 {
+    themeName_->setProperty("Border", "Round");
+    baseColor_->setProperty("Border", "Round");
+
     primaryLabel_->setProperty("Color", "Primary");
     primaryColor_->setProperty("Color", "Primary");
+    primaryColor_->setProperty("Border", "Round");
 
     secondaryLabel_->setProperty("Color", "Secondary");
     secondaryColor_->setProperty("Color", "Secondary");
+    secondaryColor_->setProperty("Border", "Round");
 
     exportButton_->setProperty("Color", "Success");
+    exportButton_->setProperty("Border", "Round");
+
     moreButton_->setProperty("Color", "Warning");
+    moreButton_->setProperty("Border", "Round");
 
     layout_->addWidget(themeLabel_, 0, 0);
     layout_->addWidget(themeName_, 0, 1);

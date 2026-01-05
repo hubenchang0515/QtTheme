@@ -3,3 +3,24 @@
     padding: 0;
     border: 0;
 }
+
+* [Border="RoundXS"] {
+    border-radius: 2px;
+}
+
+* [Border="RoundS"] {
+    border-radius: 4px;
+}
+
+* [Border="Round"],
+* [Border="RoundM"] {
+    border-radius: 6px;
+}
+
+* [Border="RoundL"] {
+    border-radius: 8px;
+}
+
+* [Border="RoundXL"] {
+    border-radius: 12px;
+}

@@ -35,13 +35,18 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
     button->setProperty("Color", "Primary");
     ```
 
-| Color        | Explain                                                                    |
-| :----------- | :------------------------------------------------------------------------- |
-| Primary      | The primary color selected when exporting                                  |
-| Secondary    | The secondary color selected when exporting                                |
-| Success      | The success color(![GREEN](https://placehold.co/16x16/4caf50/4caf50.png))  |
-| Warning      | The warning color(![ORANGE](https://placehold.co/16x16/ff9800/ff9800.png)) |
-| Danger       | The error color(![RED](https://placehold.co/16x16/f44336/f44336.png))      |
+    | Color        | Explain                                                                    |
+    | :----------- | :------------------------------------------------------------------------- |
+    | Primary      | The primary color selected when exporting                                  |
+    | Secondary    | The secondary color selected when exporting                                |
+    | Success      | The success color(![GREEN](https://placehold.co/16x16/4caf50/4caf50.png))  |
+    | Warning      | The warning color(![ORANGE](https://placehold.co/16x16/ff9800/ff9800.png)) |
+    | Danger       | The danger color(![RED](https://placehold.co/16x16/f44336/f44336.png))     |
+
+
+4. Other Properties:
+
+    * Rounded corners: `button->setProperty("Border", "Round");`, available in `RoundS`, `Round`, `RoundL`, `RoundXL`
 
 --- 
 
@@ -62,13 +67,17 @@ Qt theme in pure qss - 纯 qss 的 Qt 主题
     button->setProperty("Color", "Primary");
     ```
 
-| 颜色          | 说明                                                         |
-| :----------- | :----------------------------------------------------------  |
-| Primary      | 导出时选择的主要颜色                                           |
-| Secondary    | 导出时选择的次要颜色                                           |
-| Success      | 成功色(![绿色](https://placehold.co/16x16/4caf50/4caf50.png)) |
-| Warning      | 警告色(![橙色](https://placehold.co/16x16/ff9800/ff9800.png)) |
-| Danger       | 危险色(![红色](https://placehold.co/16x16/f44336/f44336.png)) |
+    | 颜色         | 说明                                                          |
+    | :----------- | :----------------------------------------------------------   |
+    | Primary      | 导出时选择的主要颜色                                          |
+    | Secondary    | 导出时选择的次要颜色                                          |
+    | Success      | 成功色(![绿色](https://placehold.co/16x16/4caf50/4caf50.png)) |
+    | Warning      | 警告色(![橙色](https://placehold.co/16x16/ff9800/ff9800.png)) |
+    | Danger       | 危险色(![红色](https://placehold.co/16x16/f44336/f44336.png)) |
+
+4. 其它属性:
+
+    * 圆角: `button->setProperty("Border", "Round");` 可选 `RoundS`, `Round`, `RoundL`, `RoundXL`
 
 ## Notice - 注意事项
 

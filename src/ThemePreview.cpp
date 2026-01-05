@@ -122,6 +122,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(label12, 5, 1);
 
         auto groupbox = new QGroupBox(tr("QLabel"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 0, 0, 2, 1);
@@ -152,6 +153,18 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         button9->setProperty("Color", "Secondary");
         button9->setEnabled(false);
 
+        auto button10 = new QPushButton(tr("Rounded Corners"));
+        button10->setProperty("Color", "Success");
+        button10->setProperty("Border", "Round");
+        auto button11 = new QPushButton(tr("Checkable"));
+        button11->setProperty("Color", "Success");
+        button11->setProperty("Border", "Round");
+        button11->setCheckable(true);
+        auto button12 = new QPushButton(tr("Secondary"));
+        button12->setProperty("Color", "Success");
+        button12->setProperty("Border", "Round");
+        button12->setEnabled(false);
+
         auto grid = new QGridLayout;
         grid->addWidget(button1, 0, 0);
         grid->addWidget(button2, 1, 0);
@@ -162,8 +175,12 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(button7, 0, 2);
         grid->addWidget(button8, 1, 2);
         grid->addWidget(button9, 2, 2);
+        grid->addWidget(button10, 0, 3);
+        grid->addWidget(button11, 1, 3);
+        grid->addWidget(button12, 2, 3);
         
         auto groupbox = new QGroupBox(tr("QPushButton"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 0, 1, 1, 2);
@@ -206,6 +223,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(line9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QLineEdit"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 1, 1, 1, 2);
@@ -221,6 +239,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         col->addWidget(label);
 
         auto groupbox = new QGroupBox(tr("QToolTip"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(col);
 
         layout_->addWidget(groupbox, 2, 0);
@@ -258,6 +277,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(progress6, 2, 1);
 
         auto groupbox = new QGroupBox(tr("QProgressBar"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 2, 1, 1, 2);
@@ -289,6 +309,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(radio6, 2, 1);
 
         auto groupbox = new QGroupBox(tr("QRadioButton"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 3, 0);
@@ -322,6 +343,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(check6, 2, 1);
         
         auto groupbox = new QGroupBox(tr("QCheckBox"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 4, 0);
@@ -388,6 +410,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(slider12, 0, 6, 6, 1);
 
         auto groupbox = new QGroupBox(tr("QSlider"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 3, 1, 2, 2);
@@ -443,6 +466,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(scroll12, 6, 0, 1, 6);
 
         auto groupbox = new QGroupBox(tr("QScrollBar"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 5, 0);
@@ -485,6 +509,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(edit9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QPlainTextEdit"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 5, 1, 1, 2);
@@ -514,6 +539,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(button6, 5, 0);
 
         auto groupbox = new QGroupBox(tr("QMessageBox"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 6, 0);
@@ -620,6 +646,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         col->addWidget(toolbox3);
 
         auto groupbox = new QGroupBox(tr("QToolBox"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(col);
 
         layout_->addWidget(groupbox, 7, 0, 4, 1);
@@ -662,6 +689,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(spin9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QSpinbox"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 7, 1);
@@ -704,6 +732,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(dspin9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QDoubleSpinbox"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 7, 2);
@@ -746,6 +775,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(time9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QTimeEdit"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 8, 1);
@@ -788,6 +818,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(date9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QDateEdit"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 8, 2);
@@ -830,6 +861,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         grid->addWidget(datetime9, 2, 2);
 
         auto groupbox = new QGroupBox(tr("QDateTimeEdit"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(grid);
 
         layout_->addWidget(groupbox, 9, 1, 1, 2);
@@ -856,6 +888,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         col->addWidget(tab3);
 
         auto groupbox = new QGroupBox(tr("QTabBar"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(col);
 
         layout_->addWidget(groupbox, 10, 1, 1, 2);
@@ -1191,6 +1224,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         col->addWidget(table3);
 
         auto groupbox = new QGroupBox(tr("QTableView"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(col);
 
         layout_->addWidget(groupbox, 17, 0, 1, 3);
@@ -1266,6 +1300,7 @@ ThemePreview::ThemePreview(QWidget* parent) noexcept:
         col->addWidget(table3);
 
         auto groupbox = new QGroupBox(tr("QTableWidget"));
+        groupbox->setProperty("Border", "Round");
         groupbox->setLayout(col);
 
         layout_->addWidget(groupbox, 18, 0, 1, 3);
